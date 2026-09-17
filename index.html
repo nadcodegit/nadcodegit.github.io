@@ -116,6 +116,13 @@
       58%, 84% { transform: translateX(46px); }
       96%, 100% { transform: translateX(0); }
     }
+    @keyframes marqueeScroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .tech-marquee-track { display: flex; align-items: center; width: max-content; animation: marqueeScroll 24s linear infinite; }
+    .stat-number { font-variant-numeric: tabular-nums; }
+    .step-row { transition: opacity 0.15s ease; }
   </style>
 </head>
 <body>
@@ -170,6 +177,70 @@
         <circle cx="90" cy="200" r="9" fill="#1F6F52" style="transform-origin: 90px 200px; animation: nodePulse 2.6s ease-in-out infinite; animation-delay: 0.9s;"></circle>
         <circle cx="200" cy="190" r="9" fill="#1F6F52" style="transform-origin: 200px 190px; animation: nodePulse 2.6s ease-in-out infinite; animation-delay: 1.2s;"></circle>
       </svg>
+    </div>
+  </div>
+
+  <div style="width: 100%; background: #1F6F52; overflow: hidden; display: flex; justify-content: center;">
+    <div class="tech-marquee-track" style="gap: 40px; padding: 14px 0;">
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.05em; text-transform: uppercase; color: #EAF7F0; white-space: nowrap;">Python (pandas, numpy)</span>
+      <span style="color: #6EE7B7; opacity: 0.6;">&bull;</span>
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.05em; text-transform: uppercase; color: #EAF7F0; white-space: nowrap;">SQL</span>
+      <span style="color: #6EE7B7; opacity: 0.6;">&bull;</span>
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.05em; text-transform: uppercase; color: #EAF7F0; white-space: nowrap;">LangGraph</span>
+      <span style="color: #6EE7B7; opacity: 0.6;">&bull;</span>
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.05em; text-transform: uppercase; color: #EAF7F0; white-space: nowrap;">CrewAI</span>
+      <span style="color: #6EE7B7; opacity: 0.6;">&bull;</span>
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.05em; text-transform: uppercase; color: #EAF7F0; white-space: nowrap;">Google ADK</span>
+      <span style="color: #6EE7B7; opacity: 0.6;">&bull;</span>
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.05em; text-transform: uppercase; color: #EAF7F0; white-space: nowrap;">Streamlit</span>
+      <span style="color: #6EE7B7; opacity: 0.6;">&bull;</span>
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.05em; text-transform: uppercase; color: #EAF7F0; white-space: nowrap;">OpenRouter API</span>
+      <span style="color: #6EE7B7; opacity: 0.6;">&bull;</span>
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.05em; text-transform: uppercase; color: #EAF7F0; white-space: nowrap;">Git &amp; GitHub</span>
+      <span style="color: #6EE7B7; opacity: 0.6;">&bull;</span>
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.05em; text-transform: uppercase; color: #EAF7F0; white-space: nowrap;">pytest</span>
+      <span style="color: #6EE7B7; opacity: 0.6;">&bull;</span>
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.05em; text-transform: uppercase; color: #EAF7F0; white-space: nowrap;">Prompt Engineering</span>
+      <span style="color: #6EE7B7; opacity: 0.6;">&bull;</span>
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.05em; text-transform: uppercase; color: #EAF7F0; white-space: nowrap;">Python (pandas, numpy)</span>
+      <span style="color: #6EE7B7; opacity: 0.6;">&bull;</span>
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.05em; text-transform: uppercase; color: #EAF7F0; white-space: nowrap;">SQL</span>
+      <span style="color: #6EE7B7; opacity: 0.6;">&bull;</span>
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.05em; text-transform: uppercase; color: #EAF7F0; white-space: nowrap;">LangGraph</span>
+      <span style="color: #6EE7B7; opacity: 0.6;">&bull;</span>
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.05em; text-transform: uppercase; color: #EAF7F0; white-space: nowrap;">CrewAI</span>
+      <span style="color: #6EE7B7; opacity: 0.6;">&bull;</span>
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.05em; text-transform: uppercase; color: #EAF7F0; white-space: nowrap;">Google ADK</span>
+      <span style="color: #6EE7B7; opacity: 0.6;">&bull;</span>
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.05em; text-transform: uppercase; color: #EAF7F0; white-space: nowrap;">Streamlit</span>
+      <span style="color: #6EE7B7; opacity: 0.6;">&bull;</span>
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.05em; text-transform: uppercase; color: #EAF7F0; white-space: nowrap;">OpenRouter API</span>
+      <span style="color: #6EE7B7; opacity: 0.6;">&bull;</span>
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.05em; text-transform: uppercase; color: #EAF7F0; white-space: nowrap;">Git &amp; GitHub</span>
+      <span style="color: #6EE7B7; opacity: 0.6;">&bull;</span>
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.05em; text-transform: uppercase; color: #EAF7F0; white-space: nowrap;">pytest</span>
+      <span style="color: #6EE7B7; opacity: 0.6;">&bull;</span>
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.05em; text-transform: uppercase; color: #EAF7F0; white-space: nowrap;">Prompt Engineering</span>
+      <span style="color: #6EE7B7; opacity: 0.6;">&bull;</span>
+    </div>
+  </div>
+
+  <div style="width: 100%; max-width: 1040px; padding: 44px 48px; box-sizing: border-box; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px;">
+    <div style="display: flex; flex-direction: column; gap: 4px;">
+      <div class="stat-number" data-count data-target="3" data-suffix="" style="font-size: 44px; font-weight: 700; color: #1F6F52; line-height: 1;">0</div>
+      <div style="font-size: 12.5px; color: #8A8064; font-family: 'JetBrains Mono', monospace; text-transform: uppercase; letter-spacing: 0.05em;">Agents shipped</div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 4px;">
+      <div class="stat-number" data-count data-target="8" data-suffix="" style="font-size: 44px; font-weight: 700; color: #1F6F52; line-height: 1;">0</div>
+      <div style="font-size: 12.5px; color: #8A8064; font-family: 'JetBrains Mono', monospace; text-transform: uppercase; letter-spacing: 0.05em;">Automation areas</div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 4px;">
+      <div class="stat-number" data-count data-target="3" data-suffix="" style="font-size: 44px; font-weight: 700; color: #1F6F52; line-height: 1;">0</div>
+      <div style="font-size: 12.5px; color: #8A8064; font-family: 'JetBrains Mono', monospace; text-transform: uppercase; letter-spacing: 0.05em;">Languages supported</div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 4px;">
+      <div class="stat-number" data-count data-target="10" data-suffix="+" style="font-size: 44px; font-weight: 700; color: #1F6F52; line-height: 1;">0</div>
+      <div style="font-size: 12.5px; color: #8A8064; font-family: 'JetBrains Mono', monospace; text-transform: uppercase; letter-spacing: 0.05em;">Tools in the stack</div>
     </div>
   </div>
 
@@ -271,7 +342,7 @@
         <summary style="display: flex; flex-direction: column; gap: 10px; cursor: pointer;">
           <div style="display: flex; align-items: center; gap: 10px;">
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <rect x="4" y="2" width="10" height="14" rx="1.5" stroke="#1F6F52" stroke-width="1.4"></rect>
+              <rect x="2" y="4" width="14" height="10" rx="1.5" stroke="#1F6F52" stroke-width="1.4"></rect>
               <line x1="6.3" y1="6" x2="11.7" y2="6" stroke="#1F6F52" stroke-width="1.4" stroke-linecap="round"></line>
               <line x1="6.3" y1="9" x2="11.7" y2="9" stroke="#1F6F52" stroke-width="1.4" stroke-linecap="round"></line>
               <line x1="6.3" y1="12" x2="9.5" y2="12" stroke="#1F6F52" stroke-width="1.4" stroke-linecap="round"></line>
@@ -529,6 +600,36 @@
     </div>
   </div>
 
+  <div style="width: 100%; background: #221D18; display: flex; justify-content: center;">
+    <div style="width: 100%; max-width: 1040px; padding: 64px 48px; box-sizing: border-box; display: flex; flex-direction: column; gap: 6px;">
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; letter-spacing: 0.09em; text-transform: uppercase; color: #6EE7B7; margin-bottom: 12px;">How we work</div>
+
+      <div class="step-row" style="display: flex; align-items: baseline; justify-content: space-between; gap: 24px; padding: 22px 0; border-bottom: 1px solid #3A332B;">
+        <div style="font-weight: 700; font-size: 46px; color: #F7F3EC; letter-spacing: -0.01em;">Discover</div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 18px; color: #6EE7B7; flex-shrink: 0;">{01}</div>
+      </div>
+      <div style="padding: 0 0 22px 0; border-bottom: 1px solid #3A332B;">
+        <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #B8AD9C; max-width: 560px;">We map out the repetitive parts of your day and figure out which ones are worth automating first.</p>
+      </div>
+
+      <div class="step-row" style="display: flex; align-items: baseline; justify-content: space-between; gap: 24px; padding: 22px 0; border-bottom: 1px solid #3A332B;">
+        <div style="font-weight: 700; font-size: 46px; color: #F7F3EC; letter-spacing: -0.01em;">Build</div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 18px; color: #6EE7B7; flex-shrink: 0;">{02}</div>
+      </div>
+      <div style="padding: 0 0 22px 0; border-bottom: 1px solid #3A332B;">
+        <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #B8AD9C; max-width: 560px;">We design, build and test a custom AI agent using the tools you already work with &mdash; no new software to learn.</p>
+      </div>
+
+      <div class="step-row" style="display: flex; align-items: baseline; justify-content: space-between; gap: 24px; padding: 22px 0;">
+        <div style="font-weight: 700; font-size: 46px; color: #F7F3EC; letter-spacing: -0.01em;">Support</div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 18px; color: #6EE7B7; flex-shrink: 0;">{03}</div>
+      </div>
+      <div>
+        <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #B8AD9C; max-width: 560px;">Once it&rsquo;s live, we monitor it, fix edge cases, and improve it as your business changes.</p>
+      </div>
+    </div>
+  </div>
+
   <div style="width: 100%; background: #6EE7B7; display: flex; justify-content: center;">
     <div style="width: 100%; max-width: 1040px; padding: 64px 48px; box-sizing: border-box; display: flex; flex-direction: column; gap: 18px;">
       <div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; letter-spacing: 0.09em; text-transform: uppercase; color: #16281F;">Ready to automate?</div>
@@ -565,6 +666,33 @@
     e.preventDefault();
     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
+})();
+(function () {
+  var counters = document.querySelectorAll('[data-count]');
+  if (!counters.length || !window.IntersectionObserver) return;
+  var animated = new WeakSet();
+  function animateCounter(el) {
+    if (animated.has(el)) return;
+    animated.add(el);
+    var target = parseFloat(el.getAttribute('data-target') || '0');
+    var suffix = el.getAttribute('data-suffix') || '';
+    var duration = 1100;
+    var startTime = null;
+    function step(ts) {
+      if (!startTime) startTime = ts;
+      var progress = Math.min((ts - startTime) / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.round(target * eased) + suffix;
+      if (progress < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) animateCounter(entry.target);
+    });
+  }, { threshold: 0.4 });
+  counters.forEach(function (el) { observer.observe(el); });
 })();
 </script>
 </body>
