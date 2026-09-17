@@ -1,0 +1,571 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nauto AI — AI Agents for Small Business</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+  <style>
+    html { scroll-behavior: smooth; }
+    body { margin: 0; }
+    a { text-decoration: none; }
+    .area-card > summary { list-style: none; }
+    .area-card > summary::-webkit-details-marker { display: none; }
+    .area-card > summary::marker { content: ""; }
+    .area-card .chevron { transition: transform 0.2s ease; flex-shrink: 0; }
+    .area-card[open] .chevron { transform: rotate(180deg); }
+    @keyframes eyeBlink {
+      0%, 92%, 100% { transform: scaleY(1); }
+      95%, 97% { transform: scaleY(0.1); }
+    }
+    .eye-blink { transform-box: fill-box; transform-origin: center; animation: eyeBlink 4s ease-in-out infinite; }
+    .area-card { transition: border-color 0.15s ease; }
+    .area-card:hover { border-color: var(--hl); }
+    .nav-btn { transition: color 0.15s ease; }
+    .nav-btn:hover { color: var(--hoverColor); }
+    .btn-primary { transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease; }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 22px rgba(36,31,25,0.16); opacity: 0.94; }
+    .btn-secondary { transition: border-color 0.15s ease, color 0.15s ease, transform 0.15s ease; }
+    .btn-secondary:hover { border-color: var(--hoverColor); color: var(--hoverColor); transform: translateY(-2px); }
+    .service-card, .case-card { transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease; }
+    .service-card:hover, .case-card:hover { border-color: var(--hoverColor); transform: translateY(-3px); box-shadow: 0 10px 24px rgba(36,31,25,0.08); }
+    .footer-link { transition: opacity 0.15s ease; }
+    .footer-link:hover { opacity: 0.72; }
+    @keyframes nodePulse {
+      0%, 100% { transform: scale(1); opacity: 0.85; }
+      50% { transform: scale(1.22); opacity: 1; }
+    }
+    @keyframes flowDash {
+      to { stroke-dashoffset: -28; }
+    }
+    @keyframes dotPulse {
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 1; }
+    }
+    @keyframes dotBounce {
+      0%, 100% { transform: translateY(0); opacity: 0.5; }
+      50% { transform: translateY(-4px); opacity: 1; }
+    }
+    @keyframes chatMsg1 {
+      0%, 6% { opacity: 0; transform: translateY(8px); }
+      14%, 74% { opacity: 1; transform: translateY(0); }
+      86%, 100% { opacity: 0; transform: translateY(8px); }
+    }
+    @keyframes chatTyping {
+      0%, 18% { opacity: 0; }
+      26%, 42% { opacity: 1; }
+      50%, 100% { opacity: 0; }
+    }
+    @keyframes chatMsg2 {
+      0%, 44% { opacity: 0; transform: translateY(8px); }
+      52%, 80% { opacity: 1; transform: translateY(0); }
+      88%, 100% { opacity: 0; transform: translateY(8px); }
+    }
+    @keyframes invoiceCheck1 {
+      0%, 8% { opacity: 0; }
+      14%, 88% { opacity: 1; }
+      96%, 100% { opacity: 0; }
+    }
+    @keyframes invoiceCheck2 {
+      0%, 24% { opacity: 0; }
+      30%, 88% { opacity: 1; }
+      96%, 100% { opacity: 0; }
+    }
+    @keyframes invoiceCheck3 {
+      0%, 40% { opacity: 0; }
+      46%, 88% { opacity: 1; }
+      96%, 100% { opacity: 0; }
+    }
+    @keyframes invoiceSent {
+      0%, 58% { opacity: 0; transform: translateY(4px); }
+      64%, 88% { opacity: 1; transform: translateY(0); }
+      96%, 100% { opacity: 0; transform: translateY(4px); }
+    }
+    @keyframes areaHighlight {
+      0%, 4% { background: #FDFBF6; border-color: #E2D8C6; }
+      8%, 14% { background: #E6F5EC; border-color: var(--hl); }
+      18%, 100% { background: #FDFBF6; border-color: #E2D8C6; }
+    }
+    @keyframes miniAppear {
+      0%, 42% { opacity: 0; transform: translateY(3px) scale(0.9); }
+      54%, 84% { opacity: 1; transform: translateY(0) scale(1); }
+      96%, 100% { opacity: 0; transform: translateY(3px) scale(0.9); }
+    }
+    @keyframes miniGrow {
+      0%, 42% { height: 3px; }
+      58%, 84% { height: var(--bar-h); }
+      96%, 100% { height: 3px; }
+    }
+    @keyframes miniFill {
+      0%, 42% { width: 0%; }
+      58%, 84% { width: 100%; }
+      96%, 100% { width: 0%; }
+    }
+    @keyframes miniSlide {
+      0%, 40% { transform: translateX(0); opacity: 0.35; }
+      55%, 84% { transform: translateX(5px); opacity: 1; }
+      96%, 100% { transform: translateX(0); opacity: 0.35; }
+    }
+    @keyframes miniStroke {
+      0%, 42% { stroke-dashoffset: 16; }
+      60%, 88% { stroke-dashoffset: 0; }
+      96%, 100% { stroke-dashoffset: 16; }
+    }
+    @keyframes miniBoxMove {
+      0%, 42% { transform: translateX(0); }
+      58%, 84% { transform: translateX(46px); }
+      96%, 100% { transform: translateX(0); }
+    }
+  </style>
+</head>
+<body>
+<div style="width: 100%; min-height: 100vh; box-sizing: border-box; background: #F7F3EC; color: #241F19; font-family: 'Space Grotesk', sans-serif; display: flex; flex-direction: column; align-items: center;">
+
+  <div style="width: 100%; border-bottom: 1px solid #E2D8C6; display: flex; justify-content: center;">
+    <div style="width: 100%; max-width: 1040px; padding: 28px 48px; box-sizing: border-box; display: flex; align-items: center; justify-content: space-between;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <svg width="56" height="56" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="2" y="2" width="60" height="60" rx="16" fill="#1F6F52"></rect>
+          <line x1="18" y1="20" x2="18" y2="44" stroke="#6EE7B7" stroke-width="4" stroke-linecap="round"></line>
+          <line x1="18" y1="20" x2="46" y2="44" stroke="#6EE7B7" stroke-width="4" stroke-linecap="round"></line>
+          <line x1="46" y1="20" x2="46" y2="44" stroke="#6EE7B7" stroke-width="4" stroke-linecap="round"></line>
+          <circle cx="18" cy="20" r="5" fill="#6EE7B7"></circle>
+          <circle cx="18" cy="44" r="5" fill="#6EE7B7"></circle>
+          <circle cx="46" cy="44" r="5" fill="#6EE7B7"></circle>
+          <line x1="46" y1="13" x2="46" y2="9" stroke="#6EE7B7" stroke-width="2" stroke-linecap="round"></line>
+          <circle cx="46" cy="9" r="1.8" fill="#6EE7B7"></circle>
+          <rect x="38" y="13" width="16" height="14" rx="5" fill="#6EE7B7"></rect>
+          <circle cx="42.5" cy="20" r="1.6" fill="#1F6F52"></circle>
+          <circle class="eye-blink" cx="49.5" cy="20" r="1.6" fill="#1F6F52"></circle>
+        </svg>
+        <span style="font-weight: 700; font-size: 32px; letter-spacing: -0.01em;">Nauto <span style="color: #1F6F52;">AI</span></span>
+      </div>
+      <div style="display: flex; gap: 28px;">
+        <button type="button" class="nav-btn" data-scroll="services" style="--hoverColor: #1F6F52; font-family: 'JetBrains Mono', monospace; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6152; background: none; border: none; padding: 0; cursor: pointer;">Services</button>
+        <button type="button" class="nav-btn" data-scroll="work" style="--hoverColor: #1F6F52; font-family: 'JetBrains Mono', monospace; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6152; background: none; border: none; padding: 0; cursor: pointer;">Work</button>
+        <button type="button" class="nav-btn" data-scroll="contact" style="--hoverColor: #1F6F52; font-family: 'JetBrains Mono', monospace; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6152; background: none; border: none; padding: 0; cursor: pointer;">Contact</button>
+      </div>
+    </div>
+  </div>
+
+  <div style="width: 100%; max-width: 1040px; padding: 72px 48px 64px 48px; box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center; gap: 40px;">
+    <div style="flex: 1 1 460px; min-width: 320px; display: flex; flex-direction: column; gap: 22px;">
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; letter-spacing: 0.09em; text-transform: uppercase; color: #1F6F52;">AI agents for small business</div>
+      <h1 style="margin: 0; font-weight: 700; font-size: 62px; line-height: 1.12; color: #241F19;">AI agents that run your business&rsquo;s <mark style="background: #6EE7B7; color: #16281F; padding: 2px 10px; border-radius: 6px; font-style: normal;">busywork</mark>.</h1>
+      <p style="margin: 0; font-size: 19px; line-height: 1.7; color: #5C5346; max-width: 560px;">Nauto AI designs and builds custom AI agents for small businesses &mdash; automating the repetitive parts of the day so you can focus on running things.</p>
+      <div style="display: flex; gap: 16px; padding-top: 8px;">
+        <button type="button" class="btn-primary" data-scroll="contact" style="background: #6EE7B7; color: #16281F; font-weight: 600; font-size: 16px; padding: 16px 30px; border-radius: 8px; border: none; cursor: pointer; font-family: 'Space Grotesk', sans-serif;">Book a call</button>
+        <button type="button" class="btn-secondary" data-scroll="work" style="--hoverColor: #1F6F52; border: 1px solid #D8CBB2; color: #241F19; font-weight: 500; font-size: 16px; padding: 15px 30px; border-radius: 8px; background: none; cursor: pointer; font-family: 'Space Grotesk', sans-serif;">See our work</button>
+      </div>
+    </div>
+    <div style="flex: 0 0 260px; display: flex; align-items: center; justify-content: center;">
+      <svg width="260" height="260" viewBox="0 0 260 260" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <line x1="70" y1="70" x2="130" y2="130" stroke="#D8CBB2" stroke-width="2" stroke-dasharray="6 8" style="animation: flowDash 2.4s linear infinite;"></line>
+        <line x1="190" y1="80" x2="130" y2="130" stroke="#D8CBB2" stroke-width="2" stroke-dasharray="6 8" style="animation: flowDash 2.4s linear infinite;"></line>
+        <line x1="130" y1="130" x2="90" y2="200" stroke="#D8CBB2" stroke-width="2" stroke-dasharray="6 8" style="animation: flowDash 2.4s linear infinite;"></line>
+        <line x1="130" y1="130" x2="200" y2="190" stroke="#D8CBB2" stroke-width="2" stroke-dasharray="6 8" style="animation: flowDash 2.4s linear infinite;"></line>
+        <circle cx="130" cy="130" r="16" fill="#6EE7B7" style="transform-origin: 130px 130px; animation: nodePulse 2.6s ease-in-out infinite;"></circle>
+        <circle cx="70" cy="70" r="9" fill="#1F6F52" style="transform-origin: 70px 70px; animation: nodePulse 2.6s ease-in-out infinite; animation-delay: 0.3s;"></circle>
+        <circle cx="190" cy="80" r="9" fill="#1F6F52" style="transform-origin: 190px 80px; animation: nodePulse 2.6s ease-in-out infinite; animation-delay: 0.6s;"></circle>
+        <circle cx="90" cy="200" r="9" fill="#1F6F52" style="transform-origin: 90px 200px; animation: nodePulse 2.6s ease-in-out infinite; animation-delay: 0.9s;"></circle>
+        <circle cx="200" cy="190" r="9" fill="#1F6F52" style="transform-origin: 200px 190px; animation: nodePulse 2.6s ease-in-out infinite; animation-delay: 1.2s;"></circle>
+      </svg>
+    </div>
+  </div>
+
+  <div id="services" style="width: 100%; background: #F1EAD9; display: flex; justify-content: center;">
+    <div style="width: 100%; max-width: 1040px; padding: 56px 48px; box-sizing: border-box; display: flex; flex-direction: column; gap: 24px;">
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; letter-spacing: 0.09em; text-transform: uppercase; color: #1F6F52;">What we do</div>
+      <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px;">
+
+        <div class="service-card" style="--hoverColor: #1F6F52; background: #FDFBF6; border: 1px solid #E2D8C6; border-radius: 10px; padding: 24px; display: flex; flex-direction: column; gap: 10px;">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="11" cy="5" r="2.3" stroke="#1F6F52" stroke-width="1.6"></circle>
+              <circle cx="5" cy="16" r="2.3" stroke="#1F6F52" stroke-width="1.6"></circle>
+              <circle cx="17" cy="16" r="2.3" stroke="#1F6F52" stroke-width="1.6"></circle>
+              <line x1="9.6" y1="6.8" x2="6.4" y2="14" stroke="#1F6F52" stroke-width="1.6"></line>
+              <line x1="12.4" y1="6.8" x2="15.6" y2="14" stroke="#1F6F52" stroke-width="1.6"></line>
+            </svg>
+            <h3 style="margin: 0; font-weight: 600; font-size: 19px; color: #241F19;">Custom AI Agents</h3>
+          </div>
+          <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #6B6152;">We design and build AI agents tailored to your workflow &mdash; from customer support to scheduling and data entry.</p>
+        </div>
+
+        <div class="service-card" style="--hoverColor: #1F6F52; background: #FDFBF6; border: 1px solid #E2D8C6; border-radius: 10px; padding: 24px; display: flex; flex-direction: column; gap: 10px;">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M4 11a7 7 0 0 1 12-4.9" stroke="#1F6F52" stroke-width="1.6" stroke-linecap="round"></path>
+              <path d="M16 3v3.5H12.5" stroke="#1F6F52" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M18 11a7 7 0 0 1-12 4.9" stroke="#1F6F52" stroke-width="1.6" stroke-linecap="round"></path>
+              <path d="M6 19v-3.5h3.5" stroke="#1F6F52" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+            <h3 style="margin: 0; font-weight: 600; font-size: 19px; color: #241F19;">Workflow Automation</h3>
+          </div>
+          <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #6B6152;">We connect the tools you already use &mdash; email, calendar, spreadsheets &mdash; so repetitive tasks run themselves.</p>
+        </div>
+
+        <div class="service-card" style="--hoverColor: #1F6F52; background: #FDFBF6; border: 1px solid #E2D8C6; border-radius: 10px; padding: 24px; display: flex; flex-direction: column; gap: 10px;">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M11 2.5 18 5v5.2c0 4.4-3 7.4-7 9-4-1.6-7-4.6-7-9V5l7-2.5Z" stroke="#1F6F52" stroke-width="1.6" stroke-linejoin="round"></path>
+              <path d="M8 11.2l2 2 4-4.4" stroke="#1F6F52" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+            <h3 style="margin: 0; font-weight: 600; font-size: 19px; color: #241F19;">Ongoing Support</h3>
+          </div>
+          <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #6B6152;">Once your agent is live, we monitor, maintain and improve it as your business changes.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div style="width: 100%; max-width: 1040px; padding: 56px 48px 8px 48px; box-sizing: border-box; display: flex; flex-direction: column; gap: 24px;">
+    <div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; letter-spacing: 0.09em; text-transform: uppercase; color: #1F6F52;">Where agents help most</div>
+    <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #6B6152; max-width: 640px;">Common areas small businesses hand off to us &mdash; if it&rsquo;s repetitive and rule-based, there&rsquo;s probably an agent for it.</p>
+    <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px;">
+
+      <details class="area-card" style="--hl: #6EE7B7; animation: areaHighlight 9.6s ease-in-out infinite; animation-delay: 0s; display: flex; flex-direction: column; gap: 10px; padding: 14px 16px; border-radius: 10px; border: 1.5px solid #E2D8C6; background: #FDFBF6;">
+        <summary style="display: flex; flex-direction: column; gap: 10px; cursor: pointer;">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M2.5 5A2 2 0 0 1 4.5 3h9A2 2 0 0 1 15.5 5v4A2 2 0 0 1 13.5 11H8l-3 2.5V11H4.5A2 2 0 0 1 2.5 9V5Z" stroke="#1F6F52" stroke-width="1.4" stroke-linejoin="round"></path>
+            </svg>
+            <span style="font-size: 14px; color: #4A4235; flex-grow: 1;">Customer chat &amp; DMs</span>
+            <svg class="chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" stroke="#A69C86" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </div>
+          <div style="display: flex; align-items: center; gap: 6px; height: 16px;">
+            <div style="width: 32px; height: 13px; border-radius: 7px; background: #EDE7D8; border: 1px solid #D9CDB4;"></div>
+            <div style="width: 32px; height: 13px; border-radius: 7px; background: #6EE7B7; opacity: 0; animation: miniAppear 9.6s ease-in-out infinite; animation-delay: 0s;"></div>
+            <span style="font-size: 11px; color: #8A8064; font-family: 'JetBrains Mono', monospace;">agent replying</span>
+          </div>
+        </summary>
+        <p style="margin: 12px 0 0 0; font-size: 13.5px; line-height: 1.55; color: #6B6152;">Replying to the same questions on Instagram, WhatsApp or your website chat, over and over. The agent answers instantly and only hands you the ones that actually need you.</p>
+      </details>
+
+      <details class="area-card" style="--hl: #6EE7B7; animation: areaHighlight 9.6s ease-in-out infinite; animation-delay: 1.2s; display: flex; flex-direction: column; gap: 10px; padding: 14px 16px; border-radius: 10px; border: 1.5px solid #E2D8C6; background: #FDFBF6;">
+        <summary style="display: flex; flex-direction: column; gap: 10px; cursor: pointer;">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect x="2.5" y="4" width="13" height="11" rx="1.8" stroke="#1F6F52" stroke-width="1.4"></rect>
+              <line x1="2.5" y1="7.2" x2="15.5" y2="7.2" stroke="#1F6F52" stroke-width="1.4"></line>
+              <line x1="6" y1="2.2" x2="6" y2="4.8" stroke="#1F6F52" stroke-width="1.4" stroke-linecap="round"></line>
+              <line x1="12" y1="2.2" x2="12" y2="4.8" stroke="#1F6F52" stroke-width="1.4" stroke-linecap="round"></line>
+            </svg>
+            <span style="font-size: 14px; color: #4A4235; flex-grow: 1;">Scheduling &amp; calendar</span>
+            <svg class="chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" stroke="#A69C86" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </div>
+          <div style="display: flex; align-items: center; gap: 5px; height: 16px;">
+            <div style="width: 15px; height: 15px; border-radius: 3px; border: 1px solid #D9CDB4; background: #EDE7D8; flex-shrink: 0;"></div>
+            <div style="width: 15px; height: 15px; border-radius: 3px; border: 1px solid #D9CDB4; background: #EDE7D8; flex-shrink: 0;"></div>
+            <div style="width: 15px; height: 15px; border-radius: 3px; border: 1.4px solid #1F6F52; background: #FDFBF6; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+              <svg width="9" height="9" viewBox="0 0 10 10"><path d="M2 5.2 4.2 7.4 8 3" fill="none" stroke="#1F6F52" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="16" style="animation: miniStroke 9.6s ease-in-out infinite; animation-delay: 1.2s;"></path></svg>
+            </div>
+            <span style="font-size: 11px; color: #8A8064; font-family: 'JetBrains Mono', monospace;">booking confirmed</span>
+          </div>
+        </summary>
+        <p style="margin: 12px 0 0 0; font-size: 13.5px; line-height: 1.55; color: #6B6152;">Back-and-forth messages just to lock in a time. The agent checks your calendar, offers real slots, and books it &mdash; no more chasing replies.</p>
+      </details>
+
+      <details class="area-card" style="--hl: #6EE7B7; animation: areaHighlight 9.6s ease-in-out infinite; animation-delay: 2.4s; display: flex; flex-direction: column; gap: 10px; padding: 14px 16px; border-radius: 10px; border: 1.5px solid #E2D8C6; background: #FDFBF6;">
+        <summary style="display: flex; flex-direction: column; gap: 10px; cursor: pointer;">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect x="4" y="2" width="10" height="14" rx="1.5" stroke="#1F6F52" stroke-width="1.4"></rect>
+              <line x1="6.3" y1="6" x2="11.7" y2="6" stroke="#1F6F52" stroke-width="1.4" stroke-linecap="round"></line>
+              <line x1="6.3" y1="9" x2="11.7" y2="9" stroke="#1F6F52" stroke-width="1.4" stroke-linecap="round"></line>
+              <line x1="6.3" y1="12" x2="9.5" y2="12" stroke="#1F6F52" stroke-width="1.4" stroke-linecap="round"></line>
+            </svg>
+            <span style="font-size: 14px; color: #4A4235; flex-grow: 1;">Invoicing &amp; billing</span>
+            <svg class="chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" stroke="#A69C86" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </div>
+          <div style="display: flex; align-items: center; gap: 6px; height: 16px;">
+            <div style="flex-grow: 1; height: 4px; border-radius: 2px; background: #EDE7D8; overflow: hidden;">
+              <div style="height: 100%; border-radius: 2px; background: #6EE7B7; width: 0%; animation: miniFill 9.6s ease-in-out infinite; animation-delay: 2.4s;"></div>
+            </div>
+            <span style="font-size: 11px; color: #8A8064; font-family: 'JetBrains Mono', monospace; flex-shrink: 0;">invoice sent</span>
+          </div>
+        </summary>
+        <p style="margin: 12px 0 0 0; font-size: 13.5px; line-height: 1.55; color: #6B6152;">Building the same invoice by hand every month, then chasing people to pay it. The agent generates it, sends it, and follows up for you.</p>
+      </details>
+
+      <details class="area-card" style="--hl: #6EE7B7; animation: areaHighlight 9.6s ease-in-out infinite; animation-delay: 3.6s; display: flex; flex-direction: column; gap: 10px; padding: 14px 16px; border-radius: 10px; border: 1.5px solid #E2D8C6; background: #FDFBF6;">
+        <summary style="display: flex; flex-direction: column; gap: 10px; cursor: pointer;">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect x="2" y="4" width="14" height="10" rx="1.5" stroke="#1F6F52" stroke-width="1.4"></rect>
+              <path d="M2.6 5l6.4 5 6.4-5" stroke="#1F6F52" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+            <span style="font-size: 14px; color: #4A4235; flex-grow: 1;">Email inbox triage</span>
+            <svg class="chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" stroke="#A69C86" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </div>
+          <div style="display: flex; align-items: center; gap: 6px; height: 16px;">
+            <svg width="16" height="12" viewBox="0 0 16 12" fill="none" aria-hidden="true"><rect x="1" y="1" width="14" height="10" rx="1.3" stroke="#D9CDB4" stroke-width="1.2"></rect></svg>
+            <svg width="14" height="10" viewBox="0 0 14 10" fill="none" aria-hidden="true" style="animation: miniSlide 9.6s ease-in-out infinite; animation-delay: 3.6s;"><path d="M1 5h10M7 1l4 4-4 4" stroke="#1F6F52" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            <span style="font-size: 11px; color: #8A8064; font-family: 'JetBrains Mono', monospace;">reply drafted</span>
+          </div>
+        </summary>
+        <p style="margin: 12px 0 0 0; font-size: 13.5px; line-height: 1.55; color: #6B6152;">An inbox full of things that all need a reply eventually. The agent sorts what&rsquo;s urgent, drafts responses, and only flags what truly needs your judgment.</p>
+      </details>
+
+      <details class="area-card" style="--hl: #6EE7B7; animation: areaHighlight 9.6s ease-in-out infinite; animation-delay: 4.8s; display: flex; flex-direction: column; gap: 10px; padding: 14px 16px; border-radius: 10px; border: 1.5px solid #E2D8C6; background: #FDFBF6;">
+        <summary style="display: flex; flex-direction: column; gap: 10px; cursor: pointer;">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <line x1="2.5" y1="15.5" x2="15.5" y2="15.5" stroke="#1F6F52" stroke-width="1.4" stroke-linecap="round"></line>
+              <rect x="3.5" y="10" width="2.6" height="5" rx="0.6" stroke="#1F6F52" stroke-width="1.4"></rect>
+              <rect x="7.7" y="6.5" width="2.6" height="8.5" rx="0.6" stroke="#1F6F52" stroke-width="1.4"></rect>
+              <rect x="11.9" y="3" width="2.6" height="12" rx="0.6" stroke="#1F6F52" stroke-width="1.4"></rect>
+            </svg>
+            <span style="font-size: 14px; color: #4A4235; flex-grow: 1;">Data entry &amp; reports</span>
+            <svg class="chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" stroke="#A69C86" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </div>
+          <div style="display: flex; align-items: flex-end; gap: 3px; height: 16px;">
+            <div style="width: 5px; border-radius: 1.5px; background: #6EE7B7; height: 3px; animation: miniGrow 9.6s ease-in-out infinite; animation-delay: 4.8s; --bar-h: 10px;"></div>
+            <div style="width: 5px; border-radius: 1.5px; background: #6EE7B7; height: 3px; animation: miniGrow 9.6s ease-in-out infinite; animation-delay: 4.9s; --bar-h: 16px;"></div>
+            <div style="width: 5px; border-radius: 1.5px; background: #6EE7B7; height: 3px; animation: miniGrow 9.6s ease-in-out infinite; animation-delay: 5s; --bar-h: 8px;"></div>
+            <span style="font-size: 11px; color: #8A8064; font-family: 'JetBrains Mono', monospace; margin-left: 5px;">report updated</span>
+          </div>
+        </summary>
+        <p style="margin: 12px 0 0 0; font-size: 13.5px; line-height: 1.55; color: #6B6152;">Copying the same numbers from one spreadsheet or system into another, every single week. The agent pulls the data and keeps your report current without you touching it.</p>
+      </details>
+
+      <details class="area-card" style="--hl: #6EE7B7; animation: areaHighlight 9.6s ease-in-out infinite; animation-delay: 6s; display: flex; flex-direction: column; gap: 10px; padding: 14px 16px; border-radius: 10px; border: 1.5px solid #E2D8C6; background: #FDFBF6;">
+        <summary style="display: flex; flex-direction: column; gap: 10px; cursor: pointer;">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M9 2.5 15.5 6v6L9 15.5 2.5 12V6L9 2.5Z" stroke="#1F6F52" stroke-width="1.4" stroke-linejoin="round"></path>
+              <path d="M2.5 6 9 9.5 15.5 6" stroke="#1F6F52" stroke-width="1.4" stroke-linejoin="round"></path>
+              <line x1="9" y1="9.5" x2="9" y2="15.5" stroke="#1F6F52" stroke-width="1.4"></line>
+            </svg>
+            <span style="font-size: 14px; color: #4A4235; flex-grow: 1;">Order &amp; inventory tracking</span>
+            <svg class="chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" stroke="#A69C86" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </div>
+          <div style="display: flex; align-items: center; gap: 6px; height: 16px; position: relative;">
+            <div style="width: 60px; height: 2px; background: #E2D8C6; border-radius: 1px; position: relative; flex-shrink: 0;">
+              <div style="width: 10px; height: 10px; border-radius: 2px; background: #6EE7B7; position: absolute; top: -4px; left: 0; animation: miniBoxMove 9.6s ease-in-out infinite; animation-delay: 6s;"></div>
+            </div>
+            <span style="font-size: 11px; color: #8A8064; font-family: 'JetBrains Mono', monospace;">stock updated</span>
+          </div>
+        </summary>
+        <p style="margin: 12px 0 0 0; font-size: 13.5px; line-height: 1.55; color: #6B6152;">Checking stock by hand and updating it after every sale. The agent tracks inventory in real time and tells you when it&rsquo;s time to reorder.</p>
+      </details>
+
+      <details class="area-card" style="--hl: #6EE7B7; animation: areaHighlight 9.6s ease-in-out infinite; animation-delay: 7.2s; display: flex; flex-direction: column; gap: 10px; padding: 14px 16px; border-radius: 10px; border: 1.5px solid #E2D8C6; background: #FDFBF6;">
+        <summary style="display: flex; flex-direction: column; gap: 10px; cursor: pointer;">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="9" cy="6" r="2.6" stroke="#1F6F52" stroke-width="1.4"></circle>
+              <path d="M3.5 15.5c0-3 2.5-5 5.5-5s5.5 2 5.5 5" stroke="#1F6F52" stroke-width="1.4" stroke-linecap="round"></path>
+            </svg>
+            <span style="font-size: 14px; color: #4A4235; flex-grow: 1;">Lead follow-ups</span>
+            <svg class="chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" stroke="#A69C86" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </div>
+          <div style="display: flex; align-items: center; gap: 6px; height: 16px;">
+            <div style="width: 36px; height: 13px; border-radius: 7px; background: #EDE7D8; border: 1px solid #D9CDB4;"></div>
+            <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" style="opacity: 0; animation: miniAppear 9.6s ease-in-out infinite; animation-delay: 7.2s;"><path d="M2 6.2 4.5 8.7 10 3" fill="none" stroke="#1F6F52" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            <span style="font-size: 11px; color: #8A8064; font-family: 'JetBrains Mono', monospace;">follow-up sent</span>
+          </div>
+        </summary>
+        <p style="margin: 12px 0 0 0; font-size: 13.5px; line-height: 1.55; color: #6B6152;">A new lead comes in and then nothing, because you got busy. The agent follows up right away and keeps following up until they respond.</p>
+      </details>
+
+      <details class="area-card" style="--hl: #6EE7B7; animation: areaHighlight 9.6s ease-in-out infinite; animation-delay: 8.4s; display: flex; flex-direction: column; gap: 10px; padding: 14px 16px; border-radius: 10px; border: 1.5px solid #E2D8C6; background: #FDFBF6;">
+        <summary style="display: flex; flex-direction: column; gap: 10px; cursor: pointer;">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M9 15s-5.8-3.4-5.8-7.4c0-2 1.6-3.4 3.4-3.4 1.1 0 2 .5 2.4 1.3.4-.8 1.3-1.3 2.4-1.3 1.8 0 3.4 1.4 3.4 3.4C15.8 11.6 9 15 9 15Z" stroke="#1F6F52" stroke-width="1.4" stroke-linejoin="round"></path>
+            </svg>
+            <span style="font-size: 14px; color: #4A4235; flex-grow: 1;">Social media replies</span>
+            <svg class="chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" stroke="#A69C86" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </div>
+          <div style="display: flex; align-items: center; gap: 6px; height: 16px;">
+            <div style="width: 15px; height: 15px; border-radius: 3px; background: #EDE7D8; border: 1px solid #D9CDB4; flex-shrink: 0;"></div>
+            <div style="width: 32px; height: 13px; border-radius: 7px; background: #6EE7B7; opacity: 0; animation: miniAppear 9.6s ease-in-out infinite; animation-delay: 8.4s;"></div>
+            <span style="font-size: 11px; color: #8A8064; font-family: 'JetBrains Mono', monospace;">comment answered</span>
+          </div>
+        </summary>
+        <p style="margin: 12px 0 0 0; font-size: 13.5px; line-height: 1.55; color: #6B6152;">Comments and DMs piling up on posts you don&rsquo;t have time to check. The agent replies to common questions so nobody gets ignored.</p>
+      </details>
+
+    </div>
+  </div>
+
+  <div style="width: 100%; max-width: 1040px; padding: 56px 48px 8px 48px; box-sizing: border-box; display: flex; flex-direction: column; gap: 24px;">
+    <div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; letter-spacing: 0.09em; text-transform: uppercase; color: #1F6F52;">See it in action</div>
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px;">
+
+      <div style="background: #FDFBF6; border: 1px solid #E2D8C6; border-radius: 12px; padding: 22px; display: flex; flex-direction: column; gap: 16px;">
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span style="width: 8px; height: 8px; border-radius: 50%; background: #6EE7B7; display: inline-block; animation: dotPulse 2s ease-in-out infinite;"></span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: #6B6152;">AI Agent &middot; Online</span>
+        </div>
+        <div style="position: relative; height: 150px;">
+          <div style="position: absolute; top: 0; right: 0; max-width: 74%; background: #F1EAD9; color: #241F19; padding: 9px 13px; border-radius: 14px 14px 4px 14px; font-size: 14px; line-height: 1.4; animation: chatMsg1 7s ease-in-out infinite;">Do you have this in size M?</div>
+          <div style="position: absolute; top: 54px; left: 0; display: flex; gap: 4px; align-items: center; padding: 9px 12px; background: #E6F5EC; border-radius: 14px 14px 14px 4px; animation: chatTyping 7s ease-in-out infinite;">
+            <span style="width: 6px; height: 6px; border-radius: 50%; background: #1F6F52; display: inline-block; animation: dotBounce 0.9s ease-in-out infinite;"></span>
+            <span style="width: 6px; height: 6px; border-radius: 50%; background: #1F6F52; display: inline-block; animation: dotBounce 0.9s ease-in-out infinite; animation-delay: 0.15s;"></span>
+            <span style="width: 6px; height: 6px; border-radius: 50%; background: #1F6F52; display: inline-block; animation: dotBounce 0.9s ease-in-out infinite; animation-delay: 0.3s;"></span>
+          </div>
+          <div style="position: absolute; top: 92px; left: 0; max-width: 80%; background: #E6F5EC; color: #1F6F52; padding: 9px 13px; border-radius: 14px 14px 14px 4px; font-size: 14px; line-height: 1.4; animation: chatMsg2 7s ease-in-out infinite;">Yes! Size M is in stock &mdash; want me to add it to your cart?</div>
+        </div>
+        <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #6B6152;">Handles price checks, stock questions and checkout &mdash; instantly, any time of day.</p>
+      </div>
+
+      <div style="background: #FDFBF6; border: 1px solid #E2D8C6; border-radius: 12px; padding: 22px; display: flex; flex-direction: column; gap: 16px;">
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: #6B6152;">Monthly Invoice</span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; padding: 3px 8px; border-radius: 4px; background: #E6F5EC; color: #1F6F52; animation: invoiceSent 7s ease-in-out infinite;">Sent &#10003;</span>
+        </div>
+        <div style="display: flex; flex-direction: column;">
+          <div style="display: flex; align-items: center; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #EFE7DA;">
+            <span style="font-size: 14px; color: #4A4235;">Interpreting session &mdash; 2.5 hrs</span>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="animation: invoiceCheck1 7s ease-in-out infinite;">
+              <circle cx="8" cy="8" r="8" fill="#6EE7B7"></circle>
+              <path d="M4.8 8.2l2 2 4.4-4.6" stroke="#16281F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </div>
+          <div style="display: flex; align-items: center; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #EFE7DA;">
+            <span style="font-size: 14px; color: #4A4235;">Interpreting session &mdash; 1 hr</span>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="animation: invoiceCheck2 7s ease-in-out infinite;">
+              <circle cx="8" cy="8" r="8" fill="#6EE7B7"></circle>
+              <path d="M4.8 8.2l2 2 4.4-4.6" stroke="#16281F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </div>
+          <div style="display: flex; align-items: center; justify-content: space-between; padding: 8px 0;">
+            <span style="font-size: 14px; color: #4A4235;">Interpreting session &mdash; 3 hrs</span>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="animation: invoiceCheck3 7s ease-in-out infinite;">
+              <circle cx="8" cy="8" r="8" fill="#6EE7B7"></circle>
+              <path d="M4.8 8.2l2 2 4.4-4.6" stroke="#16281F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </div>
+        </div>
+        <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #6B6152;">Logs the month&rsquo;s work and sends the invoice automatically &mdash; no spreadsheet required.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="work" style="width: 100%; max-width: 1040px; padding: 64px 48px 24px 48px; box-sizing: border-box; display: flex; flex-direction: column; gap: 24px;">
+    <div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; letter-spacing: 0.09em; text-transform: uppercase; color: #1F6F52;">Case studies</div>
+
+    <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px;">
+
+      <div class="case-card" style="--hoverColor: #1F6F52; background: #FDFBF6; border: 1px solid #E2D8C6; border-radius: 10px; padding: 24px; display: flex; flex-direction: column; gap: 14px;">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="3" y="4.5" width="14" height="12" rx="2" stroke="#1F6F52" stroke-width="1.5"></rect>
+            <line x1="3" y1="8" x2="17" y2="8" stroke="#1F6F52" stroke-width="1.5"></line>
+            <line x1="7" y1="2.5" x2="7" y2="5.5" stroke="#1F6F52" stroke-width="1.5" stroke-linecap="round"></line>
+            <line x1="13" y1="2.5" x2="13" y2="5.5" stroke="#1F6F52" stroke-width="1.5" stroke-linecap="round"></line>
+          </svg>
+          <h3 style="margin: 0; font-weight: 600; font-size: 20px; color: #241F19;">Scheduling &amp; Invoicing Agent</h3>
+        </div>
+        <p style="margin: 0; font-size: 14.5px; line-height: 1.6; color: #6B6152; flex-grow: 1;">A CrewAI-based system built for a freelance interpreter: reads job emails, updates the calendar, and drafts the monthly invoice automatically.</p>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.04em; padding: 4px 9px; background: #E6F5EC; border-radius: 4px; color: #1F6F52;">CrewAI</span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.04em; padding: 4px 9px; background: #E6F5EC; border-radius: 4px; color: #1F6F52;">Gmail API</span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.04em; padding: 4px 9px; background: #E6F5EC; border-radius: 4px; color: #1F6F52;">Python</span>
+        </div>
+        <a href="https://github.com/nadcodegit/Scheduler-Agent" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #241F19; border-bottom: 1px solid #241F19; width: fit-content; padding-top: 2px;">View the code &nearr;</a>
+      </div>
+
+      <div class="case-card" style="--hoverColor: #1F6F52; background: #FDFBF6; border: 1px solid #E2D8C6; border-radius: 10px; padding: 24px; display: flex; flex-direction: column; gap: 14px;">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M3 5.5A2.5 2.5 0 0 1 5.5 3h9A2.5 2.5 0 0 1 17 5.5v5A2.5 2.5 0 0 1 14.5 13H8l-4 3.2V13H5.5A2.5 2.5 0 0 1 3 10.5v-5Z" stroke="#1F6F52" stroke-width="1.5" stroke-linejoin="round"></path>
+          </svg>
+          <h3 style="margin: 0; font-weight: 600; font-size: 20px; color: #241F19;">Instagram Sales Assistant</h3>
+        </div>
+        <p style="margin: 0; font-size: 14.5px; line-height: 1.6; color: #6B6152; flex-grow: 1;">Built for Bella Charm London, a small Instagram shop: a LangGraph agent that handles price inquiries, browsing and checkout, deployed on Railway.</p>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.04em; padding: 4px 9px; background: #E6F5EC; border-radius: 4px; color: #1F6F52;">LangGraph</span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.04em; padding: 4px 9px; background: #E6F5EC; border-radius: 4px; color: #1F6F52;">Railway</span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.04em; padding: 4px 9px; background: #E6F5EC; border-radius: 4px; color: #1F6F52;">SQLite</span>
+        </div>
+        <a href="https://github.com/nadcodegit/Customer-Instagram-DM-Agent-Bella-charm" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #241F19; border-bottom: 1px solid #241F19; width: fit-content; padding-top: 2px;">View the code &nearr;</a>
+      </div>
+
+      <div class="case-card" style="--hoverColor: #1F6F52; background: #FDFBF6; border: 1px solid #E2D8C6; border-radius: 10px; padding: 24px; display: flex; flex-direction: column; gap: 14px;">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <line x1="4" y1="17" x2="16" y2="17" stroke="#1F6F52" stroke-width="1.5" stroke-linecap="round"></line>
+            <rect x="5" y="10" width="3" height="6" rx="0.8" stroke="#1F6F52" stroke-width="1.5"></rect>
+            <rect x="9.5" y="6" width="3" height="10" rx="0.8" stroke="#1F6F52" stroke-width="1.5"></rect>
+            <rect x="14" y="3" width="3" height="13" rx="0.8" stroke="#1F6F52" stroke-width="1.5"></rect>
+          </svg>
+          <h3 style="margin: 0; font-weight: 600; font-size: 20px; color: #241F19;">Data Analysis Assistant</h3>
+        </div>
+        <p style="margin: 0; font-size: 14.5px; line-height: 1.6; color: #6B6152; flex-grow: 1;">A Streamlit app that lets non-technical users explore CSV data in plain language, with automatic fallback across LLM providers.</p>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.04em; padding: 4px 9px; background: #E6F5EC; border-radius: 4px; color: #1F6F52;">Streamlit</span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.04em; padding: 4px 9px; background: #E6F5EC; border-radius: 4px; color: #1F6F52;">OpenRouter</span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.04em; padding: 4px 9px; background: #E6F5EC; border-radius: 4px; color: #1F6F52;">pandas</span>
+        </div>
+        <a href="https://github.com/nadcodegit/ai-csv-analyzer" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #241F19; border-bottom: 1px solid #241F19; width: fit-content; padding-top: 2px;">View the code &nearr;</a>
+      </div>
+
+    </div>
+
+    <div style="display: flex; align-items: baseline; gap: 10px; padding: 18px 4px 0 4px; border-top: 1px solid #E2D8C6; margin-top: 8px;">
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; padding: 3px 8px; background: #E6F5EC; border-radius: 4px; color: #1F6F52;">In progress</span>
+      <span style="font-size: 15px; color: #6B6152;">Sourcing Agent &mdash; automated product search and price comparison</span>
+    </div>
+  </div>
+
+  <div style="width: 100%; max-width: 1040px; padding: 56px 48px 72px 48px; box-sizing: border-box; display: flex; flex-direction: column; gap: 18px;">
+    <div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; letter-spacing: 0.09em; text-transform: uppercase; color: #1F6F52;">Our stack</div>
+    <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+      <span style="font-size: 14.5px; padding: 8px 14px; background: #FDFBF6; border: 1px solid #E2D8C6; border-radius: 20px; color: #4A4235;">Python (pandas, numpy)</span>
+      <span style="font-size: 14.5px; padding: 8px 14px; background: #FDFBF6; border: 1px solid #E2D8C6; border-radius: 20px; color: #4A4235;">SQL</span>
+      <span style="font-size: 14.5px; padding: 8px 14px; background: #FDFBF6; border: 1px solid #E2D8C6; border-radius: 20px; color: #4A4235;">LangGraph</span>
+      <span style="font-size: 14.5px; padding: 8px 14px; background: #FDFBF6; border: 1px solid #E2D8C6; border-radius: 20px; color: #4A4235;">CrewAI</span>
+      <span style="font-size: 14.5px; padding: 8px 14px; background: #FDFBF6; border: 1px solid #E2D8C6; border-radius: 20px; color: #4A4235;">Google ADK</span>
+      <span style="font-size: 14.5px; padding: 8px 14px; background: #FDFBF6; border: 1px solid #E2D8C6; border-radius: 20px; color: #4A4235;">Streamlit</span>
+      <span style="font-size: 14.5px; padding: 8px 14px; background: #FDFBF6; border: 1px solid #E2D8C6; border-radius: 20px; color: #4A4235;">OpenRouter API</span>
+      <span style="font-size: 14.5px; padding: 8px 14px; background: #FDFBF6; border: 1px solid #E2D8C6; border-radius: 20px; color: #4A4235;">Git &amp; GitHub</span>
+      <span style="font-size: 14.5px; padding: 8px 14px; background: #FDFBF6; border: 1px solid #E2D8C6; border-radius: 20px; color: #4A4235;">pytest</span>
+      <span style="font-size: 14.5px; padding: 8px 14px; background: #FDFBF6; border: 1px solid #E2D8C6; border-radius: 20px; color: #4A4235;">Prompt engineering</span>
+    </div>
+  </div>
+
+  <div style="width: 100%; background: #6EE7B7; display: flex; justify-content: center;">
+    <div style="width: 100%; max-width: 1040px; padding: 64px 48px; box-sizing: border-box; display: flex; flex-direction: column; gap: 18px;">
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; letter-spacing: 0.09em; text-transform: uppercase; color: #16281F;">Ready to automate?</div>
+      <h2 style="margin: 0; font-weight: 700; font-size: 40px; color: #16281F; max-width: 640px;">Want to automate part of your business?</h2>
+      <p style="margin: 0; font-size: 17px; line-height: 1.7; color: #1E3A2C; max-width: 620px;">If you&rsquo;d rather hand the repetitive parts of your work to a reliable digital employee than keep doing them yourself, we can help you build it &mdash; a custom AI agent that takes care of the task, so you don&rsquo;t have to.</p>
+      <button type="button" class="btn-primary" data-scroll="contact" style="background: #16281F; color: #F7F3EC; font-weight: 600; font-size: 16px; padding: 16px 30px; border-radius: 8px; width: fit-content; margin-top: 8px; border: none; cursor: pointer; font-family: 'Space Grotesk', sans-serif;">Let&rsquo;s talk</button>
+    </div>
+  </div>
+
+  <div id="contact" style="width: 100%; background: #221D18; display: flex; justify-content: center;">
+    <div style="width: 100%; max-width: 1040px; padding: 64px 48px; box-sizing: border-box; display: flex; flex-direction: column; gap: 24px;">
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; letter-spacing: 0.09em; text-transform: uppercase; color: #6EE7B7;">Get in touch</div>
+      <h2 style="margin: 0; font-weight: 700; font-size: 42px; color: #F7F3EC;">Let&rsquo;s build something.</h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: baseline; padding-top: 8px;">
+        <a class="footer-link" href="mailto:nadereh.vosooghfar@gmail.com" style="font-size: 16px; color: #F7F3EC; border-bottom: 1px solid #6EE7B7;">nadereh.vosooghfar@gmail.com</a>
+        <a class="footer-link" href="https://www.linkedin.com/in/nadereh-vosooghfar/" style="font-size: 16px; color: #F7F3EC; border-bottom: 1px solid #6EE7B7;">Message on LinkedIn</a>
+        <a class="footer-link" href="https://github.com/nadcodegit" style="font-size: 16px; color: #F7F3EC; border-bottom: 1px solid #6EE7B7;">github.com/nadcodegit</a>
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 13.5px; color: #9A9083;">Sydney, Australia</span>
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 13.5px; color: #9A9083;">Client support in English, Farsi &amp; Turkish</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+<script>
+(function () {
+  document.addEventListener('click', function (e) {
+    var link = e.target.closest ? e.target.closest('[data-scroll]') : null;
+    if (!link) return;
+    var id = link.getAttribute('data-scroll');
+    if (!id) return;
+    var target = document.getElementById(id);
+    if (!target) return;
+    e.preventDefault();
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+})();
+</script>
+</body>
+</html>
