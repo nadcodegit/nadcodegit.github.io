@@ -1,11 +1,11 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Nauto AI — AI Agents for Small Business</title>
+  <meta charset="utf-8">
+  <title>Nauto AI — AI Agents for Small Business</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Vazirmatn:wght@400;500;600;700&display=swap">
   <style>
     html { scroll-behavior: smooth; }
     body { margin: 0; }
@@ -15,12 +15,22 @@
     .area-card > summary::marker { content: ""; }
     .area-card .chevron { transition: transform 0.2s ease; flex-shrink: 0; }
     .area-card[open] .chevron { transform: rotate(180deg); }
+    #siteRoot.lang-fa [data-i18n] { font-family: 'Vazirmatn', 'Space Grotesk', sans-serif; }
+    #siteRoot.lang-fa [data-i18n] mark { font-family: inherit; }
+    .lang-btn { transition: background 0.15s ease, color 0.15s ease; }
+    .reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.is-visible { opacity: 1; transform: translateY(0); }
+    .grid-services > .reveal:nth-child(2), .grid-case > .reveal:nth-child(2), .grid-action > .reveal:nth-child(2) { transition-delay: 0.1s; }
+    .grid-services > .reveal:nth-child(3), .grid-case > .reveal:nth-child(3) { transition-delay: 0.2s; }
+    .grid-areas > .reveal:nth-child(2), .grid-areas > .reveal:nth-child(6) { transition-delay: 0.08s; }
+    .grid-areas > .reveal:nth-child(3), .grid-areas > .reveal:nth-child(7) { transition-delay: 0.16s; }
+    .grid-areas > .reveal:nth-child(4), .grid-areas > .reveal:nth-child(8) { transition-delay: 0.24s; }
     @keyframes eyeBlink {
       0%, 92%, 100% { transform: scaleY(1); }
       95%, 97% { transform: scaleY(0.1); }
     }
     .eye-blink { transform-box: fill-box; transform-origin: center; animation: eyeBlink 4s ease-in-out infinite; }
-    .area-card { transition: border-color 0.15s ease; }
+    .area-card { transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease; }
     .area-card:hover { border-color: var(--hl); }
     .nav-btn { transition: color 0.15s ease; }
     .nav-btn:hover { color: var(--hoverColor); }
@@ -28,9 +38,10 @@
     .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 22px rgba(36,31,25,0.16); opacity: 0.94; }
     .btn-secondary { transition: border-color 0.15s ease, color 0.15s ease, transform 0.15s ease; }
     .btn-secondary:hover { border-color: var(--hoverColor); color: var(--hoverColor); transform: translateY(-2px); }
-    .service-card, .case-card { transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease; box-shadow: 0 2px 10px rgba(36,31,25,0.05); }
-    .service-card:hover, .case-card:hover { border-color: var(--hoverColor); transform: translateY(-3px); box-shadow: 0 10px 24px rgba(36,31,25,0.08); }
-    .area-card { box-shadow: 0 2px 8px rgba(36,31,25,0.04); }
+    .service-card, .case-card { transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease; box-shadow: 0 1px 2px rgba(36,31,25,0.06), 0 10px 22px rgba(36,31,25,0.07); }
+    .service-card:hover, .case-card:hover { border-color: var(--hoverColor); transform: translateY(-4px); box-shadow: 0 4px 8px rgba(36,31,25,0.08), 0 20px 38px rgba(36,31,25,0.14); }
+    .area-card { box-shadow: 0 2px 10px rgba(36,31,25,0.05); }
+    .area-card:hover { transform: translateY(-2px); }
     .footer-link { transition: opacity 0.15s ease; }
     .footer-link:hover { opacity: 0.72; }
     .bg-blob { position: absolute; border-radius: 50%; filter: blur(46px); pointer-events: none; }
@@ -158,168 +169,44 @@
     .tech-marquee-track { display: flex; align-items: center; width: max-content; animation: marqueeScroll 24s linear infinite; }
     .stat-number { font-variant-numeric: tabular-nums; }
     .step-row { transition: opacity 0.15s ease; }
+
+    /* Tablet */
+    @media (max-width: 900px) {
+      .section-pad { padding-left: 32px !important; padding-right: 32px !important; }
+      .grid-services, .grid-case { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+      .grid-areas { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+      .hero-heading { font-size: 46px !important; }
+      .hero-icon-wrap { flex-basis: 200px !important; }
+      .hero-icon { width: 200px !important; height: 200px !important; }
+    }
+
+    /* Mobile */
+    @media (max-width: 640px) {
+      .section-pad { padding-left: 20px !important; padding-right: 20px !important; }
+      .hero-wrap { padding-top: 44px !important; padding-bottom: 36px !important; gap: 24px !important; }
+      .grid-services, .grid-case, .grid-action, .grid-areas { grid-template-columns: 1fr !important; }
+      .grid-stats { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 16px !important; }
+      .nav-links { gap: 14px !important; }
+      .nav-btn { font-size: 11px !important; letter-spacing: 0.04em !important; }
+      .logo-text { font-size: 22px !important; }
+      .logo-icon { width: 40px !important; height: 40px !important; }
+      .hero-copy { min-width: 0 !important; }
+      .hero-heading { font-size: 32px !important; }
+      .hero-icon-wrap { flex-basis: 140px !important; }
+      .hero-icon { width: 140px !important; height: 140px !important; }
+      .scenes-illustration-col { min-width: 0 !important; width: 100% !important; }
+      .scenes-illustration { width: 100% !important; max-width: 320px !important; }
+      .step-title { font-size: 30px !important; }
+      .cta-heading { font-size: 28px !important; }
+      .contact-heading { font-size: 30px !important; }
+    }
   </style>
 
 </head>
 <body>
 
-<helmet>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
-  <style>
-    html { scroll-behavior: smooth; }
-    body { margin: 0; }
-    a { text-decoration: none; }
-    .area-card > summary { list-style: none; }
-    .area-card > summary::-webkit-details-marker { display: none; }
-    .area-card > summary::marker { content: ""; }
-    .area-card .chevron { transition: transform 0.2s ease; flex-shrink: 0; }
-    .area-card[open] .chevron { transform: rotate(180deg); }
-    @keyframes eyeBlink {
-      0%, 92%, 100% { transform: scaleY(1); }
-      95%, 97% { transform: scaleY(0.1); }
-    }
-    .eye-blink { transform-box: fill-box; transform-origin: center; animation: eyeBlink 4s ease-in-out infinite; }
-    .area-card { transition: border-color 0.15s ease; }
-    .area-card:hover { border-color: var(--hl); }
-    .nav-btn { transition: color 0.15s ease; }
-    .nav-btn:hover { color: var(--hoverColor); }
-    .btn-primary { transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease; }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 22px rgba(36,31,25,0.16); opacity: 0.94; }
-    .btn-secondary { transition: border-color 0.15s ease, color 0.15s ease, transform 0.15s ease; }
-    .btn-secondary:hover { border-color: var(--hoverColor); color: var(--hoverColor); transform: translateY(-2px); }
-    .service-card, .case-card { transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease; box-shadow: 0 2px 10px rgba(36,31,25,0.05); }
-    .service-card:hover, .case-card:hover { border-color: var(--hoverColor); transform: translateY(-3px); box-shadow: 0 10px 24px rgba(36,31,25,0.08); }
-    .area-card { box-shadow: 0 2px 8px rgba(36,31,25,0.04); }
-    .footer-link { transition: opacity 0.15s ease; }
-    .footer-link:hover { opacity: 0.72; }
-    .bg-blob { position: absolute; border-radius: 50%; filter: blur(46px); pointer-events: none; }
-    @keyframes gearSpin {
-      to { transform: rotate(360deg); }
-    }
-    @keyframes robotTapRight {
-      0%, 100% { transform: rotate(0deg); }
-      50% { transform: rotate(-22deg); }
-    }
-    @keyframes robotTapLeft {
-      0%, 100% { transform: rotate(0deg); }
-      50% { transform: rotate(18deg); }
-    }
-    @keyframes robotWrenchTurn {
-      0%, 100% { transform: rotate(-16deg); }
-      50% { transform: rotate(14deg); }
-    }
-    @keyframes robotBob {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-6px); }
-    }
-    @keyframes cursorBlinkType {
-      0%, 45% { opacity: 1; }
-      50%, 95% { opacity: 0; }
-      100% { opacity: 1; }
-    }
-    @keyframes codeLineGrowA {
-      0%, 100% { width: 62%; }
-      50% { width: 88%; }
-    }
-    @keyframes codeLineGrowB {
-      0%, 100% { width: 40%; }
-      50% { width: 70%; }
-    }
-    @keyframes nodePulse {
-      0%, 100% { transform: scale(1); opacity: 0.85; }
-      50% { transform: scale(1.22); opacity: 1; }
-    }
-    @keyframes flowDash {
-      to { stroke-dashoffset: -28; }
-    }
-    @keyframes dotPulse {
-      0%, 100% { opacity: 0.5; }
-      50% { opacity: 1; }
-    }
-    @keyframes dotBounce {
-      0%, 100% { transform: translateY(0); opacity: 0.5; }
-      50% { transform: translateY(-4px); opacity: 1; }
-    }
-    @keyframes chatMsg1 {
-      0%, 6% { opacity: 0; transform: translateY(8px); }
-      14%, 74% { opacity: 1; transform: translateY(0); }
-      86%, 100% { opacity: 0; transform: translateY(8px); }
-    }
-    @keyframes chatTyping {
-      0%, 18% { opacity: 0; }
-      26%, 42% { opacity: 1; }
-      50%, 100% { opacity: 0; }
-    }
-    @keyframes chatMsg2 {
-      0%, 44% { opacity: 0; transform: translateY(8px); }
-      52%, 80% { opacity: 1; transform: translateY(0); }
-      88%, 100% { opacity: 0; transform: translateY(8px); }
-    }
-    @keyframes invoiceCheck1 {
-      0%, 8% { opacity: 0; }
-      14%, 88% { opacity: 1; }
-      96%, 100% { opacity: 0; }
-    }
-    @keyframes invoiceCheck2 {
-      0%, 24% { opacity: 0; }
-      30%, 88% { opacity: 1; }
-      96%, 100% { opacity: 0; }
-    }
-    @keyframes invoiceCheck3 {
-      0%, 40% { opacity: 0; }
-      46%, 88% { opacity: 1; }
-      96%, 100% { opacity: 0; }
-    }
-    @keyframes invoiceSent {
-      0%, 58% { opacity: 0; transform: translateY(4px); }
-      64%, 88% { opacity: 1; transform: translateY(0); }
-      96%, 100% { opacity: 0; transform: translateY(4px); }
-    }
-    @keyframes areaHighlight {
-      0%, 4% { background: #FDFBF6; border-color: #E2D8C6; }
-      8%, 14% { background: #E6F5EC; border-color: var(--hl); }
-      18%, 100% { background: #FDFBF6; border-color: #E2D8C6; }
-    }
-    @keyframes miniAppear {
-      0%, 42% { opacity: 0; transform: translateY(3px) scale(0.9); }
-      54%, 84% { opacity: 1; transform: translateY(0) scale(1); }
-      96%, 100% { opacity: 0; transform: translateY(3px) scale(0.9); }
-    }
-    @keyframes miniGrow {
-      0%, 42% { height: 3px; }
-      58%, 84% { height: var(--bar-h); }
-      96%, 100% { height: 3px; }
-    }
-    @keyframes miniFill {
-      0%, 42% { width: 0%; }
-      58%, 84% { width: 100%; }
-      96%, 100% { width: 0%; }
-    }
-    @keyframes miniSlide {
-      0%, 40% { transform: translateX(0); opacity: 0.35; }
-      55%, 84% { transform: translateX(5px); opacity: 1; }
-      96%, 100% { transform: translateX(0); opacity: 0.35; }
-    }
-    @keyframes miniStroke {
-      0%, 42% { stroke-dashoffset: 16; }
-      60%, 88% { stroke-dashoffset: 0; }
-      96%, 100% { stroke-dashoffset: 16; }
-    }
-    @keyframes miniBoxMove {
-      0%, 42% { transform: translateX(0); }
-      58%, 84% { transform: translateX(46px); }
-      96%, 100% { transform: translateX(0); }
-    }
-    @keyframes marqueeScroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-    .tech-marquee-track { display: flex; align-items: center; width: max-content; animation: marqueeScroll 24s linear infinite; }
-    .stat-number { font-variant-numeric: tabular-nums; }
-    .step-row { transition: opacity 0.15s ease; }
-  </style>
-</helmet>
-<div style="width: 100%; min-height: 100vh; box-sizing: border-box; background: #F7F3EC; color: #241F19; font-family: 'Space Grotesk', sans-serif; display: flex; flex-direction: column; align-items: center;">
+
+<div id="siteRoot" dir="ltr" style="width: 100%; min-height: 100vh; box-sizing: border-box; background: radial-gradient(1100px 560px at 15% -8%, rgba(110,231,183,0.14), transparent 60%), radial-gradient(900px 500px at 100% 30%, rgba(31,111,82,0.05), transparent 55%), #F7F3EC; color: #241F19; font-family: 'Space Grotesk', sans-serif; display: flex; flex-direction: column; align-items: center;">
 
   <svg width="0" height="0" style="position: absolute;" aria-hidden="true">
     <defs>
@@ -331,9 +218,9 @@
   </svg>
 
   <div style="width: 100%; border-bottom: 1px solid #E2D8C6; display: flex; justify-content: center;">
-    <div style="width: 100%; max-width: 1040px; padding: 28px 48px; box-sizing: border-box; display: flex; align-items: center; justify-content: space-between;">
+    <div class="section-pad" style="width: 100%; max-width: 1040px; padding: 28px 48px; box-sizing: border-box; display: flex; align-items: center; justify-content: space-between;">
       <div style="display: flex; align-items: center; gap: 10px;">
-        <svg width="56" height="56" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <svg class="logo-icon" width="56" height="56" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <rect x="2" y="2" width="60" height="60" rx="16" fill="#1F6F52"></rect>
           <line x1="18" y1="20" x2="18" y2="44" stroke="#6EE7B7" stroke-width="4" stroke-linecap="round"></line>
           <line x1="18" y1="20" x2="46" y2="44" stroke="#6EE7B7" stroke-width="4" stroke-linecap="round"></line>
@@ -347,17 +234,21 @@
           <circle cx="42.5" cy="20" r="1.6" fill="#1F6F52"></circle>
           <circle class="eye-blink" cx="49.5" cy="20" r="1.6" fill="#1F6F52"></circle>
         </svg>
-        <span style="font-weight: 700; font-size: 32px; letter-spacing: -0.01em;">Nauto <span style="color: #1F6F52;">AI</span></span>
+        <span class="logo-text" style="font-weight: 700; font-size: 32px; letter-spacing: -0.01em;">Nauto <span style="color: #1F6F52;">AI</span></span>
       </div>
-      <div style="display: flex; gap: 28px;">
-        <button type="button" class="nav-btn" data-scroll="services" style="--hoverColor: #1F6F52; font-family: 'JetBrains Mono', monospace; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6152; background: none; border: none; padding: 0; cursor: pointer;">Services</button>
-        <button type="button" class="nav-btn" data-scroll="work" style="--hoverColor: #1F6F52; font-family: 'JetBrains Mono', monospace; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6152; background: none; border: none; padding: 0; cursor: pointer;">Work</button>
-        <button type="button" class="nav-btn" data-scroll="contact" style="--hoverColor: #1F6F52; font-family: 'JetBrains Mono', monospace; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6152; background: none; border: none; padding: 0; cursor: pointer;">Contact</button>
+      <div class="nav-links" style="display: flex; align-items: center; gap: 28px;">
+        <button type="button" class="nav-btn" data-i18n="nav_services" data-scroll="services" style="--hoverColor: #1F6F52; font-family: 'JetBrains Mono', monospace; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6152; background: none; border: none; padding: 0; cursor: pointer;">Services</button>
+        <button type="button" class="nav-btn" data-i18n="nav_work" data-scroll="work" style="--hoverColor: #1F6F52; font-family: 'JetBrains Mono', monospace; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6152; background: none; border: none; padding: 0; cursor: pointer;">Work</button>
+        <button type="button" class="nav-btn" data-i18n="nav_contact" data-scroll="contact" style="--hoverColor: #1F6F52; font-family: 'JetBrains Mono', monospace; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6152; background: none; border: none; padding: 0; cursor: pointer;">Contact</button>
+        <div class="lang-switch" style="display: flex; align-items: center; gap: 2px; padding: 3px; background: #EDE7D8; border-radius: 20px;">
+          <button type="button" id="langBtnEn" class="lang-btn" data-lang="en" style="border: none; background: #1F6F52; color: #FDFBF6; padding: 5px 12px; border-radius: 16px; cursor: pointer; font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.04em;">EN</button>
+          <button type="button" id="langBtnFa" class="lang-btn" data-lang="fa" style="border: none; background: transparent; color: #6B6152; padding: 5px 12px; border-radius: 16px; cursor: pointer; font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.04em;">FA</button>
+        </div>
       </div>
     </div>
   </div>
 
-  <div style="width: 100%; max-width: 1040px; padding: 72px 48px 64px 48px; box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center; gap: 40px; position: relative; overflow: hidden;">
+  <div class="section-pad hero-wrap" style="width: 100%; max-width: 1040px; padding: 72px 48px 64px 48px; box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center; gap: 40px; position: relative; overflow: hidden;">
     <svg width="100%" height="100%" viewBox="0 0 1040 420" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="position: absolute; inset: 0; z-index: 0; pointer-events: none;">
       <path id="bgFlowA" d="M -60 360 C 180 400, 260 120, 480 160 C 640 190, 780 340, 1100 210" fill="none" stroke="#1F6F52" stroke-width="1.5" opacity="0.14"></path>
       <path id="bgFlowB" d="M -60 90 C 160 240, 340 10, 580 110 C 760 180, 880 40, 1100 170" fill="none" stroke="#1F6F52" stroke-width="1.5" opacity="0.14"></path>
@@ -368,17 +259,17 @@
       <circle r="3" fill="#1F6F52" opacity="0.5"><animateMotion dur="11s" begin="-5.5s" repeatCount="indefinite"><mpath href="#bgFlowB"></mpath></animateMotion></circle>
       <circle r="3" fill="#6EE7B7" opacity="0.6"><animateMotion dur="13s" repeatCount="indefinite"><mpath href="#bgFlowC"></mpath></animateMotion></circle>
     </svg>
-    <div style="flex: 1 1 460px; min-width: 320px; display: flex; flex-direction: column; gap: 22px; position: relative; z-index: 1;">
-      <div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; letter-spacing: 0.09em; text-transform: uppercase; color: #1F6F52;">AI agents for small business</div>
-      <h1 style="margin: 0; font-weight: 700; font-size: 62px; line-height: 1.12; color: #241F19;">AI agents that run your business&rsquo;s <mark style="background: #6EE7B7; color: #16281F; padding: 2px 10px; border-radius: 6px; font-style: normal;">busywork</mark>.</h1>
-      <p style="margin: 0; font-size: 19px; line-height: 1.7; color: #5C5346; max-width: 560px;">Nauto AI designs and builds custom AI agents for small businesses &mdash; automating the repetitive parts of the day so you can focus on running things.</p>
+    <div class="hero-copy" style="flex: 1 1 460px; min-width: 320px; display: flex; flex-direction: column; gap: 22px; position: relative; z-index: 1;">
+      <div data-i18n="hero_eyebrow" style="font-family: 'JetBrains Mono', monospace; font-size: 14px; letter-spacing: 0.09em; text-transform: uppercase; color: #1F6F52;">AI agents for small business</div>
+      <h1 class="hero-heading" data-i18n="hero_heading" data-i18n-html style="margin: 0; font-weight: 700; font-size: 62px; line-height: 1.12; color: #241F19;">AI agents that run your business&rsquo;s <mark style="background: #6EE7B7; color: #16281F; padding: 2px 10px; border-radius: 6px; font-style: normal;">busywork</mark>.</h1>
+      <p data-i18n="hero_para" style="margin: 0; font-size: 19px; line-height: 1.7; color: #5C5346; max-width: 560px;">Nauto AI designs and builds custom AI agents for small businesses &mdash; automating the repetitive parts of the day so you can focus on running things.</p>
       <div style="display: flex; gap: 16px; padding-top: 8px;">
-        <button type="button" class="btn-primary" data-scroll="contact" style="background: #6EE7B7; color: #16281F; font-weight: 600; font-size: 16px; padding: 16px 30px; border-radius: 8px; border: none; cursor: pointer; font-family: 'Space Grotesk', sans-serif;">Book a call</button>
-        <button type="button" class="btn-secondary" data-scroll="work" style="--hoverColor: #1F6F52; border: 1px solid #D8CBB2; color: #241F19; font-weight: 500; font-size: 16px; padding: 15px 30px; border-radius: 8px; background: none; cursor: pointer; font-family: 'Space Grotesk', sans-serif;">See our work</button>
+        <button type="button" class="btn-primary" data-i18n="hero_btn_primary" data-scroll="contact" style="background: #6EE7B7; color: #16281F; font-weight: 600; font-size: 16px; padding: 16px 30px; border-radius: 8px; border: none; cursor: pointer; font-family: 'Space Grotesk', sans-serif;">Book a call</button>
+        <button type="button" class="btn-secondary" data-i18n="hero_btn_secondary" data-scroll="work" style="--hoverColor: #1F6F52; border: 1px solid #D8CBB2; color: #241F19; font-weight: 500; font-size: 16px; padding: 15px 30px; border-radius: 8px; background: none; cursor: pointer; font-family: 'Space Grotesk', sans-serif;">See our work</button>
       </div>
     </div>
-    <div style="flex: 0 0 260px; display: flex; align-items: center; justify-content: center; position: relative; z-index: 1;">
-      <svg width="260" height="260" viewBox="0 0 260 260" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <div class="hero-icon-wrap" style="flex: 0 0 260px; display: flex; align-items: center; justify-content: center; position: relative; z-index: 1;">
+      <svg class="hero-icon" width="260" height="260" viewBox="0 0 260 260" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <line x1="70" y1="70" x2="130" y2="130" stroke="#D8CBB2" stroke-width="2" stroke-dasharray="6 8" style="animation: flowDash 2.4s linear infinite;"></line>
         <line x1="190" y1="80" x2="130" y2="130" stroke="#D8CBB2" stroke-width="2" stroke-dasharray="6 8" style="animation: flowDash 2.4s linear infinite;"></line>
         <line x1="130" y1="130" x2="90" y2="200" stroke="#D8CBB2" stroke-width="2" stroke-dasharray="6 8" style="animation: flowDash 2.4s linear infinite;"></line>
@@ -437,34 +328,35 @@
     </div>
   </div>
 
-  <div style="width: 100%; max-width: 1040px; padding: 44px 48px; box-sizing: border-box; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px;">
-    <div style="display: flex; flex-direction: column; gap: 4px;">
+  <div class="section-pad grid-stats" style="width: 100%; max-width: 1040px; padding: 44px 48px; box-sizing: border-box; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; position: relative;">
+    <div class="bg-blob" style="width: 200px; height: 200px; background: #6EE7B7; opacity: 0.10; top: -60px; left: 40%; z-index: 0;"></div>
+    <div class="reveal" style="display: flex; flex-direction: column; gap: 4px; position: relative; z-index: 1;">
       <div class="stat-number" data-count data-target="3" data-suffix="" style="font-size: 44px; font-weight: 700; color: #1F6F52; line-height: 1;">0</div>
-      <div style="font-size: 12.5px; color: #8A8064; font-family: 'JetBrains Mono', monospace; text-transform: uppercase; letter-spacing: 0.05em;">Agents shipped</div>
+      <div data-i18n="stat1_label" style="font-size: 12.5px; color: #8A8064; font-family: 'JetBrains Mono', monospace; text-transform: uppercase; letter-spacing: 0.05em;">Agents shipped</div>
     </div>
-    <div style="display: flex; flex-direction: column; gap: 4px;">
+    <div class="reveal" style="display: flex; flex-direction: column; gap: 4px; position: relative; z-index: 1; transition-delay: 0.08s;">
       <div class="stat-number" data-count data-target="8" data-suffix="" style="font-size: 44px; font-weight: 700; color: #1F6F52; line-height: 1;">0</div>
-      <div style="font-size: 12.5px; color: #8A8064; font-family: 'JetBrains Mono', monospace; text-transform: uppercase; letter-spacing: 0.05em;">Automation areas</div>
+      <div data-i18n="stat2_label" style="font-size: 12.5px; color: #8A8064; font-family: 'JetBrains Mono', monospace; text-transform: uppercase; letter-spacing: 0.05em;">Automation areas</div>
     </div>
-    <div style="display: flex; flex-direction: column; gap: 4px;">
+    <div class="reveal" style="display: flex; flex-direction: column; gap: 4px; position: relative; z-index: 1; transition-delay: 0.16s;">
       <div class="stat-number" data-count data-target="3" data-suffix="" style="font-size: 44px; font-weight: 700; color: #1F6F52; line-height: 1;">0</div>
-      <div style="font-size: 12.5px; color: #8A8064; font-family: 'JetBrains Mono', monospace; text-transform: uppercase; letter-spacing: 0.05em;">Languages supported</div>
+      <div data-i18n="stat3_label" style="font-size: 12.5px; color: #8A8064; font-family: 'JetBrains Mono', monospace; text-transform: uppercase; letter-spacing: 0.05em;">Languages supported</div>
     </div>
-    <div style="display: flex; flex-direction: column; gap: 4px;">
+    <div class="reveal" style="display: flex; flex-direction: column; gap: 4px; position: relative; z-index: 1; transition-delay: 0.24s;">
       <div class="stat-number" data-count data-target="10" data-suffix="+" style="font-size: 44px; font-weight: 700; color: #1F6F52; line-height: 1;">0</div>
-      <div style="font-size: 12.5px; color: #8A8064; font-family: 'JetBrains Mono', monospace; text-transform: uppercase; letter-spacing: 0.05em;">Tools in the stack</div>
+      <div data-i18n="stat4_label" style="font-size: 12.5px; color: #8A8064; font-family: 'JetBrains Mono', monospace; text-transform: uppercase; letter-spacing: 0.05em;">Tools in the stack</div>
     </div>
   </div>
 
   <div style="width: 100%; background: #FDFBF6; display: flex; justify-content: center; border-top: 1px solid #E2D8C6; border-bottom: 1px solid #E2D8C6;">
-    <div style="width: 100%; max-width: 1040px; padding: 64px 48px; box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center; gap: 48px;">
-      <div style="flex: 1 1 320px; min-width: 280px; display: flex; flex-direction: column; gap: 16px;">
-        <div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; letter-spacing: 0.09em; text-transform: uppercase; color: #1F6F52;">Behind the scenes</div>
-        <h2 style="margin: 0; font-weight: 700; font-size: 34px; line-height: 1.2; color: #241F19;">Every agent is hand-built, not templated.</h2>
-        <p style="margin: 0; font-size: 16px; line-height: 1.7; color: #6B6152; max-width: 440px;">No drag-and-drop black box. Each project starts from your actual workflow and gets coded, tested and tuned until it fits &mdash; small crew, real code, full attention on the details.</p>
+    <div class="section-pad" style="width: 100%; max-width: 1040px; padding: 64px 48px; box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center; gap: 48px;">
+      <div class="reveal" style="flex: 1 1 320px; min-width: 280px; display: flex; flex-direction: column; gap: 16px;">
+        <div data-i18n="scenes_eyebrow" style="font-family: 'JetBrains Mono', monospace; font-size: 14px; letter-spacing: 0.09em; text-transform: uppercase; color: #1F6F52;">Behind the scenes</div>
+        <h2 data-i18n="scenes_heading" style="margin: 0; font-weight: 700; font-size: 34px; line-height: 1.2; color: #241F19;">Every agent is hand-built, not templated.</h2>
+        <p data-i18n="scenes_para" style="margin: 0; font-size: 16px; line-height: 1.7; color: #6B6152; max-width: 440px;">No drag-and-drop black box. Each project starts from your actual workflow and gets coded, tested and tuned until it fits &mdash; small crew, real code, full attention on the details.</p>
       </div>
-      <div style="flex: 1 1 320px; min-width: 300px; display: flex; justify-content: center;">
-        <div style="position: relative; width: 320px; height: 300px;">
+      <div class="scenes-illustration-col reveal" style="flex: 1 1 320px; min-width: 300px; display: flex; justify-content: center; transition-delay: 0.12s;">
+        <div class="scenes-illustration" style="position: relative; width: 320px; height: 300px;">
 
           <div style="position: absolute; top: 26px; left: 34px; width: 250px; background: #221D18; border-radius: 16px; padding: 4px; box-shadow: 0 24px 48px rgba(36,31,25,0.22); z-index: 1;">
             <div style="display: flex; gap: 6px; padding: 12px 14px 8px 14px;">
@@ -560,11 +452,11 @@
   <div id="services" style="width: 100%; background: #F1EAD9; display: flex; justify-content: center; position: relative; overflow: hidden;">
     <div class="bg-blob" style="width: 320px; height: 320px; background: #6EE7B7; opacity: 0.22; top: -120px; left: -80px;"></div>
     <div class="bg-blob" style="width: 260px; height: 260px; background: #1F6F52; opacity: 0.12; bottom: -100px; right: 4%;"></div>
-    <div style="width: 100%; max-width: 1040px; padding: 56px 48px; box-sizing: border-box; display: flex; flex-direction: column; gap: 24px; position: relative; z-index: 1;">
-      <div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; letter-spacing: 0.09em; text-transform: uppercase; color: #1F6F52;">What we do</div>
-      <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px;">
+    <div class="section-pad" style="width: 100%; max-width: 1040px; padding: 56px 48px; box-sizing: border-box; display: flex; flex-direction: column; gap: 24px; position: relative; z-index: 1;">
+      <div data-i18n="services_eyebrow" style="font-family: 'JetBrains Mono', monospace; font-size: 14px; letter-spacing: 0.09em; text-transform: uppercase; color: #1F6F52;">What we do</div>
+      <div class="grid-services" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px;">
 
-        <div class="service-card" style="--hoverColor: #1F6F52; background: #FDFBF6; border: 1px solid #E2D8C6; border-radius: 10px; padding: 24px; display: flex; flex-direction: column; gap: 10px;">
+        <div class="service-card reveal" style="--hoverColor: #1F6F52; background: #FDFBF6; border: 1px solid #E2D8C6; border-radius: 10px; padding: 24px; display: flex; flex-direction: column; gap: 10px;">
           <div style="display: flex; align-items: center; gap: 10px;">
             <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
               <circle cx="11" cy="5" r="2.3" stroke="url(#iconGradient)" stroke-width="1.6"></circle>
@@ -573,12 +465,12 @@
               <line x1="9.6" y1="6.8" x2="6.4" y2="14" stroke="url(#iconGradient)" stroke-width="1.6"></line>
               <line x1="12.4" y1="6.8" x2="15.6" y2="14" stroke="url(#iconGradient)" stroke-width="1.6"></line>
             </svg>
-            <h3 style="margin: 0; font-weight: 600; font-size: 19px; color: #241F19;">Custom AI Agents</h3>
+            <h3 data-i18n="svc1_title" style="margin: 0; font-weight: 600; font-size: 19px; color: #241F19;">Custom AI Agents</h3>
           </div>
-          <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #6B6152;">We design and build AI agents tailored to your workflow &mdash; from customer support to scheduling and data entry.</p>
+          <p data-i18n="svc1_desc" style="margin: 0; font-size: 15px; line-height: 1.6; color: #6B6152;">We design and build AI agents tailored to your workflow &mdash; from customer support to scheduling and data entry.</p>
         </div>
 
-        <div class="service-card" style="--hoverColor: #1F6F52; background: #FDFBF6; border: 1px solid #E2D8C6; border-radius: 10px; padding: 24px; display: flex; flex-direction: column; gap: 10px;">
+        <div class="service-card reveal" style="--hoverColor: #1F6F52; background: #FDFBF6; border: 1px solid #E2D8C6; border-radius: 10px; padding: 24px; display: flex; flex-direction: column; gap: 10px;">
           <div style="display: flex; align-items: center; gap: 10px;">
             <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
               <path d="M4 11a7 7 0 0 1 12-4.9" stroke="url(#iconGradient)" stroke-width="1.6" stroke-linecap="round"></path>
@@ -586,50 +478,50 @@
               <path d="M18 11a7 7 0 0 1-12 4.9" stroke="url(#iconGradient)" stroke-width="1.6" stroke-linecap="round"></path>
               <path d="M6 19v-3.5h3.5" stroke="url(#iconGradient)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
             </svg>
-            <h3 style="margin: 0; font-weight: 600; font-size: 19px; color: #241F19;">Workflow Automation</h3>
+            <h3 data-i18n="svc2_title" style="margin: 0; font-weight: 600; font-size: 19px; color: #241F19;">Workflow Automation</h3>
           </div>
-          <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #6B6152;">We connect the tools you already use &mdash; email, calendar, spreadsheets &mdash; so repetitive tasks run themselves.</p>
+          <p data-i18n="svc2_desc" style="margin: 0; font-size: 15px; line-height: 1.6; color: #6B6152;">We connect the tools you already use &mdash; email, calendar, spreadsheets &mdash; so repetitive tasks run themselves.</p>
         </div>
 
-        <div class="service-card" style="--hoverColor: #1F6F52; background: #FDFBF6; border: 1px solid #E2D8C6; border-radius: 10px; padding: 24px; display: flex; flex-direction: column; gap: 10px;">
+        <div class="service-card reveal" style="--hoverColor: #1F6F52; background: #FDFBF6; border: 1px solid #E2D8C6; border-radius: 10px; padding: 24px; display: flex; flex-direction: column; gap: 10px;">
           <div style="display: flex; align-items: center; gap: 10px;">
             <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
               <path d="M11 2.5 18 5v5.2c0 4.4-3 7.4-7 9-4-1.6-7-4.6-7-9V5l7-2.5Z" stroke="url(#iconGradient)" stroke-width="1.6" stroke-linejoin="round"></path>
               <path d="M8 11.2l2 2 4-4.4" stroke="url(#iconGradient)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
             </svg>
-            <h3 style="margin: 0; font-weight: 600; font-size: 19px; color: #241F19;">Ongoing Support</h3>
+            <h3 data-i18n="svc3_title" style="margin: 0; font-weight: 600; font-size: 19px; color: #241F19;">Ongoing Support</h3>
           </div>
-          <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #6B6152;">Once your agent is live, we monitor, maintain and improve it as your business changes.</p>
+          <p data-i18n="svc3_desc" style="margin: 0; font-size: 15px; line-height: 1.6; color: #6B6152;">Once your agent is live, we monitor, maintain and improve it as your business changes.</p>
         </div>
 
       </div>
     </div>
   </div>
 
-  <div style="width: 100%; max-width: 1040px; padding: 56px 48px 8px 48px; box-sizing: border-box; display: flex; flex-direction: column; gap: 24px;">
-    <div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; letter-spacing: 0.09em; text-transform: uppercase; color: #1F6F52;">Where agents help most</div>
-    <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #6B6152; max-width: 640px;">Common areas small businesses hand off to us &mdash; if it&rsquo;s repetitive and rule-based, there&rsquo;s probably an agent for it.</p>
-    <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px;">
+  <div class="section-pad" style="width: 100%; max-width: 1040px; padding: 56px 48px 8px 48px; box-sizing: border-box; display: flex; flex-direction: column; gap: 24px;">
+    <div data-i18n="areas_eyebrow" style="font-family: 'JetBrains Mono', monospace; font-size: 14px; letter-spacing: 0.09em; text-transform: uppercase; color: #1F6F52;">Where agents help most</div>
+    <p data-i18n="areas_para" style="margin: 0; font-size: 15px; line-height: 1.6; color: #6B6152; max-width: 640px;">Common areas small businesses hand off to us &mdash; if it&rsquo;s repetitive and rule-based, there&rsquo;s probably an agent for it.</p>
+    <div class="grid-areas" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px;">
 
-      <details class="area-card" style="--hl: #6EE7B7; animation: areaHighlight 9.6s ease-in-out infinite; animation-delay: 0s; display: flex; flex-direction: column; gap: 10px; padding: 14px 16px; border-radius: 10px; border: 1.5px solid #E2D8C6; background: #FDFBF6;">
+      <details class="area-card reveal" style="--hl: #6EE7B7; animation: areaHighlight 9.6s ease-in-out infinite; animation-delay: 0s; display: flex; flex-direction: column; gap: 10px; padding: 14px 16px; border-radius: 10px; border: 1.5px solid #E2D8C6; background: #FDFBF6;">
         <summary style="display: flex; flex-direction: column; gap: 10px; cursor: pointer;">
           <div style="display: flex; align-items: center; gap: 10px;">
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
               <path d="M2.5 5A2 2 0 0 1 4.5 3h9A2 2 0 0 1 15.5 5v4A2 2 0 0 1 13.5 11H8l-3 2.5V11H4.5A2 2 0 0 1 2.5 9V5Z" stroke="#1F6F52" stroke-width="1.4" stroke-linejoin="round"></path>
             </svg>
-            <span style="font-size: 14px; color: #4A4235; flex-grow: 1;">Customer chat &amp; DMs</span>
+            <span data-i18n="area1_title" style="font-size: 14px; color: #4A4235; flex-grow: 1;">Customer chat &amp; DMs</span>
             <svg class="chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" stroke="#A69C86" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
           </div>
           <div style="display: flex; align-items: center; gap: 6px; height: 16px;">
             <div style="width: 32px; height: 13px; border-radius: 7px; background: #EDE7D8; border: 1px solid #D9CDB4;"></div>
             <div style="width: 32px; height: 13px; border-radius: 7px; background: #6EE7B7; opacity: 0; animation: miniAppear 9.6s ease-in-out infinite; animation-delay: 0s;"></div>
-            <span style="font-size: 11px; color: #8A8064; font-family: 'JetBrains Mono', monospace;">agent replying</span>
+            <span data-i18n="area1_label" style="font-size: 11px; color: #8A8064; font-family: 'JetBrains Mono', monospace;">agent replying</span>
           </div>
         </summary>
-        <p style="margin: 12px 0 0 0; font-size: 13.5px; line-height: 1.55; color: #6B6152;">Replying to the same questions on Instagram, WhatsApp or your website chat, over and over. The agent answers instantly and only hands you the ones that actually need you.</p>
+        <p data-i18n="area1_desc" style="margin: 12px 0 0 0; font-size: 13.5px; line-height: 1.55; color: #6B6152;">Replying to the same questions on Instagram, WhatsApp or your website chat, over and over. The agent answers instantly and only hands you the ones that actually need you.</p>
       </details>
 
-      <details class="area-card" style="--hl: #6EE7B7; animation: areaHighlight 9.6s ease-in-out infinite; animation-delay: 1.2s; display: flex; flex-direction: column; gap: 10px; padding: 14px 16px; border-radius: 10px; border: 1.5px solid #E2D8C6; background: #FDFBF6;">
+      <details class="area-card reveal" style="--hl: #6EE7B7; animation: areaHighlight 9.6s ease-in-out infinite; animation-delay: 1.2s; display: flex; flex-direction: column; gap: 10px; padding: 14px 16px; border-radius: 10px; border: 1.5px solid #E2D8C6; background: #FDFBF6;">
         <summary style="display: flex; flex-direction: column; gap: 10px; cursor: pointer;">
           <div style="display: flex; align-items: center; gap: 10px;">
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -638,7 +530,7 @@
               <line x1="6" y1="2.2" x2="6" y2="4.8" stroke="#1F6F52" stroke-width="1.4" stroke-linecap="round"></line>
               <line x1="12" y1="2.2" x2="12" y2="4.8" stroke="#1F6F52" stroke-width="1.4" stroke-linecap="round"></line>
             </svg>
-            <span style="font-size: 14px; color: #4A4235; flex-grow: 1;">Scheduling &amp; calendar</span>
+            <span data-i18n="area2_title" style="font-size: 14px; color: #4A4235; flex-grow: 1;">Scheduling &amp; calendar</span>
             <svg class="chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" stroke="#A69C86" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
           </div>
           <div style="display: flex; align-items: center; gap: 5px; height: 16px;">
@@ -647,13 +539,13 @@
             <div style="width: 15px; height: 15px; border-radius: 3px; border: 1.4px solid #1F6F52; background: #FDFBF6; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
               <svg width="9" height="9" viewBox="0 0 10 10"><path d="M2 5.2 4.2 7.4 8 3" fill="none" stroke="#1F6F52" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="16" style="animation: miniStroke 9.6s ease-in-out infinite; animation-delay: 1.2s;"></path></svg>
             </div>
-            <span style="font-size: 11px; color: #8A8064; font-family: 'JetBrains Mono', monospace;">booking confirmed</span>
+            <span data-i18n="area2_label" style="font-size: 11px; color: #8A8064; font-family: 'JetBrains Mono', monospace;">booking confirmed</span>
           </div>
         </summary>
-        <p style="margin: 12px 0 0 0; font-size: 13.5px; line-height: 1.55; color: #6B6152;">Back-and-forth messages just to lock in a time. The agent checks your calendar, offers real slots, and books it &mdash; no more chasing replies.</p>
+        <p data-i18n="area2_desc" style="margin: 12px 0 0 0; font-size: 13.5px; line-height: 1.55; color: #6B6152;">Back-and-forth messages just to lock in a time. The agent checks your calendar, offers real slots, and books it &mdash; no more chasing replies.</p>
       </details>
 
-      <details class="area-card" style="--hl: #6EE7B7; animation: areaHighlight 9.6s ease-in-out infinite; animation-delay: 2.4s; display: flex; flex-direction: column; gap: 10px; padding: 14px 16px; border-radius: 10px; border: 1.5px solid #E2D8C6; background: #FDFBF6;">
+      <details class="area-card reveal" style="--hl: #6EE7B7; animation: areaHighlight 9.6s ease-in-out infinite; animation-delay: 2.4s; display: flex; flex-direction: column; gap: 10px; padding: 14px 16px; border-radius: 10px; border: 1.5px solid #E2D8C6; background: #FDFBF6;">
         <summary style="display: flex; flex-direction: column; gap: 10px; cursor: pointer;">
           <div style="display: flex; align-items: center; gap: 10px;">
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -662,39 +554,39 @@
               <line x1="6.3" y1="9" x2="11.7" y2="9" stroke="#1F6F52" stroke-width="1.4" stroke-linecap="round"></line>
               <line x1="6.3" y1="12" x2="9.5" y2="12" stroke="#1F6F52" stroke-width="1.4" stroke-linecap="round"></line>
             </svg>
-            <span style="font-size: 14px; color: #4A4235; flex-grow: 1;">Invoicing &amp; billing</span>
+            <span data-i18n="area3_title" style="font-size: 14px; color: #4A4235; flex-grow: 1;">Invoicing &amp; billing</span>
             <svg class="chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" stroke="#A69C86" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
           </div>
           <div style="display: flex; align-items: center; gap: 6px; height: 16px;">
             <div style="flex-grow: 1; height: 4px; border-radius: 2px; background: #EDE7D8; overflow: hidden;">
               <div style="height: 100%; border-radius: 2px; background: #6EE7B7; width: 0%; animation: miniFill 9.6s ease-in-out infinite; animation-delay: 2.4s;"></div>
             </div>
-            <span style="font-size: 11px; color: #8A8064; font-family: 'JetBrains Mono', monospace; flex-shrink: 0;">invoice sent</span>
+            <span data-i18n="area3_label" style="font-size: 11px; color: #8A8064; font-family: 'JetBrains Mono', monospace; flex-shrink: 0;">invoice sent</span>
           </div>
         </summary>
-        <p style="margin: 12px 0 0 0; font-size: 13.5px; line-height: 1.55; color: #6B6152;">Building the same invoice by hand every month, then chasing people to pay it. The agent generates it, sends it, and follows up for you.</p>
+        <p data-i18n="area3_desc" style="margin: 12px 0 0 0; font-size: 13.5px; line-height: 1.55; color: #6B6152;">Building the same invoice by hand every month, then chasing people to pay it. The agent generates it, sends it, and follows up for you.</p>
       </details>
 
-      <details class="area-card" style="--hl: #6EE7B7; animation: areaHighlight 9.6s ease-in-out infinite; animation-delay: 3.6s; display: flex; flex-direction: column; gap: 10px; padding: 14px 16px; border-radius: 10px; border: 1.5px solid #E2D8C6; background: #FDFBF6;">
+      <details class="area-card reveal" style="--hl: #6EE7B7; animation: areaHighlight 9.6s ease-in-out infinite; animation-delay: 3.6s; display: flex; flex-direction: column; gap: 10px; padding: 14px 16px; border-radius: 10px; border: 1.5px solid #E2D8C6; background: #FDFBF6;">
         <summary style="display: flex; flex-direction: column; gap: 10px; cursor: pointer;">
           <div style="display: flex; align-items: center; gap: 10px;">
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
               <rect x="2" y="4" width="14" height="10" rx="1.5" stroke="#1F6F52" stroke-width="1.4"></rect>
               <path d="M2.6 5l6.4 5 6.4-5" stroke="#1F6F52" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path>
             </svg>
-            <span style="font-size: 14px; color: #4A4235; flex-grow: 1;">Email inbox triage</span>
+            <span data-i18n="area4_title" style="font-size: 14px; color: #4A4235; flex-grow: 1;">Email inbox triage</span>
             <svg class="chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" stroke="#A69C86" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
           </div>
           <div style="display: flex; align-items: center; gap: 6px; height: 16px;">
             <svg width="16" height="12" viewBox="0 0 16 12" fill="none" aria-hidden="true"><rect x="1" y="1" width="14" height="10" rx="1.3" stroke="#D9CDB4" stroke-width="1.2"></rect></svg>
             <svg width="14" height="10" viewBox="0 0 14 10" fill="none" aria-hidden="true" style="animation: miniSlide 9.6s ease-in-out infinite; animation-delay: 3.6s;"><path d="M1 5h10M7 1l4 4-4 4" stroke="#1F6F52" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-            <span style="font-size: 11px; color: #8A8064; font-family: 'JetBrains Mono', monospace;">reply drafted</span>
+            <span data-i18n="area4_label" style="font-size: 11px; color: #8A8064; font-family: 'JetBrains Mono', monospace;">reply drafted</span>
           </div>
         </summary>
-        <p style="margin: 12px 0 0 0; font-size: 13.5px; line-height: 1.55; color: #6B6152;">An inbox full of things that all need a reply eventually. The agent sorts what&rsquo;s urgent, drafts responses, and only flags what truly needs your judgment.</p>
+        <p data-i18n="area4_desc" style="margin: 12px 0 0 0; font-size: 13.5px; line-height: 1.55; color: #6B6152;">An inbox full of things that all need a reply eventually. The agent sorts what&rsquo;s urgent, drafts responses, and only flags what truly needs your judgment.</p>
       </details>
 
-      <details class="area-card" style="--hl: #6EE7B7; animation: areaHighlight 9.6s ease-in-out infinite; animation-delay: 4.8s; display: flex; flex-direction: column; gap: 10px; padding: 14px 16px; border-radius: 10px; border: 1.5px solid #E2D8C6; background: #FDFBF6;">
+      <details class="area-card reveal" style="--hl: #6EE7B7; animation: areaHighlight 9.6s ease-in-out infinite; animation-delay: 4.8s; display: flex; flex-direction: column; gap: 10px; padding: 14px 16px; border-radius: 10px; border: 1.5px solid #E2D8C6; background: #FDFBF6;">
         <summary style="display: flex; flex-direction: column; gap: 10px; cursor: pointer;">
           <div style="display: flex; align-items: center; gap: 10px;">
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -703,20 +595,20 @@
               <rect x="7.7" y="6.5" width="2.6" height="8.5" rx="0.6" stroke="#1F6F52" stroke-width="1.4"></rect>
               <rect x="11.9" y="3" width="2.6" height="12" rx="0.6" stroke="#1F6F52" stroke-width="1.4"></rect>
             </svg>
-            <span style="font-size: 14px; color: #4A4235; flex-grow: 1;">Data entry &amp; reports</span>
+            <span data-i18n="area5_title" style="font-size: 14px; color: #4A4235; flex-grow: 1;">Data entry &amp; reports</span>
             <svg class="chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" stroke="#A69C86" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
           </div>
           <div style="display: flex; align-items: flex-end; gap: 3px; height: 16px;">
             <div style="width: 5px; border-radius: 1.5px; background: #6EE7B7; height: 3px; animation: miniGrow 9.6s ease-in-out infinite; animation-delay: 4.8s; --bar-h: 10px;"></div>
             <div style="width: 5px; border-radius: 1.5px; background: #6EE7B7; height: 3px; animation: miniGrow 9.6s ease-in-out infinite; animation-delay: 4.9s; --bar-h: 16px;"></div>
             <div style="width: 5px; border-radius: 1.5px; background: #6EE7B7; height: 3px; animation: miniGrow 9.6s ease-in-out infinite; animation-delay: 5s; --bar-h: 8px;"></div>
-            <span style="font-size: 11px; color: #8A8064; font-family: 'JetBrains Mono', monospace; margin-left: 5px;">report updated</span>
+            <span data-i18n="area5_label" style="font-size: 11px; color: #8A8064; font-family: 'JetBrains Mono', monospace; margin-left: 5px;">report updated</span>
           </div>
         </summary>
-        <p style="margin: 12px 0 0 0; font-size: 13.5px; line-height: 1.55; color: #6B6152;">Copying the same numbers from one spreadsheet or system into another, every single week. The agent pulls the data and keeps your report current without you touching it.</p>
+        <p data-i18n="area5_desc" style="margin: 12px 0 0 0; font-size: 13.5px; line-height: 1.55; color: #6B6152;">Copying the same numbers from one spreadsheet or system into another, every single week. The agent pulls the data and keeps your report current without you touching it.</p>
       </details>
 
-      <details class="area-card" style="--hl: #6EE7B7; animation: areaHighlight 9.6s ease-in-out infinite; animation-delay: 6s; display: flex; flex-direction: column; gap: 10px; padding: 14px 16px; border-radius: 10px; border: 1.5px solid #E2D8C6; background: #FDFBF6;">
+      <details class="area-card reveal" style="--hl: #6EE7B7; animation: areaHighlight 9.6s ease-in-out infinite; animation-delay: 6s; display: flex; flex-direction: column; gap: 10px; padding: 14px 16px; border-radius: 10px; border: 1.5px solid #E2D8C6; background: #FDFBF6;">
         <summary style="display: flex; flex-direction: column; gap: 10px; cursor: pointer;">
           <div style="display: flex; align-items: center; gap: 10px;">
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -724,122 +616,122 @@
               <path d="M2.5 6 9 9.5 15.5 6" stroke="#1F6F52" stroke-width="1.4" stroke-linejoin="round"></path>
               <line x1="9" y1="9.5" x2="9" y2="15.5" stroke="#1F6F52" stroke-width="1.4"></line>
             </svg>
-            <span style="font-size: 14px; color: #4A4235; flex-grow: 1;">Order &amp; inventory tracking</span>
+            <span data-i18n="area6_title" style="font-size: 14px; color: #4A4235; flex-grow: 1;">Order &amp; inventory tracking</span>
             <svg class="chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" stroke="#A69C86" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
           </div>
           <div style="display: flex; align-items: center; gap: 6px; height: 16px; position: relative;">
             <div style="width: 60px; height: 2px; background: #E2D8C6; border-radius: 1px; position: relative; flex-shrink: 0;">
               <div style="width: 10px; height: 10px; border-radius: 2px; background: #6EE7B7; position: absolute; top: -4px; left: 0; animation: miniBoxMove 9.6s ease-in-out infinite; animation-delay: 6s;"></div>
             </div>
-            <span style="font-size: 11px; color: #8A8064; font-family: 'JetBrains Mono', monospace;">stock updated</span>
+            <span data-i18n="area6_label" style="font-size: 11px; color: #8A8064; font-family: 'JetBrains Mono', monospace;">stock updated</span>
           </div>
         </summary>
-        <p style="margin: 12px 0 0 0; font-size: 13.5px; line-height: 1.55; color: #6B6152;">Checking stock by hand and updating it after every sale. The agent tracks inventory in real time and tells you when it&rsquo;s time to reorder.</p>
+        <p data-i18n="area6_desc" style="margin: 12px 0 0 0; font-size: 13.5px; line-height: 1.55; color: #6B6152;">Checking stock by hand and updating it after every sale. The agent tracks inventory in real time and tells you when it&rsquo;s time to reorder.</p>
       </details>
 
-      <details class="area-card" style="--hl: #6EE7B7; animation: areaHighlight 9.6s ease-in-out infinite; animation-delay: 7.2s; display: flex; flex-direction: column; gap: 10px; padding: 14px 16px; border-radius: 10px; border: 1.5px solid #E2D8C6; background: #FDFBF6;">
+      <details class="area-card reveal" style="--hl: #6EE7B7; animation: areaHighlight 9.6s ease-in-out infinite; animation-delay: 7.2s; display: flex; flex-direction: column; gap: 10px; padding: 14px 16px; border-radius: 10px; border: 1.5px solid #E2D8C6; background: #FDFBF6;">
         <summary style="display: flex; flex-direction: column; gap: 10px; cursor: pointer;">
           <div style="display: flex; align-items: center; gap: 10px;">
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
               <circle cx="9" cy="6" r="2.6" stroke="#1F6F52" stroke-width="1.4"></circle>
               <path d="M3.5 15.5c0-3 2.5-5 5.5-5s5.5 2 5.5 5" stroke="#1F6F52" stroke-width="1.4" stroke-linecap="round"></path>
             </svg>
-            <span style="font-size: 14px; color: #4A4235; flex-grow: 1;">Lead follow-ups</span>
+            <span data-i18n="area7_title" style="font-size: 14px; color: #4A4235; flex-grow: 1;">Lead follow-ups</span>
             <svg class="chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" stroke="#A69C86" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
           </div>
           <div style="display: flex; align-items: center; gap: 6px; height: 16px;">
             <div style="width: 36px; height: 13px; border-radius: 7px; background: #EDE7D8; border: 1px solid #D9CDB4;"></div>
             <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" style="opacity: 0; animation: miniAppear 9.6s ease-in-out infinite; animation-delay: 7.2s;"><path d="M2 6.2 4.5 8.7 10 3" fill="none" stroke="#1F6F52" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-            <span style="font-size: 11px; color: #8A8064; font-family: 'JetBrains Mono', monospace;">follow-up sent</span>
+            <span data-i18n="area7_label" style="font-size: 11px; color: #8A8064; font-family: 'JetBrains Mono', monospace;">follow-up sent</span>
           </div>
         </summary>
-        <p style="margin: 12px 0 0 0; font-size: 13.5px; line-height: 1.55; color: #6B6152;">A new lead comes in and then nothing, because you got busy. The agent follows up right away and keeps following up until they respond.</p>
+        <p data-i18n="area7_desc" style="margin: 12px 0 0 0; font-size: 13.5px; line-height: 1.55; color: #6B6152;">A new lead comes in and then nothing, because you got busy. The agent follows up right away and keeps following up until they respond.</p>
       </details>
 
-      <details class="area-card" style="--hl: #6EE7B7; animation: areaHighlight 9.6s ease-in-out infinite; animation-delay: 8.4s; display: flex; flex-direction: column; gap: 10px; padding: 14px 16px; border-radius: 10px; border: 1.5px solid #E2D8C6; background: #FDFBF6;">
+      <details class="area-card reveal" style="--hl: #6EE7B7; animation: areaHighlight 9.6s ease-in-out infinite; animation-delay: 8.4s; display: flex; flex-direction: column; gap: 10px; padding: 14px 16px; border-radius: 10px; border: 1.5px solid #E2D8C6; background: #FDFBF6;">
         <summary style="display: flex; flex-direction: column; gap: 10px; cursor: pointer;">
           <div style="display: flex; align-items: center; gap: 10px;">
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
               <path d="M9 15s-5.8-3.4-5.8-7.4c0-2 1.6-3.4 3.4-3.4 1.1 0 2 .5 2.4 1.3.4-.8 1.3-1.3 2.4-1.3 1.8 0 3.4 1.4 3.4 3.4C15.8 11.6 9 15 9 15Z" stroke="#1F6F52" stroke-width="1.4" stroke-linejoin="round"></path>
             </svg>
-            <span style="font-size: 14px; color: #4A4235; flex-grow: 1;">Social media replies</span>
+            <span data-i18n="area8_title" style="font-size: 14px; color: #4A4235; flex-grow: 1;">Social media replies</span>
             <svg class="chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" stroke="#A69C86" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
           </div>
           <div style="display: flex; align-items: center; gap: 6px; height: 16px;">
             <div style="width: 15px; height: 15px; border-radius: 3px; background: #EDE7D8; border: 1px solid #D9CDB4; flex-shrink: 0;"></div>
             <div style="width: 32px; height: 13px; border-radius: 7px; background: #6EE7B7; opacity: 0; animation: miniAppear 9.6s ease-in-out infinite; animation-delay: 8.4s;"></div>
-            <span style="font-size: 11px; color: #8A8064; font-family: 'JetBrains Mono', monospace;">comment answered</span>
+            <span data-i18n="area8_label" style="font-size: 11px; color: #8A8064; font-family: 'JetBrains Mono', monospace;">comment answered</span>
           </div>
         </summary>
-        <p style="margin: 12px 0 0 0; font-size: 13.5px; line-height: 1.55; color: #6B6152;">Comments and DMs piling up on posts you don&rsquo;t have time to check. The agent replies to common questions so nobody gets ignored.</p>
+        <p data-i18n="area8_desc" style="margin: 12px 0 0 0; font-size: 13.5px; line-height: 1.55; color: #6B6152;">Comments and DMs piling up on posts you don&rsquo;t have time to check. The agent replies to common questions so nobody gets ignored.</p>
       </details>
 
     </div>
   </div>
 
-  <div style="width: 100%; max-width: 1040px; padding: 56px 48px 8px 48px; box-sizing: border-box; display: flex; flex-direction: column; gap: 24px;">
-    <div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; letter-spacing: 0.09em; text-transform: uppercase; color: #1F6F52;">See it in action</div>
-    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px;">
+  <div class="section-pad" style="width: 100%; max-width: 1040px; padding: 56px 48px 8px 48px; box-sizing: border-box; display: flex; flex-direction: column; gap: 24px;">
+    <div data-i18n="action_eyebrow" style="font-family: 'JetBrains Mono', monospace; font-size: 14px; letter-spacing: 0.09em; text-transform: uppercase; color: #1F6F52;">See it in action</div>
+    <div class="grid-action" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px;">
 
-      <div style="background: #FDFBF6; border: 1px solid #E2D8C6; border-radius: 12px; padding: 22px; display: flex; flex-direction: column; gap: 16px;">
+      <div class="reveal" style="background: #FDFBF6; border: 1px solid #E2D8C6; border-radius: 12px; padding: 22px; display: flex; flex-direction: column; gap: 16px;">
         <div style="display: flex; align-items: center; gap: 8px;">
           <span style="width: 8px; height: 8px; border-radius: 50%; background: #6EE7B7; display: inline-block; animation: dotPulse 2s ease-in-out infinite;"></span>
-          <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: #6B6152;">AI Agent &middot; Online</span>
+          <span data-i18n="action_status1" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: #6B6152;">AI Agent &middot; Online</span>
         </div>
         <div style="position: relative; height: 150px;">
-          <div style="position: absolute; top: 0; right: 0; max-width: 74%; background: #F1EAD9; color: #241F19; padding: 9px 13px; border-radius: 14px 14px 4px 14px; font-size: 14px; line-height: 1.4; animation: chatMsg1 7s ease-in-out infinite;">Do you have this in size M?</div>
+          <div data-i18n="action_chat1" style="position: absolute; top: 0; right: 0; max-width: 74%; background: #F1EAD9; color: #241F19; padding: 9px 13px; border-radius: 14px 14px 4px 14px; font-size: 14px; line-height: 1.4; animation: chatMsg1 7s ease-in-out infinite;">Do you have this in size M?</div>
           <div style="position: absolute; top: 54px; left: 0; display: flex; gap: 4px; align-items: center; padding: 9px 12px; background: #E6F5EC; border-radius: 14px 14px 14px 4px; animation: chatTyping 7s ease-in-out infinite;">
             <span style="width: 6px; height: 6px; border-radius: 50%; background: #1F6F52; display: inline-block; animation: dotBounce 0.9s ease-in-out infinite;"></span>
             <span style="width: 6px; height: 6px; border-radius: 50%; background: #1F6F52; display: inline-block; animation: dotBounce 0.9s ease-in-out infinite; animation-delay: 0.15s;"></span>
             <span style="width: 6px; height: 6px; border-radius: 50%; background: #1F6F52; display: inline-block; animation: dotBounce 0.9s ease-in-out infinite; animation-delay: 0.3s;"></span>
           </div>
-          <div style="position: absolute; top: 92px; left: 0; max-width: 80%; background: #E6F5EC; color: #1F6F52; padding: 9px 13px; border-radius: 14px 14px 14px 4px; font-size: 14px; line-height: 1.4; animation: chatMsg2 7s ease-in-out infinite;">Yes! Size M is in stock &mdash; want me to add it to your cart?</div>
+          <div data-i18n="action_chat2" style="position: absolute; top: 92px; left: 0; max-width: 80%; background: #E6F5EC; color: #1F6F52; padding: 9px 13px; border-radius: 14px 14px 14px 4px; font-size: 14px; line-height: 1.4; animation: chatMsg2 7s ease-in-out infinite;">Yes! Size M is in stock &mdash; want me to add it to your cart?</div>
         </div>
-        <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #6B6152;">Handles price checks, stock questions and checkout &mdash; instantly, any time of day.</p>
+        <p data-i18n="action_caption1" style="margin: 0; font-size: 14px; line-height: 1.5; color: #6B6152;">Handles price checks, stock questions and checkout &mdash; instantly, any time of day.</p>
       </div>
 
-      <div style="background: #FDFBF6; border: 1px solid #E2D8C6; border-radius: 12px; padding: 22px; display: flex; flex-direction: column; gap: 16px;">
+      <div class="reveal" style="background: #FDFBF6; border: 1px solid #E2D8C6; border-radius: 12px; padding: 22px; display: flex; flex-direction: column; gap: 16px;">
         <div style="display: flex; align-items: center; justify-content: space-between;">
-          <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: #6B6152;">Monthly Invoice</span>
-          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; padding: 3px 8px; border-radius: 4px; background: #E6F5EC; color: #1F6F52; animation: invoiceSent 7s ease-in-out infinite;">Sent &#10003;</span>
+          <span data-i18n="action_invoice_title" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: #6B6152;">Monthly Invoice</span>
+          <span data-i18n="action_sent" style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; padding: 3px 8px; border-radius: 4px; background: #E6F5EC; color: #1F6F52; animation: invoiceSent 7s ease-in-out infinite;">Sent &#10003;</span>
         </div>
         <div style="display: flex; flex-direction: column;">
           <div style="display: flex; align-items: center; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #EFE7DA;">
-            <span style="font-size: 14px; color: #4A4235;">Interpreting session &mdash; 2.5 hrs</span>
+            <span data-i18n="action_item1" style="font-size: 14px; color: #4A4235;">Interpreting session &mdash; 2.5 hrs</span>
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="animation: invoiceCheck1 7s ease-in-out infinite;">
               <circle cx="8" cy="8" r="8" fill="#6EE7B7"></circle>
               <path d="M4.8 8.2l2 2 4.4-4.6" stroke="#16281F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
             </svg>
           </div>
           <div style="display: flex; align-items: center; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #EFE7DA;">
-            <span style="font-size: 14px; color: #4A4235;">Interpreting session &mdash; 1 hr</span>
+            <span data-i18n="action_item2" style="font-size: 14px; color: #4A4235;">Interpreting session &mdash; 1 hr</span>
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="animation: invoiceCheck2 7s ease-in-out infinite;">
               <circle cx="8" cy="8" r="8" fill="#6EE7B7"></circle>
               <path d="M4.8 8.2l2 2 4.4-4.6" stroke="#16281F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
             </svg>
           </div>
           <div style="display: flex; align-items: center; justify-content: space-between; padding: 8px 0;">
-            <span style="font-size: 14px; color: #4A4235;">Interpreting session &mdash; 3 hrs</span>
+            <span data-i18n="action_item3" style="font-size: 14px; color: #4A4235;">Interpreting session &mdash; 3 hrs</span>
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="animation: invoiceCheck3 7s ease-in-out infinite;">
               <circle cx="8" cy="8" r="8" fill="#6EE7B7"></circle>
               <path d="M4.8 8.2l2 2 4.4-4.6" stroke="#16281F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
             </svg>
           </div>
         </div>
-        <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #6B6152;">Logs the month&rsquo;s work and sends the invoice automatically &mdash; no spreadsheet required.</p>
+        <p data-i18n="action_caption2" style="margin: 0; font-size: 14px; line-height: 1.5; color: #6B6152;">Logs the month&rsquo;s work and sends the invoice automatically &mdash; no spreadsheet required.</p>
       </div>
 
     </div>
   </div>
 
-  <div id="work" style="width: 100%; max-width: 1040px; padding: 64px 48px 24px 48px; box-sizing: border-box; display: flex; flex-direction: column; gap: 24px; position: relative;">
+  <div id="work" class="section-pad" style="width: 100%; max-width: 1040px; padding: 64px 48px 24px 48px; box-sizing: border-box; display: flex; flex-direction: column; gap: 24px; position: relative;">
     <div class="bg-blob" style="width: 280px; height: 280px; background: #6EE7B7; opacity: 0.14; top: -60px; right: -60px; z-index: 0;"></div>
     <div style="position: relative; z-index: 1; display: flex; flex-direction: column; gap: 24px;">
-    <div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; letter-spacing: 0.09em; text-transform: uppercase; color: #1F6F52;">Case studies</div>
+    <div data-i18n="work_eyebrow" style="font-family: 'JetBrains Mono', monospace; font-size: 14px; letter-spacing: 0.09em; text-transform: uppercase; color: #1F6F52;">Case studies</div>
 
-    <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px;">
+    <div class="grid-case" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px;">
 
-      <div class="case-card" style="--hoverColor: #1F6F52; background: #FDFBF6; border: 1px solid #E2D8C6; border-radius: 10px; padding: 24px; display: flex; flex-direction: column; gap: 14px;">
+      <div class="case-card reveal" style="--hoverColor: #1F6F52; background: #FDFBF6; border: 1px solid #E2D8C6; border-radius: 10px; padding: 24px; display: flex; flex-direction: column; gap: 14px;">
         <div style="display: flex; align-items: center; gap: 10px;">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <rect x="3" y="4.5" width="14" height="12" rx="2" stroke="#1F6F52" stroke-width="1.5"></rect>
@@ -847,34 +739,34 @@
             <line x1="7" y1="2.5" x2="7" y2="5.5" stroke="#1F6F52" stroke-width="1.5" stroke-linecap="round"></line>
             <line x1="13" y1="2.5" x2="13" y2="5.5" stroke="#1F6F52" stroke-width="1.5" stroke-linecap="round"></line>
           </svg>
-          <h3 style="margin: 0; font-weight: 600; font-size: 20px; color: #241F19;">Scheduling &amp; Invoicing Agent</h3>
+          <h3 data-i18n="case1_title" style="margin: 0; font-weight: 600; font-size: 20px; color: #241F19;">Scheduling &amp; Invoicing Agent</h3>
         </div>
-        <p style="margin: 0; font-size: 14.5px; line-height: 1.6; color: #6B6152; flex-grow: 1;">A CrewAI-based system built for a freelance interpreter: reads job emails, updates the calendar, and drafts the monthly invoice automatically.</p>
+        <p data-i18n="case1_desc" style="margin: 0; font-size: 14.5px; line-height: 1.6; color: #6B6152; flex-grow: 1;">A CrewAI-based system built for a freelance interpreter: reads job emails, updates the calendar, and drafts the monthly invoice automatically.</p>
         <div style="display: flex; gap: 8px; flex-wrap: wrap;">
           <span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.04em; padding: 4px 9px; background: #E6F5EC; border-radius: 4px; color: #1F6F52;">CrewAI</span>
           <span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.04em; padding: 4px 9px; background: #E6F5EC; border-radius: 4px; color: #1F6F52;">Gmail API</span>
           <span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.04em; padding: 4px 9px; background: #E6F5EC; border-radius: 4px; color: #1F6F52;">Python</span>
         </div>
-        <a href="https://github.com/nadcodegit/Scheduler-Agent" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #241F19; border-bottom: 1px solid #241F19; width: fit-content; padding-top: 2px;">View the code &nearr;</a>
+        <a href="https://github.com/nadcodegit/Scheduler-Agent" data-i18n="case_link" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #241F19; border-bottom: 1px solid #241F19; width: fit-content; padding-top: 2px;">View the code &nearr;</a>
       </div>
 
-      <div class="case-card" style="--hoverColor: #1F6F52; background: #FDFBF6; border: 1px solid #E2D8C6; border-radius: 10px; padding: 24px; display: flex; flex-direction: column; gap: 14px;">
+      <div class="case-card reveal" style="--hoverColor: #1F6F52; background: #FDFBF6; border: 1px solid #E2D8C6; border-radius: 10px; padding: 24px; display: flex; flex-direction: column; gap: 14px;">
         <div style="display: flex; align-items: center; gap: 10px;">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <path d="M3 5.5A2.5 2.5 0 0 1 5.5 3h9A2.5 2.5 0 0 1 17 5.5v5A2.5 2.5 0 0 1 14.5 13H8l-4 3.2V13H5.5A2.5 2.5 0 0 1 3 10.5v-5Z" stroke="#1F6F52" stroke-width="1.5" stroke-linejoin="round"></path>
           </svg>
-          <h3 style="margin: 0; font-weight: 600; font-size: 20px; color: #241F19;">Instagram Sales Assistant</h3>
+          <h3 data-i18n="case2_title" style="margin: 0; font-weight: 600; font-size: 20px; color: #241F19;">Instagram Sales Assistant</h3>
         </div>
-        <p style="margin: 0; font-size: 14.5px; line-height: 1.6; color: #6B6152; flex-grow: 1;">Built for Bella Charm London, a small Instagram shop: a LangGraph agent that handles price inquiries, browsing and checkout, deployed on Railway.</p>
+        <p data-i18n="case2_desc" style="margin: 0; font-size: 14.5px; line-height: 1.6; color: #6B6152; flex-grow: 1;">Built for Bella Charm London, a small Instagram shop: a LangGraph agent that handles price inquiries, browsing and checkout, deployed on Railway.</p>
         <div style="display: flex; gap: 8px; flex-wrap: wrap;">
           <span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.04em; padding: 4px 9px; background: #E6F5EC; border-radius: 4px; color: #1F6F52;">LangGraph</span>
           <span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.04em; padding: 4px 9px; background: #E6F5EC; border-radius: 4px; color: #1F6F52;">Railway</span>
           <span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.04em; padding: 4px 9px; background: #E6F5EC; border-radius: 4px; color: #1F6F52;">SQLite</span>
         </div>
-        <a href="https://github.com/nadcodegit/Customer-Instagram-DM-Agent-Bella-charm" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #241F19; border-bottom: 1px solid #241F19; width: fit-content; padding-top: 2px;">View the code &nearr;</a>
+        <a href="https://github.com/nadcodegit/Customer-Instagram-DM-Agent-Bella-charm" data-i18n="case_link" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #241F19; border-bottom: 1px solid #241F19; width: fit-content; padding-top: 2px;">View the code &nearr;</a>
       </div>
 
-      <div class="case-card" style="--hoverColor: #1F6F52; background: #FDFBF6; border: 1px solid #E2D8C6; border-radius: 10px; padding: 24px; display: flex; flex-direction: column; gap: 14px;">
+      <div class="case-card reveal" style="--hoverColor: #1F6F52; background: #FDFBF6; border: 1px solid #E2D8C6; border-radius: 10px; padding: 24px; display: flex; flex-direction: column; gap: 14px;">
         <div style="display: flex; align-items: center; gap: 10px;">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <line x1="4" y1="17" x2="16" y2="17" stroke="#1F6F52" stroke-width="1.5" stroke-linecap="round"></line>
@@ -882,28 +774,28 @@
             <rect x="9.5" y="6" width="3" height="10" rx="0.8" stroke="#1F6F52" stroke-width="1.5"></rect>
             <rect x="14" y="3" width="3" height="13" rx="0.8" stroke="#1F6F52" stroke-width="1.5"></rect>
           </svg>
-          <h3 style="margin: 0; font-weight: 600; font-size: 20px; color: #241F19;">Data Analysis Assistant</h3>
+          <h3 data-i18n="case3_title" style="margin: 0; font-weight: 600; font-size: 20px; color: #241F19;">Data Analysis Assistant</h3>
         </div>
-        <p style="margin: 0; font-size: 14.5px; line-height: 1.6; color: #6B6152; flex-grow: 1;">A Streamlit app that lets non-technical users explore CSV data in plain language, with automatic fallback across LLM providers.</p>
+        <p data-i18n="case3_desc" style="margin: 0; font-size: 14.5px; line-height: 1.6; color: #6B6152; flex-grow: 1;">A Streamlit app that lets non-technical users explore CSV data in plain language, with automatic fallback across LLM providers.</p>
         <div style="display: flex; gap: 8px; flex-wrap: wrap;">
           <span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.04em; padding: 4px 9px; background: #E6F5EC; border-radius: 4px; color: #1F6F52;">Streamlit</span>
           <span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.04em; padding: 4px 9px; background: #E6F5EC; border-radius: 4px; color: #1F6F52;">OpenRouter</span>
           <span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.04em; padding: 4px 9px; background: #E6F5EC; border-radius: 4px; color: #1F6F52;">pandas</span>
         </div>
-        <a href="https://github.com/nadcodegit/ai-csv-analyzer" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #241F19; border-bottom: 1px solid #241F19; width: fit-content; padding-top: 2px;">View the code &nearr;</a>
+        <a href="https://github.com/nadcodegit/ai-csv-analyzer" data-i18n="case_link" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #241F19; border-bottom: 1px solid #241F19; width: fit-content; padding-top: 2px;">View the code &nearr;</a>
       </div>
 
     </div>
 
     <div style="display: flex; align-items: baseline; gap: 10px; padding: 18px 4px 0 4px; border-top: 1px solid #E2D8C6; margin-top: 8px;">
-      <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; padding: 3px 8px; background: #E6F5EC; border-radius: 4px; color: #1F6F52;">In progress</span>
-      <span style="font-size: 15px; color: #6B6152;">Sourcing Agent &mdash; automated product search and price comparison</span>
+      <span data-i18n="work_badge" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; padding: 3px 8px; background: #E6F5EC; border-radius: 4px; color: #1F6F52;">In progress</span>
+      <span data-i18n="work_progress_text" style="font-size: 15px; color: #6B6152;">Sourcing Agent &mdash; automated product search and price comparison</span>
     </div>
     </div>
   </div>
 
-  <div style="width: 100%; max-width: 1040px; padding: 56px 48px 72px 48px; box-sizing: border-box; display: flex; flex-direction: column; gap: 18px;">
-    <div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; letter-spacing: 0.09em; text-transform: uppercase; color: #1F6F52;">Our stack</div>
+  <div class="section-pad" style="width: 100%; max-width: 1040px; padding: 56px 48px 72px 48px; box-sizing: border-box; display: flex; flex-direction: column; gap: 18px;">
+    <div data-i18n="stack_eyebrow" style="font-family: 'JetBrains Mono', monospace; font-size: 14px; letter-spacing: 0.09em; text-transform: uppercase; color: #1F6F52;">Our stack</div>
     <div style="display: flex; flex-wrap: wrap; gap: 10px;">
       <span style="font-size: 14.5px; padding: 8px 14px; background: #FDFBF6; border: 1px solid #E2D8C6; border-radius: 20px; color: #4A4235;">Python (pandas, numpy)</span>
       <span style="font-size: 14.5px; padding: 8px 14px; background: #FDFBF6; border: 1px solid #E2D8C6; border-radius: 20px; color: #4A4235;">SQL</span>
@@ -918,55 +810,55 @@
     </div>
   </div>
 
-  <div style="width: 100%; background: #221D18; display: flex; justify-content: center;">
-    <div style="width: 100%; max-width: 1040px; padding: 64px 48px; box-sizing: border-box; display: flex; flex-direction: column; gap: 6px;">
-      <div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; letter-spacing: 0.09em; text-transform: uppercase; color: #6EE7B7; margin-bottom: 12px;">How we work</div>
+  <div style="width: 100%; background: radial-gradient(900px 480px at 85% -15%, rgba(110,231,183,0.09), transparent 60%), radial-gradient(700px 420px at 5% 115%, rgba(110,231,183,0.05), transparent 55%), #221D18; display: flex; justify-content: center;">
+    <div class="section-pad" style="width: 100%; max-width: 1040px; padding: 64px 48px; box-sizing: border-box; display: flex; flex-direction: column; gap: 6px;">
+      <div data-i18n="how_eyebrow" style="font-family: 'JetBrains Mono', monospace; font-size: 14px; letter-spacing: 0.09em; text-transform: uppercase; color: #6EE7B7; margin-bottom: 12px;">How we work</div>
 
-      <div class="step-row" style="display: flex; align-items: baseline; justify-content: space-between; gap: 24px; padding: 22px 0; border-bottom: 1px solid #3A332B;">
-        <div style="font-weight: 700; font-size: 46px; color: #F7F3EC; letter-spacing: -0.01em;">Discover</div>
+      <div class="step-row reveal" style="display: flex; align-items: baseline; justify-content: space-between; gap: 24px; padding: 22px 0; border-bottom: 1px solid #3A332B;">
+        <div class="step-title" data-i18n="how1_title" style="font-weight: 700; font-size: 46px; color: #F7F3EC; letter-spacing: -0.01em;">Discover</div>
         <div style="font-family: 'JetBrains Mono', monospace; font-size: 18px; color: #6EE7B7; flex-shrink: 0;">{01}</div>
       </div>
       <div style="padding: 0 0 22px 0; border-bottom: 1px solid #3A332B;">
-        <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #B8AD9C; max-width: 560px;">We map out the repetitive parts of your day and figure out which ones are worth automating first.</p>
+        <p data-i18n="how1_desc" style="margin: 0; font-size: 15px; line-height: 1.6; color: #B8AD9C; max-width: 560px;">We map out the repetitive parts of your day and figure out which ones are worth automating first.</p>
       </div>
 
-      <div class="step-row" style="display: flex; align-items: baseline; justify-content: space-between; gap: 24px; padding: 22px 0; border-bottom: 1px solid #3A332B;">
-        <div style="font-weight: 700; font-size: 46px; color: #F7F3EC; letter-spacing: -0.01em;">Build</div>
+      <div class="step-row reveal" style="display: flex; align-items: baseline; justify-content: space-between; gap: 24px; padding: 22px 0; border-bottom: 1px solid #3A332B;">
+        <div class="step-title" data-i18n="how2_title" style="font-weight: 700; font-size: 46px; color: #F7F3EC; letter-spacing: -0.01em;">Build</div>
         <div style="font-family: 'JetBrains Mono', monospace; font-size: 18px; color: #6EE7B7; flex-shrink: 0;">{02}</div>
       </div>
       <div style="padding: 0 0 22px 0; border-bottom: 1px solid #3A332B;">
-        <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #B8AD9C; max-width: 560px;">We design, build and test a custom AI agent using the tools you already work with &mdash; no new software to learn.</p>
+        <p data-i18n="how2_desc" style="margin: 0; font-size: 15px; line-height: 1.6; color: #B8AD9C; max-width: 560px;">We design, build and test a custom AI agent using the tools you already work with &mdash; no new software to learn.</p>
       </div>
 
-      <div class="step-row" style="display: flex; align-items: baseline; justify-content: space-between; gap: 24px; padding: 22px 0;">
-        <div style="font-weight: 700; font-size: 46px; color: #F7F3EC; letter-spacing: -0.01em;">Support</div>
+      <div class="step-row reveal" style="display: flex; align-items: baseline; justify-content: space-between; gap: 24px; padding: 22px 0;">
+        <div class="step-title" data-i18n="how3_title" style="font-weight: 700; font-size: 46px; color: #F7F3EC; letter-spacing: -0.01em;">Support</div>
         <div style="font-family: 'JetBrains Mono', monospace; font-size: 18px; color: #6EE7B7; flex-shrink: 0;">{03}</div>
       </div>
       <div>
-        <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #B8AD9C; max-width: 560px;">Once it&rsquo;s live, we monitor it, fix edge cases, and improve it as your business changes.</p>
+        <p data-i18n="how3_desc" style="margin: 0; font-size: 15px; line-height: 1.6; color: #B8AD9C; max-width: 560px;">Once it&rsquo;s live, we monitor it, fix edge cases, and improve it as your business changes.</p>
       </div>
     </div>
   </div>
 
-  <div style="width: 100%; background: #6EE7B7; display: flex; justify-content: center;">
-    <div style="width: 100%; max-width: 1040px; padding: 64px 48px; box-sizing: border-box; display: flex; flex-direction: column; gap: 18px;">
-      <div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; letter-spacing: 0.09em; text-transform: uppercase; color: #16281F;">Ready to automate?</div>
-      <h2 style="margin: 0; font-weight: 700; font-size: 40px; color: #16281F; max-width: 640px;">Want to automate part of your business?</h2>
-      <p style="margin: 0; font-size: 17px; line-height: 1.7; color: #1E3A2C; max-width: 620px;">If you&rsquo;d rather hand the repetitive parts of your work to a reliable digital employee than keep doing them yourself, we can help you build it &mdash; a custom AI agent that takes care of the task, so you don&rsquo;t have to.</p>
-      <button type="button" class="btn-primary" data-scroll="contact" style="background: #16281F; color: #F7F3EC; font-weight: 600; font-size: 16px; padding: 16px 30px; border-radius: 8px; width: fit-content; margin-top: 8px; border: none; cursor: pointer; font-family: 'Space Grotesk', sans-serif;">Let&rsquo;s talk</button>
+  <div style="width: 100%; background: radial-gradient(700px 380px at 92% -20%, rgba(255,255,255,0.22), transparent 60%), #6EE7B7; display: flex; justify-content: center;">
+    <div class="section-pad reveal" style="width: 100%; max-width: 1040px; padding: 64px 48px; box-sizing: border-box; display: flex; flex-direction: column; gap: 18px;">
+      <div data-i18n="cta_eyebrow" style="font-family: 'JetBrains Mono', monospace; font-size: 14px; letter-spacing: 0.09em; text-transform: uppercase; color: #16281F;">Ready to automate?</div>
+      <h2 class="cta-heading" data-i18n="cta_heading" style="margin: 0; font-weight: 700; font-size: 40px; color: #16281F; max-width: 640px;">Want to automate part of your business?</h2>
+      <p data-i18n="cta_para" style="margin: 0; font-size: 17px; line-height: 1.7; color: #1E3A2C; max-width: 620px;">If you&rsquo;d rather hand the repetitive parts of your work to a reliable digital employee than keep doing them yourself, we can help you build it &mdash; a custom AI agent that takes care of the task, so you don&rsquo;t have to.</p>
+      <button type="button" class="btn-primary" data-i18n="cta_btn" data-scroll="contact" style="background: #16281F; color: #F7F3EC; font-weight: 600; font-size: 16px; padding: 16px 30px; border-radius: 8px; width: fit-content; margin-top: 8px; border: none; cursor: pointer; font-family: 'Space Grotesk', sans-serif;">Let&rsquo;s talk</button>
     </div>
   </div>
 
-  <div id="contact" style="width: 100%; background: #221D18; display: flex; justify-content: center;">
-    <div style="width: 100%; max-width: 1040px; padding: 64px 48px; box-sizing: border-box; display: flex; flex-direction: column; gap: 24px;">
-      <div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; letter-spacing: 0.09em; text-transform: uppercase; color: #6EE7B7;">Get in touch</div>
-      <h2 style="margin: 0; font-weight: 700; font-size: 42px; color: #F7F3EC;">Let&rsquo;s build something.</h2>
+  <div id="contact" style="width: 100%; background: radial-gradient(900px 480px at 10% -15%, rgba(110,231,183,0.08), transparent 60%), radial-gradient(700px 420px at 95% 115%, rgba(110,231,183,0.05), transparent 55%), #221D18; display: flex; justify-content: center;">
+    <div class="section-pad reveal" style="width: 100%; max-width: 1040px; padding: 64px 48px; box-sizing: border-box; display: flex; flex-direction: column; gap: 24px;">
+      <div data-i18n="contact_eyebrow" style="font-family: 'JetBrains Mono', monospace; font-size: 14px; letter-spacing: 0.09em; text-transform: uppercase; color: #6EE7B7;">Get in touch</div>
+      <h2 class="contact-heading" data-i18n="contact_heading" style="margin: 0; font-weight: 700; font-size: 42px; color: #F7F3EC;">Let&rsquo;s build something.</h2>
       <div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: baseline; padding-top: 8px;">
         <a class="footer-link" href="mailto:nadereh.vosooghfar@gmail.com" style="font-size: 16px; color: #F7F3EC; border-bottom: 1px solid #6EE7B7;">nadereh.vosooghfar@gmail.com</a>
-        <a class="footer-link" href="https://www.linkedin.com/in/nadereh-vosooghfar/" style="font-size: 16px; color: #F7F3EC; border-bottom: 1px solid #6EE7B7;">Message on LinkedIn</a>
+        <a class="footer-link" data-i18n="contact_linkedin" href="https://www.linkedin.com/in/nadereh-vosooghfar/" style="font-size: 16px; color: #F7F3EC; border-bottom: 1px solid #6EE7B7;">Message on LinkedIn</a>
         <a class="footer-link" href="https://github.com/nadcodegit" style="font-size: 16px; color: #F7F3EC; border-bottom: 1px solid #6EE7B7;">github.com/nadcodegit</a>
-        <span style="font-family: 'JetBrains Mono', monospace; font-size: 13.5px; color: #9A9083;">Sydney, Australia</span>
-        <span style="font-family: 'JetBrains Mono', monospace; font-size: 13.5px; color: #9A9083;">Client support in English, Farsi &amp; Turkish</span>
+        <span data-i18n="contact_location" style="font-family: 'JetBrains Mono', monospace; font-size: 13.5px; color: #9A9083;">Sydney, Australia</span>
+        <span data-i18n="contact_support" style="font-family: 'JetBrains Mono', monospace; font-size: 13.5px; color: #9A9083;">Client support in English, Farsi &amp; Turkish</span>
       </div>
     </div>
   </div>
@@ -1011,6 +903,244 @@
     });
   }, { threshold: 0.4 });
   counters.forEach(function (el) { observer.observe(el); });
+})();
+
+(function () {
+  var STR = {
+  "en": {
+    "nav_services": "Services",
+    "nav_work": "Work",
+    "nav_contact": "Contact",
+    "hero_eyebrow": "AI agents for small business",
+    "hero_heading": "AI agents that run your business’s <mark style="background:#6EE7B7;color:#16281F;padding:2px 10px;border-radius:6px;font-style:normal;">busywork</mark>.",
+    "hero_para": "Nauto AI designs and builds custom AI agents for small businesses — automating the repetitive parts of the day so you can focus on running things.",
+    "hero_btn_primary": "Book a call",
+    "hero_btn_secondary": "See our work",
+    "stat1_label": "Agents shipped",
+    "stat2_label": "Automation areas",
+    "stat3_label": "Languages supported",
+    "stat4_label": "Tools in the stack",
+    "scenes_eyebrow": "Behind the scenes",
+    "scenes_heading": "Every agent is hand-built, not templated.",
+    "scenes_para": "No drag-and-drop black box. Each project starts from your actual workflow and gets coded, tested and tuned until it fits — small crew, real code, full attention on the details.",
+    "services_eyebrow": "What we do",
+    "svc1_title": "Custom AI Agents",
+    "svc1_desc": "We design and build AI agents tailored to your workflow — from customer support to scheduling and data entry.",
+    "svc2_title": "Workflow Automation",
+    "svc2_desc": "We connect the tools you already use — email, calendar, spreadsheets — so repetitive tasks run themselves.",
+    "svc3_title": "Ongoing Support",
+    "svc3_desc": "Once your agent is live, we monitor, maintain and improve it as your business changes.",
+    "areas_eyebrow": "Where agents help most",
+    "areas_para": "Common areas small businesses hand off to us — if it’s repetitive and rule-based, there’s probably an agent for it.",
+    "area1_title": "Customer chat & DMs",
+    "area1_label": "agent replying",
+    "area1_desc": "Replying to the same questions on Instagram, WhatsApp or your website chat, over and over. The agent answers instantly and only hands you the ones that actually need you.",
+    "area2_title": "Scheduling & calendar",
+    "area2_label": "booking confirmed",
+    "area2_desc": "Back-and-forth messages just to lock in a time. The agent checks your calendar, offers real slots, and books it — no more chasing replies.",
+    "area3_title": "Invoicing & billing",
+    "area3_label": "invoice sent",
+    "area3_desc": "Building the same invoice by hand every month, then chasing people to pay it. The agent generates it, sends it, and follows up for you.",
+    "area4_title": "Email inbox triage",
+    "area4_label": "reply drafted",
+    "area4_desc": "An inbox full of things that all need a reply eventually. The agent sorts what’s urgent, drafts responses, and only flags what truly needs your judgment.",
+    "area5_title": "Data entry & reports",
+    "area5_label": "report updated",
+    "area5_desc": "Copying the same numbers from one spreadsheet or system into another, every single week. The agent pulls the data and keeps your report current without you touching it.",
+    "area6_title": "Order & inventory tracking",
+    "area6_label": "stock updated",
+    "area6_desc": "Checking stock by hand and updating it after every sale. The agent tracks inventory in real time and tells you when it’s time to reorder.",
+    "area7_title": "Lead follow-ups",
+    "area7_label": "follow-up sent",
+    "area7_desc": "A new lead comes in and then nothing, because you got busy. The agent follows up right away and keeps following up until they respond.",
+    "area8_title": "Social media replies",
+    "area8_label": "comment answered",
+    "area8_desc": "Comments and DMs piling up on posts you don’t have time to check. The agent replies to common questions so nobody gets ignored.",
+    "action_eyebrow": "See it in action",
+    "action_status1": "AI Agent · Online",
+    "action_chat1": "Do you have this in size M?",
+    "action_chat2": "Yes! Size M is in stock — want me to add it to your cart?",
+    "action_caption1": "Handles price checks, stock questions and checkout — instantly, any time of day.",
+    "action_invoice_title": "Monthly Invoice",
+    "action_sent": "Sent ✓",
+    "action_item1": "Interpreting session — 2.5 hrs",
+    "action_item2": "Interpreting session — 1 hr",
+    "action_item3": "Interpreting session — 3 hrs",
+    "action_caption2": "Logs the month’s work and sends the invoice automatically — no spreadsheet required.",
+    "work_eyebrow": "Case studies",
+    "case1_title": "Scheduling & Invoicing Agent",
+    "case1_desc": "A CrewAI-based system built for a freelance interpreter: reads job emails, updates the calendar, and drafts the monthly invoice automatically.",
+    "case2_title": "Instagram Sales Assistant",
+    "case2_desc": "Built for Bella Charm London, a small Instagram shop: a LangGraph agent that handles price inquiries, browsing and checkout, deployed on Railway.",
+    "case3_title": "Data Analysis Assistant",
+    "case3_desc": "A Streamlit app that lets non-technical users explore CSV data in plain language, with automatic fallback across LLM providers.",
+    "case_link": "View the code ↗",
+    "work_badge": "In progress",
+    "work_progress_text": "Sourcing Agent — automated product search and price comparison",
+    "stack_eyebrow": "Our stack",
+    "how_eyebrow": "How we work",
+    "how1_title": "Discover",
+    "how1_desc": "We map out the repetitive parts of your day and figure out which ones are worth automating first.",
+    "how2_title": "Build",
+    "how2_desc": "We design, build and test a custom AI agent using the tools you already work with — no new software to learn.",
+    "how3_title": "Support",
+    "how3_desc": "Once it’s live, we monitor it, fix edge cases, and improve it as your business changes.",
+    "cta_eyebrow": "Ready to automate?",
+    "cta_heading": "Want to automate part of your business?",
+    "cta_para": "If you’d rather hand the repetitive parts of your work to a reliable digital employee than keep doing them yourself, we can help you build it — a custom AI agent that takes care of the task, so you don’t have to.",
+    "cta_btn": "Let’s talk",
+    "contact_eyebrow": "Get in touch",
+    "contact_heading": "Let’s build something.",
+    "contact_linkedin": "Message on LinkedIn",
+    "contact_location": "Sydney, Australia",
+    "contact_support": "Client support in English, Farsi & Turkish"
+  },
+  "fa": {
+    "nav_services": "خدمات",
+    "nav_work": "نمونه‌کارها",
+    "nav_contact": "تماس",
+    "hero_eyebrow": "Agentهای AI برای کسب‌وکارهای کوچک",
+    "hero_heading": "Agentهای AI که <mark style="background:#6EE7B7;color:#16281F;padding:2px 10px;border-radius:6px;font-style:normal;">کارهای روزمره</mark> کسب‌وکار شما را انجام می‌دهند.",
+    "hero_para": "Nauto AI برای کسب‌وکارهای کوچک Agentهای AI اختصاصی طراحی و می‌سازد — بخش‌های تکراری روز را خودکار می‌کند تا شما روی اداره کسب‌وکارتان تمرکز کنید.",
+    "hero_btn_primary": "رزرو تماس",
+    "hero_btn_secondary": "مشاهده نمونه‌کارها",
+    "stat1_label": "Agent تحویل‌شده",
+    "stat2_label": "حوزه‌ی خودکارسازی",
+    "stat3_label": "زبان پشتیبانی‌شده",
+    "stat4_label": "ابزار در Stack",
+    "scenes_eyebrow": "پشت صحنه",
+    "scenes_heading": "هر Agent به‌صورت دستی ساخته می‌شود، نه از روی قالب.",
+    "scenes_para": "بدون جعبه سیاه drag-and-drop. هر پروژه از workflow واقعی شما شروع می‌شود و کدنویسی، تست و تنظیم می‌شود تا دقیقاً متناسب باشد — تیم کوچک، کد واقعی، توجه کامل به جزئیات.",
+    "services_eyebrow": "کارهایی که انجام می‌دهیم",
+    "svc1_title": "Agentهای AI اختصاصی",
+    "svc1_desc": "ما Agentهای AI متناسب با workflow شما طراحی و می‌سازیم — از پشتیبانی مشتری تا زمان‌بندی و ورود داده.",
+    "svc2_title": "خودکارسازی Workflow",
+    "svc2_desc": "ابزارهایی که همین حالا استفاده می‌کنید را به هم متصل می‌کنیم — ایمیل، تقویم، spreadsheet — تا کارهای تکراری خودشان انجام شوند.",
+    "svc3_title": "پشتیبانی مستمر",
+    "svc3_desc": "پس از فعال‌شدن Agent شما، آن را رصد، نگهداری و متناسب با تغییرات کسب‌وکارتان بهبود می‌دهیم.",
+    "areas_eyebrow": "کجا Agentها بیشترین کمک را می‌کنند",
+    "areas_para": "حوزه‌های رایجی که کسب‌وکارهای کوچک به ما می‌سپارند — اگر کاری تکراری و قانون‌محور است، احتمالاً یک Agent برایش هست.",
+    "area1_title": "چت و DM مشتریان",
+    "area1_label": "Agent در حال پاسخ",
+    "area1_desc": "پاسخ به همان سوالات تکراری در Instagram، WhatsApp یا چت سایت، بارها و بارها. Agent فوراً پاسخ می‌دهد و فقط مواردی که واقعاً به شما نیاز دارند را به شما می‌سپارد.",
+    "area2_title": "زمان‌بندی و تقویم",
+    "area2_label": "رزرو تایید شد",
+    "area2_desc": "رفت‌وبرگشت پیام فقط برای هماهنگ‌کردن یک زمان. Agent تقویم شما را بررسی می‌کند، زمان‌های واقعی پیشنهاد می‌دهد و رزرو می‌کند — دیگر نیازی به دنبال پاسخ گشتن نیست.",
+    "area3_title": "صورت‌حساب و پرداخت",
+    "area3_label": "فاکتور ارسال شد",
+    "area3_desc": "ساختن دستی همان فاکتور هر ماه، سپس پیگیری برای پرداخت آن. Agent آن را می‌سازد، ارسال می‌کند و پیگیری را برایتان انجام می‌دهد.",
+    "area4_title": "مدیریت ایمیل‌های ورودی",
+    "area4_label": "پاسخ آماده شد",
+    "area4_desc": "صندوق ایمیلی پر از پیام‌هایی که همه در نهایت به پاسخ نیاز دارند. Agent موارد فوری را مرتب می‌کند، پاسخ پیش‌نویس می‌کند و فقط مواردی که واقعاً به تصمیم شما نیاز دارند را علامت می‌زند.",
+    "area5_title": "ورود داده و گزارش‌ها",
+    "area5_label": "گزارش به‌روزرسانی شد",
+    "area5_desc": "کپی‌کردن همان اعداد از یک spreadsheet یا سیستم به سیستم دیگر، هر هفته. Agent داده‌ها را می‌کشد و گزارش شما را بدون دست‌زدن شما به‌روز نگه می‌دارد.",
+    "area6_title": "پیگیری سفارش و موجودی",
+    "area6_label": "موجودی به‌روزرسانی شد",
+    "area6_desc": "بررسی دستی موجودی و به‌روزرسانی آن پس از هر فروش. Agent موجودی را به‌صورت لحظه‌ای پیگیری می‌کند و زمان سفارش مجدد را به شما اطلاع می‌دهد.",
+    "area7_title": "پیگیری Leadها",
+    "area7_label": "پیگیری ارسال شد",
+    "area7_desc": "یک Lead جدید می‌رسد و بعد هیچ‌ اتفاقی نمی‌افتد، چون سرتان شلوغ می‌شود. Agent بلافاصله پیگیری می‌کند و تا پاسخ‌دادن آن‌ها ادامه می‌دهد.",
+    "area8_title": "پاسخ به شبکه‌های اجتماعی",
+    "area8_label": "کامنت پاسخ داده شد",
+    "area8_desc": "انباشته‌شدن کامنت‌ها و DMها روی پست‌هایی که وقت بررسیشان را ندارید. Agent به سوالات رایج پاسخ می‌دهد تا کسی نادیده گرفته نشود.",
+    "action_eyebrow": "در عمل ببینید",
+    "action_status1": "AI Agent · آنلاین",
+    "action_chat1": "این محصول سایز M هم دارید؟",
+    "action_chat2": "بله! سایز M موجود است — می‌خواهید به سبد خریدتان اضافه کنم؟",
+    "action_caption1": "بررسی قیمت، سوالات موجودی و checkout را فوراً، در هر ساعت از شبانه‌روز انجام می‌دهد.",
+    "action_invoice_title": "فاکتور ماهانه",
+    "action_sent": "ارسال شد ✓",
+    "action_item1": "جلسه ترجمه — ۲.۵ ساعت",
+    "action_item2": "جلسه ترجمه — ۱ ساعت",
+    "action_item3": "جلسه ترجمه — ۳ ساعت",
+    "action_caption2": "کارهای انجام‌شده در ماه را ثبت و فاکتور را به‌صورت خودکار ارسال می‌کند — بدون نیاز به spreadsheet.",
+    "work_eyebrow": "نمونه‌ پروژه‌ها",
+    "case1_title": "Agent زمان‌بندی و فاکتور",
+    "case1_desc": "سیستمی مبتنی بر CrewAI برای یک مترجم freelance: ایمیل‌های کاری را می‌خواند، تقویم را به‌روز می‌کند و فاکتور ماهانه را به‌صورت خودکار پیش‌نویس می‌کند.",
+    "case2_title": "دستیار فروش Instagram",
+    "case2_desc": "ساخته‌شده برای Bella Charm London، یک فروشگاه کوچک Instagram: یک Agent مبتنی بر LangGraph که سوالات قیمت، مرور محصولات و checkout را انجام می‌دهد و روی Railway deploy شده است.",
+    "case3_title": "دستیار تحلیل داده",
+    "case3_desc": "یک اپلیکیشن Streamlit که به کاربران غیرفنی اجازه می‌دهد داده‌های CSV را با زبان ساده بررسی کنند، با fallback خودکار بین LLM providerها.",
+    "case_link": "مشاهده کد ↗",
+    "work_badge": "در حال انجام",
+    "work_progress_text": "Agent تامین — جستجوی خودکار محصول و مقایسه قیمت",
+    "stack_eyebrow": "Stack ما",
+    "how_eyebrow": "روش کار ما",
+    "how1_title": "کشف",
+    "how1_desc": "بخش‌های تکراری روز شما را نقشه‌برداری می‌کنیم و مشخص می‌کنیم کدام‌یک اول باید خودکار شوند.",
+    "how2_title": "ساخت",
+    "how2_desc": "با استفاده از ابزارهایی که همین حالا با آن‌ها کار می‌کنید، یک AI Agent اختصاصی طراحی، ساخت و تست می‌کنیم — بدون نیاز به یادگیری نرم‌افزار جدید.",
+    "how3_title": "پشتیبانی",
+    "how3_desc": "پس از فعال‌شدن، آن را رصد می‌کنیم، موارد خاص را رفع می‌کنیم و متناسب با تغییرات کسب‌وکارتان بهبودش می‌دهیم.",
+    "cta_eyebrow": "آماده خودکارسازی هستید؟",
+    "cta_heading": "می‌خواهید بخشی از کسب‌وکارتان را خودکار کنید؟",
+    "cta_para": "اگر ترجیح می‌دهید بخش‌های تکراری کارتان را به یک کارمند دیجیتال قابل‌اعتماد بسپارید تا خودتان انجام دهید، می‌توانیم کمکتان کنیم آن را بسازید — یک AI Agent اختصاصی که کار را انجام می‌دهد تا شما لازم نباشد.",
+    "cta_btn": "بیایید صحبت کنیم",
+    "contact_eyebrow": "در تماس باشید",
+    "contact_heading": "بیایید چیزی بسازیم.",
+    "contact_linkedin": "پیام در LinkedIn",
+    "contact_location": "سیدنی، استرالیا",
+    "contact_support": "پشتیبانی مشتریان به زبان‌های انگلیسی، فارسی و ترکی"
+  }
+};
+  var root = document.getElementById('siteRoot');
+  function applyLang(lang) {
+    if (!root) return;
+    var dict = STR[lang] || STR.en;
+    var nodes = document.querySelectorAll('[data-i18n]');
+    nodes.forEach(function (el) {
+      var key = el.getAttribute('data-i18n');
+      var val = dict[key];
+      if (val === undefined) return;
+      if (el.hasAttribute('data-i18n-html')) {
+        el.innerHTML = val;
+      } else {
+        el.textContent = val;
+      }
+    });
+    if (lang === 'fa') {
+      root.setAttribute('dir', 'rtl');
+      root.classList.add('lang-fa');
+    } else {
+      root.setAttribute('dir', 'ltr');
+      root.classList.remove('lang-fa');
+    }
+    document.documentElement.setAttribute('lang', lang);
+    var enBtn = document.getElementById('langBtnEn');
+    var faBtn = document.getElementById('langBtnFa');
+    [enBtn, faBtn].forEach(function (btn) {
+      if (!btn) return;
+      var active = btn.getAttribute('data-lang') === lang;
+      btn.style.background = active ? '#1F6F52' : 'transparent';
+      btn.style.color = active ? '#FDFBF6' : '#6B6152';
+    });
+  }
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest ? e.target.closest('.lang-btn') : null;
+    if (!btn) return;
+    var lang = btn.getAttribute('data-lang');
+    if (!lang) return;
+    applyLang(lang);
+  });
+  applyLang('en');
+})();
+(function () {
+  var reveals = document.querySelectorAll('.reveal');
+  if (!reveals.length) return;
+  if (!window.IntersectionObserver) {
+    reveals.forEach(function (el) { el.classList.add('is-visible'); });
+    return;
+  }
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(function (el) { observer.observe(el); });
 })();
 </script>
 
