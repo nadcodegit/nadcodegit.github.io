@@ -184,7 +184,7 @@
     @media (max-width: 640px) {
       .section-pad { padding-left: 20px !important; padding-right: 20px !important; }
       .hero-wrap { padding-top: 44px !important; padding-bottom: 36px !important; gap: 24px !important; }
-      .grid-services, .grid-case, .grid-action, .grid-areas { grid-template-columns: 1fr !important; }
+      .grid-services, .grid-case, .grid-action, .grid-areas, .grid-faq { grid-template-columns: 1fr !important; }
       .grid-stats { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 16px !important; }
       .nav-links { gap: 14px !important; }
       .nav-btn { font-size: 11px !important; letter-spacing: 0.04em !important; }
@@ -444,6 +444,35 @@
             <circle cx="22" cy="1" r="1.8" fill="#6EE7B7"></circle>
           </svg>
 
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="width: 100%; display: flex; justify-content: center;">
+    <div class="section-pad reveal" style="width: 100%; max-width: 1040px; padding: 8px 48px 56px 48px; box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center; gap: 40px;">
+      <div style="flex: 0 0 96px; display: flex; justify-content: center;">
+        <svg width="96" height="96" viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="48" cy="48" r="47" fill="#1F6F52"></circle>
+          <line x1="30" y1="34" x2="48" y2="48" stroke="#6EE7B7" stroke-width="3" stroke-linecap="round"></line>
+          <line x1="66" y1="34" x2="48" y2="48" stroke="#6EE7B7" stroke-width="3" stroke-linecap="round"></line>
+          <line x1="48" y1="48" x2="34" y2="66" stroke="#6EE7B7" stroke-width="3" stroke-linecap="round"></line>
+          <line x1="48" y1="48" x2="64" y2="66" stroke="#6EE7B7" stroke-width="3" stroke-linecap="round"></line>
+          <circle cx="48" cy="48" r="8" fill="#6EE7B7"></circle>
+          <circle cx="30" cy="34" r="4.5" fill="#6EE7B7" opacity="0.85"></circle>
+          <circle cx="66" cy="34" r="4.5" fill="#6EE7B7" opacity="0.85"></circle>
+          <circle cx="34" cy="66" r="4.5" fill="#6EE7B7" opacity="0.85"></circle>
+          <circle cx="64" cy="66" r="4.5" fill="#6EE7B7" opacity="0.85"></circle>
+        </svg>
+      </div>
+      <div style="flex: 1 1 420px; min-width: 280px; display: flex; flex-direction: column; gap: 14px;">
+        <div data-i18n="about_eyebrow" style="font-family: 'JetBrains Mono', monospace; font-size: 14px; letter-spacing: 0.09em; text-transform: uppercase; color: #1F6F52;">Who&rsquo;s behind this</div>
+        <h2 data-i18n="about_heading" style="margin: 0; font-weight: 700; font-size: 30px; line-height: 1.25; color: #241F19;">Hi, I&rsquo;m Nadereh.</h2>
+        <p data-i18n="about_para" style="margin: 0; font-size: 16px; line-height: 1.7; color: #6B6152; max-width: 600px;">I&rsquo;ve spent years as a professional interpreter, working through fast-moving, high-stakes conversations &mdash; so I know exactly what it feels like when busywork piles up faster than you can clear it. Now I build that same relief for other small businesses: AI agents that quietly handle the repetitive stuff, so you get your time back. I&rsquo;m personally involved in every project I take on &mdash; no hand-offs, no faceless team.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 10px; padding-top: 4px;">
+          <span data-i18n="about_chip1" style="font-size: 13.5px; padding: 7px 13px; background: #FDFBF6; border: 1px solid #E2D8C6; border-radius: 20px; color: #4A4235;">Fluent in English, Farsi &amp; Turkish</span>
+          <span data-i18n="about_chip2" style="font-size: 13.5px; padding: 7px 13px; background: #FDFBF6; border: 1px solid #E2D8C6; border-radius: 20px; color: #4A4235;">Background in interpreting &amp; client work</span>
+          <span data-i18n="about_chip3" style="font-size: 13.5px; padding: 7px 13px; background: #FDFBF6; border: 1px solid #E2D8C6; border-radius: 20px; color: #4A4235;">Remote-first, async-friendly</span>
         </div>
       </div>
     </div>
@@ -840,6 +869,47 @@
     </div>
   </div>
 
+  <div style="width: 100%; background: #FDFBF6; display: flex; justify-content: center; border-top: 1px solid #E2D8C6; border-bottom: 1px solid #E2D8C6;">
+    <div class="section-pad" style="width: 100%; max-width: 1040px; padding: 56px 48px; box-sizing: border-box; display: flex; flex-direction: column; gap: 24px;">
+      <div data-i18n="faq_eyebrow" style="font-family: 'JetBrains Mono', monospace; font-size: 14px; letter-spacing: 0.09em; text-transform: uppercase; color: #1F6F52;">Good to know</div>
+      <div class="grid-faq" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px;">
+
+        <details class="area-card reveal" style="--hl: #6EE7B7; display: flex; flex-direction: column; gap: 8px; padding: 18px 20px; border-radius: 10px; border: 1.5px solid #E2D8C6; background: #FDFBF6;">
+          <summary style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+            <span data-i18n="faq1_q" style="font-size: 15.5px; font-weight: 600; color: #241F19; flex-grow: 1;">Is my data safe?</span>
+            <svg class="chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" stroke="#A69C86" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </summary>
+          <p data-i18n="faq1_a" style="margin: 8px 0 0 0; font-size: 14.5px; line-height: 1.6; color: #6B6152;">Your data stays inside the tools and accounts you already use and control. Nothing is shared beyond what the automation actually needs &mdash; privacy is part of every build, not an afterthought.</p>
+        </details>
+
+        <details class="area-card reveal" style="--hl: #6EE7B7; display: flex; flex-direction: column; gap: 8px; padding: 18px 20px; border-radius: 10px; border: 1.5px solid #E2D8C6; background: #FDFBF6; transition-delay: 0.08s;">
+          <summary style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+            <span data-i18n="faq2_q" style="font-size: 15.5px; font-weight: 600; color: #241F19; flex-grow: 1;">Do I need to be technical?</span>
+            <svg class="chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" stroke="#A69C86" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </summary>
+          <p data-i18n="faq2_a" style="margin: 8px 0 0 0; font-size: 14.5px; line-height: 1.6; color: #6B6152;">Not at all &mdash; that&rsquo;s the whole point. You keep using the tools you already know, like email, calendar or spreadsheets. The agent works quietly alongside them.</p>
+        </details>
+
+        <details class="area-card reveal" style="--hl: #6EE7B7; display: flex; flex-direction: column; gap: 8px; padding: 18px 20px; border-radius: 10px; border: 1.5px solid #E2D8C6; background: #FDFBF6; transition-delay: 0.16s;">
+          <summary style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+            <span data-i18n="faq3_q" style="font-size: 15.5px; font-weight: 600; color: #241F19; flex-grow: 1;">How much does it cost?</span>
+            <svg class="chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" stroke="#A69C86" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </summary>
+          <p data-i18n="faq3_a" style="margin: 8px 0 0 0; font-size: 14.5px; line-height: 1.6; color: #6B6152;">It depends on what you&rsquo;re automating, so there&rsquo;s no fixed price list. You&rsquo;ll get a clear, no-surprises quote after a first call, once we both know exactly what we&rsquo;re building.</p>
+        </details>
+
+        <details class="area-card reveal" style="--hl: #6EE7B7; display: flex; flex-direction: column; gap: 8px; padding: 18px 20px; border-radius: 10px; border: 1.5px solid #E2D8C6; background: #FDFBF6; transition-delay: 0.24s;">
+          <summary style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+            <span data-i18n="faq4_q" style="font-size: 15.5px; font-weight: 600; color: #241F19; flex-grow: 1;">What happens after I book a call?</span>
+            <svg class="chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" stroke="#A69C86" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </summary>
+          <p data-i18n="faq4_a" style="margin: 8px 0 0 0; font-size: 14.5px; line-height: 1.6; color: #6B6152;">We hop on a short call to understand your workflow &mdash; no pressure, no obligation. If it&rsquo;s a good fit, you&rsquo;ll get a clear plan and quote before anything starts.</p>
+        </details>
+
+      </div>
+    </div>
+  </div>
+
   <div style="width: 100%; background: radial-gradient(700px 380px at 92% -20%, rgba(255,255,255,0.22), transparent 60%), #6EE7B7; display: flex; justify-content: center;">
     <div class="section-pad reveal" style="width: 100%; max-width: 1040px; padding: 64px 48px; box-sizing: border-box; display: flex; flex-direction: column; gap: 18px;">
       <div data-i18n="cta_eyebrow" style="font-family: 'JetBrains Mono', monospace; font-size: 14px; letter-spacing: 0.09em; text-transform: uppercase; color: #16281F;">Ready to automate?</div>
@@ -993,7 +1063,22 @@
     "contact_heading": "Let’s build something.",
     "contact_linkedin": "Message on LinkedIn",
     "contact_location": "Sydney, Australia",
-    "contact_support": "Client support in English, Farsi & Turkish"
+    "contact_support": "Client support in English, Farsi & Turkish",
+    "about_eyebrow": "Who’s behind this",
+    "about_heading": "Hi, I’m Nadereh.",
+    "about_para": "I’ve spent years as a professional interpreter, working through fast-moving, high-stakes conversations — so I know exactly what it feels like when busywork piles up faster than you can clear it. Now I build that same relief for other small businesses: AI agents that quietly handle the repetitive stuff, so you get your time back. I’m personally involved in every project I take on — no hand-offs, no faceless team.",
+    "about_chip1": "Fluent in English, Farsi & Turkish",
+    "about_chip2": "Background in interpreting & client work",
+    "about_chip3": "Remote-first, async-friendly",
+    "faq_eyebrow": "Good to know",
+    "faq1_q": "Is my data safe?",
+    "faq1_a": "Your data stays inside the tools and accounts you already use and control. Nothing is shared beyond what the automation actually needs — privacy is part of every build, not an afterthought.",
+    "faq2_q": "Do I need to be technical?",
+    "faq2_a": "Not at all — that’s the whole point. You keep using the tools you already know, like email, calendar or spreadsheets. The agent works quietly alongside them.",
+    "faq3_q": "How much does it cost?",
+    "faq3_a": "It depends on what you’re automating, so there’s no fixed price list. You’ll get a clear, no-surprises quote after a first call, once we both know exactly what we’re building.",
+    "faq4_q": "What happens after I book a call?",
+    "faq4_a": "We hop on a short call to understand your workflow — no pressure, no obligation. If it’s a good fit, you’ll get a clear plan and quote before anything starts."
   },
   "fa": {
     "nav_services": "خدمات",
@@ -1081,7 +1166,22 @@
     "contact_heading": "بیایید چیزی بسازیم.",
     "contact_linkedin": "پیام در LinkedIn",
     "contact_location": "سیدنی، استرالیا",
-    "contact_support": "پشتیبانی مشتریان به زبان‌های انگلیسی، فارسی و ترکی"
+    "contact_support": "پشتیبانی مشتریان به زبان‌های انگلیسی، فارسی و ترکی",
+    "about_eyebrow": "چه کسی پشت این پروژه است",
+    "about_heading": "سلام، من ندا هستم.",
+    "about_para": "سال‌ها به‌عنوان مترجم حرفه‌ای در مکالمات پرشتاب و حساس کار کرده‌ام — پس دقیقاً می‌دانم وقتی کارهای روزمره سریع‌تر از توان جمع‌کردنشان انباشته شوند چه حسی دارد. حالا همان آرامش را برای کسب‌وکارهای کوچک دیگر می‌سازم: Agentهای هوش مصنوعی که بی‌سروصدا کارهای تکراری را انجام می‌دهند تا وقتتان را پس بگیرید. شخصاً در هر پروژه‌ای که قبول می‌کنم درگیر هستم — بدون واگذاری به یک تیم ناشناس.",
+    "about_chip1": "مسلط به انگلیسی، فارسی و ترکی",
+    "about_chip2": "پیشینه در ترجمه و کار مستقیم با مشتری",
+    "about_chip3": "دورکار، سازگار با همکاری async",
+    "faq_eyebrow": "خوب است بدانید",
+    "faq1_q": "آیا داده‌های من امن است؟",
+    "faq1_a": "داده‌های شما در همان ابزار و حساب‌هایی می‌ماند که همین حالا استفاده و کنترل می‌کنید. چیزی فراتر از نیاز واقعی اتوماسیون به اشتراک گذاشته نمی‌شود — حریم خصوصی بخشی از هر پروژه است، نه یک فکر بعدی.",
+    "faq2_q": "آیا باید فنی باشم؟",
+    "faq2_a": "اصلاً — دقیقاً همین هدف است. شما همچنان از همان ابزارهایی که می‌شناسید استفاده می‌کنید، مثل ایمیل، تقویم یا spreadsheet. Agent بی‌سروصدا در کنار آن‌ها کار می‌کند.",
+    "faq3_q": "هزینه چقدر است؟",
+    "faq3_a": "بستگی به چیزی دارد که خودکار می‌کنید، پس لیست قیمت ثابتی وجود ندارد. بعد از یک تماس اول، وقتی هر دو دقیقاً بدانیم چه می‌سازیم، یک قیمت شفاف و بدون سورپرایز دریافت می‌کنید.",
+    "faq4_q": "بعد از رزرو تماس چه اتفاقی می‌افتد؟",
+    "faq4_a": "یک تماس کوتاه داریم تا workflow شما را بفهمیم — بدون فشار، بدون تعهد. اگر مناسب بود، قبل از شروع هر کاری یک برنامه و قیمت شفاف دریافت می‌کنید."
   }
 };
   var root = document.getElementById('siteRoot');
