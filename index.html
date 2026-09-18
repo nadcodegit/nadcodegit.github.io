@@ -24,9 +24,10 @@
     .grid-services > .reveal:nth-child(3), .grid-action > .reveal:nth-child(3) { transition-delay: 0.2s; }
     .grid-services > .reveal:nth-child(4) { transition-delay: 0.3s; }
     .grid-services > .reveal:nth-child(5) { transition-delay: 0.4s; }
-    .grid-areas > .reveal:nth-child(2), .grid-areas > .reveal:nth-child(6) { transition-delay: 0.08s; }
-    .grid-areas > .reveal:nth-child(3), .grid-areas > .reveal:nth-child(7) { transition-delay: 0.16s; }
-    .grid-areas > .reveal:nth-child(4), .grid-areas > .reveal:nth-child(8) { transition-delay: 0.24s; }
+    .grid-areas > .reveal:nth-child(2) { transition-delay: 0.08s; }
+    .grid-areas > .reveal:nth-child(3) { transition-delay: 0.16s; }
+    .grid-areas > .reveal:nth-child(4) { transition-delay: 0.24s; }
+    .grid-areas > .reveal:nth-child(5) { transition-delay: 0.32s; }
     @keyframes eyeBlink {
       0%, 92%, 100% { transform: scaleY(1); }
       95%, 97% { transform: scaleY(0.1); }
@@ -591,6 +592,7 @@
           <span data-i18n="about_chip1" style="font-size: 13.5px; padding: 7px 13px; background: #FDFBF6; border: 1px solid #E2D8C6; border-radius: 20px; color: #4A4235;">Fluent in English, Farsi &amp; Turkish</span>
           <span data-i18n="about_chip2" style="font-size: 13.5px; padding: 7px 13px; background: #FDFBF6; border: 1px solid #E2D8C6; border-radius: 20px; color: #4A4235;">Background in interpreting &amp; client work</span>
           <span data-i18n="about_chip3" style="font-size: 13.5px; padding: 7px 13px; background: #FDFBF6; border: 1px solid #E2D8C6; border-radius: 20px; color: #4A4235;">Remote-first, async-friendly</span>
+          <span data-i18n="about_chip4" style="font-size: 13.5px; padding: 7px 13px; background: #FDFBF6; border: 1px solid #E2D8C6; border-radius: 20px; color: #4A4235;">Every agent hand-built and personally maintained</span>
         </div>
       </div>
     </div>
@@ -608,9 +610,9 @@
             <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
               <path d="M3.5 6.2A2.7 2.7 0 0 1 6.2 3.5h9.6A2.7 2.7 0 0 1 18.5 6.2v5.4A2.7 2.7 0 0 1 15.8 14.3H9l-4.3 3.4v-3.4H6.2A2.7 2.7 0 0 1 3.5 11.6V6.2Z" stroke="url(#iconGradient)" stroke-width="1.6" stroke-linejoin="round"></path>
             </svg>
-            <h3 data-i18n="svc1_title" style="margin: 0; font-weight: 600; font-size: 19px; color: #241F19;">Customer Conversations</h3>
+            <h3 data-i18n="svc1_title" style="margin: 0; font-weight: 600; font-size: 19px; color: #241F19;">Customer Service AI Agents</h3>
           </div>
-          <p data-i18n="svc1_desc" style="margin: 0; font-size: 15px; line-height: 1.6; color: #6B6152;">Handle routine customer questions and conversations across the channels you already use.</p>
+          <p data-i18n="svc1_desc" style="margin: 0; font-size: 15px; line-height: 1.6; color: #6B6152;">Answers customer questions on Instagram &amp; WhatsApp DMs and your website chat &mdash; instantly, day or night.</p>
           <div data-i18n="svc1_tech" style="margin-top: 2px; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; letter-spacing: 0.03em; color: #9C9182;">Built with LangGraph and messaging APIs</div>
         </div>
 
@@ -619,36 +621,10 @@
             <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
               <path d="M3.5 4h15l-5.5 7.2v5.3l-4 1.8v-7.1L3.5 4Z" stroke="url(#iconGradient)" stroke-width="1.6" stroke-linejoin="round"></path>
             </svg>
-            <h3 data-i18n="svc2_title" style="margin: 0; font-weight: 600; font-size: 19px; color: #241F19;">Lead Follow-Up</h3>
+            <h3 data-i18n="svc2_title" style="margin: 0; font-weight: 600; font-size: 19px; color: #241F19;">Workflow Automation</h3>
           </div>
-          <p data-i18n="svc2_desc" style="margin: 0; font-size: 15px; line-height: 1.6; color: #6B6152;">Organize, qualify and automate the right parts of your lead follow-up process.</p>
-          <div data-i18n="svc2_tech" style="margin-top: 2px; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; letter-spacing: 0.03em; color: #9C9182;">Built with CrewAI and your existing tools</div>
-        </div>
-
-        <div class="service-card reveal" style="--hoverColor: #1F6F52; background: linear-gradient(165deg, #FDFBF6 0%, #FAF4E7 100%); border: 1px solid #E2D8C6; border-radius: 10px; padding: 24px; display: flex; flex-direction: column; gap: 10px;">
-          <div style="display: flex; align-items: center; gap: 10px;">
-            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <rect x="3.5" y="5" width="15" height="13" rx="2" stroke="url(#iconGradient)" stroke-width="1.6"></rect>
-              <line x1="3.5" y1="9" x2="18.5" y2="9" stroke="url(#iconGradient)" stroke-width="1.6"></line>
-              <line x1="7.5" y1="3" x2="7.5" y2="6.5" stroke="url(#iconGradient)" stroke-width="1.6" stroke-linecap="round"></line>
-              <line x1="14.5" y1="3" x2="14.5" y2="6.5" stroke="url(#iconGradient)" stroke-width="1.6" stroke-linecap="round"></line>
-            </svg>
-            <h3 data-i18n="svc3_title" style="margin: 0; font-weight: 600; font-size: 19px; color: #241F19;">Scheduling</h3>
-          </div>
-          <p data-i18n="svc3_desc" style="margin: 0; font-size: 15px; line-height: 1.6; color: #6B6152;">Automate the repetitive parts of booking, confirming and rescheduling appointments.</p>
-          <div data-i18n="svc3_tech" style="margin-top: 2px; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; letter-spacing: 0.03em; color: #9C9182;">Built with Google Calendar API and Python</div>
-        </div>
-
-        <div class="service-card reveal" style="--hoverColor: #1F6F52; background: linear-gradient(165deg, #FDFBF6 0%, #FAF4E7 100%); border: 1px solid #E2D8C6; border-radius: 10px; padding: 24px; display: flex; flex-direction: column; gap: 10px;">
-          <div style="display: flex; align-items: center; gap: 10px;">
-            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <rect x="3" y="5" width="16" height="12" rx="2" stroke="url(#iconGradient)" stroke-width="1.6"></rect>
-              <path d="M3.5 6l7.5 6 7.5-6" stroke="url(#iconGradient)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
-            </svg>
-            <h3 data-i18n="svc4_title" style="margin: 0; font-weight: 600; font-size: 19px; color: #241F19;">Email &amp; Admin</h3>
-          </div>
-          <p data-i18n="svc4_desc" style="margin: 0; font-size: 15px; line-height: 1.6; color: #6B6152;">Reduce the repetitive email and admin work that piles up every day.</p>
-          <div data-i18n="svc4_tech" style="margin-top: 2px; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; letter-spacing: 0.03em; color: #9C9182;">Built with Gmail API and Python</div>
+          <p data-i18n="svc2_desc" style="margin: 0; font-size: 15px; line-height: 1.6; color: #6B6152;">Automates the repetitive parts of email, scheduling, invoicing and admin tasks &mdash; so it happens on its own, the same way every time.</p>
+          <div data-i18n="svc2_tech" style="margin-top: 2px; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; letter-spacing: 0.03em; color: #9C9182;">Built with CrewAI, Gmail API and Google Calendar API</div>
         </div>
 
         <div class="service-card reveal" style="--hoverColor: #1F6F52; background: linear-gradient(165deg, #FDFBF6 0%, #FAF4E7 100%); border: 1px solid #E2D8C6; border-radius: 10px; padding: 24px; display: flex; flex-direction: column; gap: 10px;">
@@ -659,10 +635,10 @@
               <rect x="9.3" y="8" width="3.4" height="10.2" rx="0.8" stroke="url(#iconGradient)" stroke-width="1.6"></rect>
               <rect x="14.1" y="4" width="3.4" height="14.2" rx="0.8" stroke="url(#iconGradient)" stroke-width="1.6"></rect>
             </svg>
-            <h3 data-i18n="svc5_title" style="margin: 0; font-weight: 600; font-size: 19px; color: #241F19;">Data &amp; Reporting</h3>
+            <h3 data-i18n="svc3_title" style="margin: 0; font-weight: 600; font-size: 19px; color: #241F19;">Data &amp; Reporting Automation</h3>
           </div>
-          <p data-i18n="svc5_desc" style="margin: 0; font-size: 15px; line-height: 1.6; color: #6B6152;">Automate the repetitive data entry and reporting work your business runs on.</p>
-          <div data-i18n="svc5_tech" style="margin-top: 2px; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; letter-spacing: 0.03em; color: #9C9182;">Built with Streamlit and pandas</div>
+          <p data-i18n="svc3_desc" style="margin: 0; font-size: 15px; line-height: 1.6; color: #6B6152;">Turns spreadsheets and scattered data into reports and dashboards that update themselves &mdash; no manual copy-paste.</p>
+          <div data-i18n="svc3_tech" style="margin-top: 2px; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; letter-spacing: 0.03em; color: #9C9182;">Built with Streamlit and pandas</div>
         </div>
 
       </div>
@@ -672,9 +648,9 @@
   <div class="section-pad" style="width: 100%; max-width: 1040px; padding: 56px 48px 8px 48px; box-sizing: border-box; display: flex; flex-direction: column; gap: 24px;">
     <div data-i18n="areas_eyebrow" style="font-family: 'JetBrains Mono', monospace; font-size: 14px; letter-spacing: 0.09em; text-transform: uppercase; color: #1F6F52;">Where agents help most</div>
     <p data-i18n="areas_para" style="margin: 0; font-size: 15px; line-height: 1.6; color: #6B6152; max-width: 640px;">Common areas small businesses hand off to us &mdash; if it&rsquo;s repetitive and rule-based, there&rsquo;s probably an agent for it.</p>
-    <div class="grid-areas" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px;">
+    <div class="grid-areas" style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px;">
 
-      <details class="area-card reveal" style="--hl: #6EE7B7; animation: areaHighlight 9.6s ease-in-out infinite; animation-delay: 0s; display: flex; flex-direction: column; gap: 10px; padding: 14px 16px; border-radius: 10px; border: 1.5px solid #E2D8C6; background: #FDFBF6;">
+      <details class="area-card reveal" style="--hl: #6EE7B7; animation: areaHighlight 6s ease-in-out infinite; animation-delay: 0s; display: flex; flex-direction: column; gap: 10px; padding: 14px 16px; border-radius: 10px; border: 1.5px solid #E2D8C6; background: #FDFBF6;">
         <summary style="display: flex; flex-direction: column; gap: 10px; cursor: pointer;">
           <div style="display: flex; align-items: center; gap: 10px;">
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -685,14 +661,14 @@
           </div>
           <div style="display: flex; align-items: center; gap: 6px; height: 16px;">
             <div style="width: 32px; height: 13px; border-radius: 7px; background: #EDE7D8; border: 1px solid #D9CDB4;"></div>
-            <div style="width: 32px; height: 13px; border-radius: 7px; background: #6EE7B7; opacity: 0; animation: miniAppear 9.6s ease-in-out infinite; animation-delay: 0s;"></div>
+            <div style="width: 32px; height: 13px; border-radius: 7px; background: #6EE7B7; opacity: 0; animation: miniAppear 6s ease-in-out infinite; animation-delay: 0s;"></div>
             <span data-i18n="area1_label" style="font-size: 11px; color: #8A8064; font-family: 'JetBrains Mono', monospace;">agent replying</span>
           </div>
         </summary>
         <p data-i18n="area1_desc" style="margin: 12px 0 0 0; font-size: 13.5px; line-height: 1.55; color: #6B6152;">Replying to the same questions on Instagram, WhatsApp or your website chat, over and over. The agent answers instantly and only hands you the ones that actually need you.</p>
       </details>
 
-      <details class="area-card reveal" style="--hl: #6EE7B7; animation: areaHighlight 9.6s ease-in-out infinite; animation-delay: 1.2s; display: flex; flex-direction: column; gap: 10px; padding: 14px 16px; border-radius: 10px; border: 1.5px solid #E2D8C6; background: #FDFBF6;">
+      <details class="area-card reveal" style="--hl: #6EE7B7; animation: areaHighlight 6s ease-in-out infinite; animation-delay: 1.2s; display: flex; flex-direction: column; gap: 10px; padding: 14px 16px; border-radius: 10px; border: 1.5px solid #E2D8C6; background: #FDFBF6;">
         <summary style="display: flex; flex-direction: column; gap: 10px; cursor: pointer;">
           <div style="display: flex; align-items: center; gap: 10px;">
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -708,7 +684,7 @@
             <div style="width: 15px; height: 15px; border-radius: 3px; border: 1px solid #D9CDB4; background: #EDE7D8; flex-shrink: 0;"></div>
             <div style="width: 15px; height: 15px; border-radius: 3px; border: 1px solid #D9CDB4; background: #EDE7D8; flex-shrink: 0;"></div>
             <div style="width: 15px; height: 15px; border-radius: 3px; border: 1.4px solid #1F6F52; background: #FDFBF6; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-              <svg width="9" height="9" viewBox="0 0 10 10"><path d="M2 5.2 4.2 7.4 8 3" fill="none" stroke="#1F6F52" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="16" style="animation: miniStroke 9.6s ease-in-out infinite; animation-delay: 1.2s;"></path></svg>
+              <svg width="9" height="9" viewBox="0 0 10 10"><path d="M2 5.2 4.2 7.4 8 3" fill="none" stroke="#1F6F52" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="16" style="animation: miniStroke 6s ease-in-out infinite; animation-delay: 1.2s;"></path></svg>
             </div>
             <span data-i18n="area2_label" style="font-size: 11px; color: #8A8064; font-family: 'JetBrains Mono', monospace;">booking confirmed</span>
           </div>
@@ -716,7 +692,7 @@
         <p data-i18n="area2_desc" style="margin: 12px 0 0 0; font-size: 13.5px; line-height: 1.55; color: #6B6152;">Back-and-forth messages just to lock in a time. The agent checks your calendar, offers real slots, and books it &mdash; no more chasing replies.</p>
       </details>
 
-      <details class="area-card reveal" style="--hl: #6EE7B7; animation: areaHighlight 9.6s ease-in-out infinite; animation-delay: 2.4s; display: flex; flex-direction: column; gap: 10px; padding: 14px 16px; border-radius: 10px; border: 1.5px solid #E2D8C6; background: #FDFBF6;">
+      <details class="area-card reveal" style="--hl: #6EE7B7; animation: areaHighlight 6s ease-in-out infinite; animation-delay: 2.4s; display: flex; flex-direction: column; gap: 10px; padding: 14px 16px; border-radius: 10px; border: 1.5px solid #E2D8C6; background: #FDFBF6;">
         <summary style="display: flex; flex-direction: column; gap: 10px; cursor: pointer;">
           <div style="display: flex; align-items: center; gap: 10px;">
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -730,7 +706,7 @@
           </div>
           <div style="display: flex; align-items: center; gap: 6px; height: 16px;">
             <div style="flex-grow: 1; height: 4px; border-radius: 2px; background: #EDE7D8; overflow: hidden;">
-              <div style="height: 100%; border-radius: 2px; background: #6EE7B7; width: 0%; animation: miniFill 9.6s ease-in-out infinite; animation-delay: 2.4s;"></div>
+              <div style="height: 100%; border-radius: 2px; background: #6EE7B7; width: 0%; animation: miniFill 6s ease-in-out infinite; animation-delay: 2.4s;"></div>
             </div>
             <span data-i18n="area3_label" style="font-size: 11px; color: #8A8064; font-family: 'JetBrains Mono', monospace; flex-shrink: 0;">invoice sent</span>
           </div>
@@ -738,7 +714,7 @@
         <p data-i18n="area3_desc" style="margin: 12px 0 0 0; font-size: 13.5px; line-height: 1.55; color: #6B6152;">Building the same invoice by hand every month, then chasing people to pay it. The agent generates it, sends it, and follows up for you.</p>
       </details>
 
-      <details class="area-card reveal" style="--hl: #6EE7B7; animation: areaHighlight 9.6s ease-in-out infinite; animation-delay: 3.6s; display: flex; flex-direction: column; gap: 10px; padding: 14px 16px; border-radius: 10px; border: 1.5px solid #E2D8C6; background: #FDFBF6;">
+      <details class="area-card reveal" style="--hl: #6EE7B7; animation: areaHighlight 6s ease-in-out infinite; animation-delay: 3.6s; display: flex; flex-direction: column; gap: 10px; padding: 14px 16px; border-radius: 10px; border: 1.5px solid #E2D8C6; background: #FDFBF6;">
         <summary style="display: flex; flex-direction: column; gap: 10px; cursor: pointer;">
           <div style="display: flex; align-items: center; gap: 10px;">
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -750,14 +726,14 @@
           </div>
           <div style="display: flex; align-items: center; gap: 6px; height: 16px;">
             <svg width="16" height="12" viewBox="0 0 16 12" fill="none" aria-hidden="true"><rect x="1" y="1" width="14" height="10" rx="1.3" stroke="#D9CDB4" stroke-width="1.2"></rect></svg>
-            <svg width="14" height="10" viewBox="0 0 14 10" fill="none" aria-hidden="true" style="animation: miniSlide 9.6s ease-in-out infinite; animation-delay: 3.6s;"><path d="M1 5h10M7 1l4 4-4 4" stroke="#1F6F52" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            <svg width="14" height="10" viewBox="0 0 14 10" fill="none" aria-hidden="true" style="animation: miniSlide 6s ease-in-out infinite; animation-delay: 3.6s;"><path d="M1 5h10M7 1l4 4-4 4" stroke="#1F6F52" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
             <span data-i18n="area4_label" style="font-size: 11px; color: #8A8064; font-family: 'JetBrains Mono', monospace;">reply drafted</span>
           </div>
         </summary>
         <p data-i18n="area4_desc" style="margin: 12px 0 0 0; font-size: 13.5px; line-height: 1.55; color: #6B6152;">An inbox full of things that all need a reply eventually. The agent sorts what&rsquo;s urgent, drafts responses, and only flags what truly needs your judgment.</p>
       </details>
 
-      <details class="area-card reveal" style="--hl: #6EE7B7; animation: areaHighlight 9.6s ease-in-out infinite; animation-delay: 4.8s; display: flex; flex-direction: column; gap: 10px; padding: 14px 16px; border-radius: 10px; border: 1.5px solid #E2D8C6; background: #FDFBF6;">
+      <details class="area-card reveal" style="--hl: #6EE7B7; animation: areaHighlight 6s ease-in-out infinite; animation-delay: 4.8s; display: flex; flex-direction: column; gap: 10px; padding: 14px 16px; border-radius: 10px; border: 1.5px solid #E2D8C6; background: #FDFBF6;">
         <summary style="display: flex; flex-direction: column; gap: 10px; cursor: pointer;">
           <div style="display: flex; align-items: center; gap: 10px;">
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -770,74 +746,16 @@
             <svg class="chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" stroke="#A69C86" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
           </div>
           <div style="display: flex; align-items: flex-end; gap: 3px; height: 16px;">
-            <div style="width: 5px; border-radius: 1.5px; background: #6EE7B7; height: 3px; animation: miniGrow 9.6s ease-in-out infinite; animation-delay: 4.8s; --bar-h: 10px;"></div>
-            <div style="width: 5px; border-radius: 1.5px; background: #6EE7B7; height: 3px; animation: miniGrow 9.6s ease-in-out infinite; animation-delay: 4.9s; --bar-h: 16px;"></div>
-            <div style="width: 5px; border-radius: 1.5px; background: #6EE7B7; height: 3px; animation: miniGrow 9.6s ease-in-out infinite; animation-delay: 5s; --bar-h: 8px;"></div>
+            <div style="width: 5px; border-radius: 1.5px; background: #6EE7B7; height: 3px; animation: miniGrow 6s ease-in-out infinite; animation-delay: 4.8s; --bar-h: 10px;"></div>
+            <div style="width: 5px; border-radius: 1.5px; background: #6EE7B7; height: 3px; animation: miniGrow 6s ease-in-out infinite; animation-delay: 4.9s; --bar-h: 16px;"></div>
+            <div style="width: 5px; border-radius: 1.5px; background: #6EE7B7; height: 3px; animation: miniGrow 6s ease-in-out infinite; animation-delay: 5s; --bar-h: 8px;"></div>
             <span data-i18n="area5_label" style="font-size: 11px; color: #8A8064; font-family: 'JetBrains Mono', monospace; margin-left: 5px;">report updated</span>
           </div>
         </summary>
         <p data-i18n="area5_desc" style="margin: 12px 0 0 0; font-size: 13.5px; line-height: 1.55; color: #6B6152;">Copying the same numbers from one spreadsheet or system into another, every single week. The agent pulls the data and keeps your report current without you touching it.</p>
       </details>
 
-      <details class="area-card reveal" style="--hl: #6EE7B7; animation: areaHighlight 9.6s ease-in-out infinite; animation-delay: 6s; display: flex; flex-direction: column; gap: 10px; padding: 14px 16px; border-radius: 10px; border: 1.5px solid #E2D8C6; background: #FDFBF6;">
-        <summary style="display: flex; flex-direction: column; gap: 10px; cursor: pointer;">
-          <div style="display: flex; align-items: center; gap: 10px;">
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path d="M9 2.5 15.5 6v6L9 15.5 2.5 12V6L9 2.5Z" stroke="#1F6F52" stroke-width="1.4" stroke-linejoin="round"></path>
-              <path d="M2.5 6 9 9.5 15.5 6" stroke="#1F6F52" stroke-width="1.4" stroke-linejoin="round"></path>
-              <line x1="9" y1="9.5" x2="9" y2="15.5" stroke="#1F6F52" stroke-width="1.4"></line>
-            </svg>
-            <span data-i18n="area6_title" style="font-size: 14px; color: #4A4235; flex-grow: 1;">Order &amp; inventory tracking</span>
-            <svg class="chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" stroke="#A69C86" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
           </div>
-          <div style="display: flex; align-items: center; gap: 6px; height: 16px; position: relative;">
-            <div style="width: 60px; height: 2px; background: #E2D8C6; border-radius: 1px; position: relative; flex-shrink: 0;">
-              <div style="width: 10px; height: 10px; border-radius: 2px; background: #6EE7B7; position: absolute; top: -4px; left: 0; animation: miniBoxMove 9.6s ease-in-out infinite; animation-delay: 6s;"></div>
-            </div>
-            <span data-i18n="area6_label" style="font-size: 11px; color: #8A8064; font-family: 'JetBrains Mono', monospace;">stock updated</span>
-          </div>
-        </summary>
-        <p data-i18n="area6_desc" style="margin: 12px 0 0 0; font-size: 13.5px; line-height: 1.55; color: #6B6152;">Checking stock by hand and updating it after every sale. The agent tracks inventory in real time and tells you when it&rsquo;s time to reorder.</p>
-      </details>
-
-      <details class="area-card reveal" style="--hl: #6EE7B7; animation: areaHighlight 9.6s ease-in-out infinite; animation-delay: 7.2s; display: flex; flex-direction: column; gap: 10px; padding: 14px 16px; border-radius: 10px; border: 1.5px solid #E2D8C6; background: #FDFBF6;">
-        <summary style="display: flex; flex-direction: column; gap: 10px; cursor: pointer;">
-          <div style="display: flex; align-items: center; gap: 10px;">
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <circle cx="9" cy="6" r="2.6" stroke="#1F6F52" stroke-width="1.4"></circle>
-              <path d="M3.5 15.5c0-3 2.5-5 5.5-5s5.5 2 5.5 5" stroke="#1F6F52" stroke-width="1.4" stroke-linecap="round"></path>
-            </svg>
-            <span data-i18n="area7_title" style="font-size: 14px; color: #4A4235; flex-grow: 1;">Lead follow-ups</span>
-            <svg class="chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" stroke="#A69C86" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-          </div>
-          <div style="display: flex; align-items: center; gap: 6px; height: 16px;">
-            <div style="width: 36px; height: 13px; border-radius: 7px; background: #EDE7D8; border: 1px solid #D9CDB4;"></div>
-            <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" style="opacity: 0; animation: miniAppear 9.6s ease-in-out infinite; animation-delay: 7.2s;"><path d="M2 6.2 4.5 8.7 10 3" fill="none" stroke="#1F6F52" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-            <span data-i18n="area7_label" style="font-size: 11px; color: #8A8064; font-family: 'JetBrains Mono', monospace;">follow-up sent</span>
-          </div>
-        </summary>
-        <p data-i18n="area7_desc" style="margin: 12px 0 0 0; font-size: 13.5px; line-height: 1.55; color: #6B6152;">A new lead comes in and then nothing, because you got busy. The agent follows up right away and keeps following up until they respond.</p>
-      </details>
-
-      <details class="area-card reveal" style="--hl: #6EE7B7; animation: areaHighlight 9.6s ease-in-out infinite; animation-delay: 8.4s; display: flex; flex-direction: column; gap: 10px; padding: 14px 16px; border-radius: 10px; border: 1.5px solid #E2D8C6; background: #FDFBF6;">
-        <summary style="display: flex; flex-direction: column; gap: 10px; cursor: pointer;">
-          <div style="display: flex; align-items: center; gap: 10px;">
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path d="M9 15s-5.8-3.4-5.8-7.4c0-2 1.6-3.4 3.4-3.4 1.1 0 2 .5 2.4 1.3.4-.8 1.3-1.3 2.4-1.3 1.8 0 3.4 1.4 3.4 3.4C15.8 11.6 9 15 9 15Z" stroke="#1F6F52" stroke-width="1.4" stroke-linejoin="round"></path>
-            </svg>
-            <span data-i18n="area8_title" style="font-size: 14px; color: #4A4235; flex-grow: 1;">Social media replies</span>
-            <svg class="chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" stroke="#A69C86" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-          </div>
-          <div style="display: flex; align-items: center; gap: 6px; height: 16px;">
-            <div style="width: 15px; height: 15px; border-radius: 3px; background: #EDE7D8; border: 1px solid #D9CDB4; flex-shrink: 0;"></div>
-            <div style="width: 32px; height: 13px; border-radius: 7px; background: #6EE7B7; opacity: 0; animation: miniAppear 9.6s ease-in-out infinite; animation-delay: 8.4s;"></div>
-            <span data-i18n="area8_label" style="font-size: 11px; color: #8A8064; font-family: 'JetBrains Mono', monospace;">comment answered</span>
-          </div>
-        </summary>
-        <p data-i18n="area8_desc" style="margin: 12px 0 0 0; font-size: 13.5px; line-height: 1.55; color: #6B6152;">Comments and DMs piling up on posts you don&rsquo;t have time to check. The agent replies to common questions so nobody gets ignored.</p>
-      </details>
-
-    </div>
   </div>
 
   <div class="grain-overlay" style="width: 100%; background: #FDFBF6; display: flex; justify-content: center; border-top: 1px solid #E2D8C6; border-bottom: 1px solid #E2D8C6;">
@@ -937,22 +855,18 @@
           </svg>
           <h3 data-i18n="case1_title" style="margin: 0; font-weight: 600; font-size: 20px; color: #241F19;">Scheduling &amp; Invoicing Agent</h3>
         </div>
-        <div class="case-detail-grid" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 28px;">
-          <div>
-            <div data-i18n="case_label_problem" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: #1F6F52; margin-bottom: 4px;">The Problem</div>
-            <p data-i18n="case1_problem" style="margin: 0; font-size: 14.5px; line-height: 1.6; color: #4A4235;">Freelancers and small teams lose real time every month rebuilding the same invoice from scratch &mdash; reading through job emails, checking what got done, and putting it all together by hand.</p>
-          </div>
+        <div class="case-detail-grid" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px 28px;">
           <div>
             <div data-i18n="case_label_before" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: #1F6F52; margin-bottom: 4px;">Before</div>
-            <p data-i18n="case1_before" style="margin: 0; font-size: 14.5px; line-height: 1.6; color: #4A4235;">Manually reading job emails, cross-checking the calendar, and building the invoice in a spreadsheet or document &mdash; every single month.</p>
+            <p data-i18n="case1_before" style="margin: 0; font-size: 14.5px; line-height: 1.6; color: #4A4235;">Every month: reading through job emails, checking the calendar, and building the same invoice by hand in a spreadsheet or document &mdash; from scratch, every time.</p>
           </div>
           <div>
-            <div data-i18n="case_label_solution" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: #1F6F52; margin-bottom: 4px;">The Solution</div>
+            <div data-i18n="case_label_solution" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: #1F6F52; margin-bottom: 4px;">What We Built</div>
             <p data-i18n="case1_solution" style="margin: 0; font-size: 14.5px; line-height: 1.6; color: #4A4235;">A CrewAI-based agent reads the job emails, updates the calendar, and drafts the invoice automatically &mdash; every time, on its own.</p>
           </div>
           <div>
-            <div data-i18n="case_label_value" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: #1F6F52; margin-bottom: 4px;">Business Value</div>
-            <p data-i18n="case1_value" style="margin: 0; font-size: 14.5px; line-height: 1.6; color: #4A4235;">Fewer manual steps each month, a more consistent invoice every time, and one less recurring task on your plate.</p>
+            <div data-i18n="case_label_value" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: #1F6F52; margin-bottom: 4px;">Outcome</div>
+            <p data-i18n="case1_value" style="margin: 0; font-size: 14.5px; line-height: 1.6; color: #4A4235;">The invoice goes out every month without being rebuilt from scratch &mdash; one less recurring task to think about.</p>
           </div>
         </div>
         <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap; padding-top: 4px; border-top: 1px solid #E2D8C6;">
@@ -973,18 +887,12 @@
           <h3 data-i18n="case2_title" style="margin: 0; font-weight: 600; font-size: 20px; color: #241F19;">Instagram Sales Assistant</h3>
         </div>
         <p data-i18n="case2_hook" style="margin: 0; font-weight: 600; font-size: 17px; line-height: 1.4; color: #1F6F52;">A flooded DM inbox, and a shop to run.</p>
-        <div class="case-detail-grid" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 28px;">
-          <div>
-            <div data-i18n="case_label_problem" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: #1F6F52; margin-bottom: 4px;">The Problem</div>
-            <p data-i18n="case2_problem" style="margin: 0; font-size: 14.5px; line-height: 1.6; color: #4A4235;">Customers ask the same questions on Instagram DMs &mdash; about products, prices, availability, options and orders &mdash; day and night, while you&rsquo;re busy running the shop itself.</p>
-          </div>
-          <div>
-            <div data-i18n="case_label_before" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: #1F6F52; margin-bottom: 4px;">Before</div>
-            <p data-i18n="case2_before" style="margin: 0; font-size: 14.5px; line-height: 1.6; color: #4A4235;">Answering DMs late into the night, one at a time, and losing track of who asked what and whether their order ever got handled.</p>
-          </div>
+        <div>
+          <div data-i18n="case_label_before" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: #1F6F52; margin-bottom: 4px;">Before</div>
+          <p data-i18n="case2_before" style="margin: 0; font-size: 14.5px; line-height: 1.6; color: #4A4235;">Customers ask the same questions on Instagram DMs &mdash; about products, prices, stock and orders &mdash; day and night. Answering one at a time, especially late in the evening, meant losing track of who asked what and whether their order ever got handled.</p>
         </div>
         <div>
-          <div data-i18n="case_label_solution" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: #1F6F52; margin-bottom: 8px;">The Solution</div>
+          <div data-i18n="case_label_solution" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: #1F6F52; margin-bottom: 8px;">What We Built</div>
           <p data-i18n="case2_solution_intro" style="margin: 0 0 14px 0; font-size: 14.5px; line-height: 1.6; color: #4A4235;">A LangGraph agent reads every DM as it comes in, checks the relevant information, and takes care of it &mdash; day or night.</p>
           <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 0;">
             <span data-i18n="case2_flow1" style="font-size: 13.5px; color: #1F6F52; background: #E6F5EC; border-radius: 6px; padding: 6px 12px;">Customer sends a message</span>
@@ -1003,8 +911,8 @@
           </div>
         </div>
         <div>
-          <div data-i18n="case_label_value" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: #1F6F52; margin-bottom: 4px;">Business Value</div>
-          <p data-i18n="case2_value" style="margin: 0; font-size: 14.5px; line-height: 1.6; color: #4A4235;">Faster replies at any hour, fewer missed messages, and a consistent, organized conversation for every customer.</p>
+          <div data-i18n="case_label_value" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: #1F6F52; margin-bottom: 4px;">Outcome</div>
+          <p data-i18n="case2_value" style="margin: 0; font-size: 14.5px; line-height: 1.6; color: #4A4235;">Replies go out at any hour, fewer messages get missed, and every conversation stays organized in one place.</p>
         </div>
         <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap; padding-top: 4px; border-top: 1px solid #E2D8C6;">
           <div style="display: flex; gap: 8px; flex-wrap: wrap; padding-top: 10px;">
@@ -1026,22 +934,18 @@
           </svg>
           <h3 data-i18n="case3_title" style="margin: 0; font-weight: 600; font-size: 20px; color: #241F19;">Data Analysis Assistant</h3>
         </div>
-        <div class="case-detail-grid" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 28px;">
-          <div>
-            <div data-i18n="case_label_problem" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: #1F6F52; margin-bottom: 4px;">The Problem</div>
-            <p data-i18n="case3_problem" style="margin: 0; font-size: 14.5px; line-height: 1.6; color: #4A4235;">Getting a straight answer out of a spreadsheet usually means digging through rows and formulas yourself, or waiting on whoever built the sheet.</p>
-          </div>
+        <div class="case-detail-grid" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px 28px;">
           <div>
             <div data-i18n="case_label_before" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: #1F6F52; margin-bottom: 4px;">Before</div>
-            <p data-i18n="case3_before" style="margin: 0; font-size: 14.5px; line-height: 1.6; color: #4A4235;">Manually filtering, sorting and cross-referencing CSV data &mdash; or waiting on someone else to pull the numbers you need.</p>
+            <p data-i18n="case3_before" style="margin: 0; font-size: 14.5px; line-height: 1.6; color: #4A4235;">Getting a straight answer out of a spreadsheet meant digging through rows and formulas by hand, or waiting on whoever built the sheet to pull the numbers.</p>
           </div>
           <div>
-            <div data-i18n="case_label_solution" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: #1F6F52; margin-bottom: 4px;">The Solution</div>
+            <div data-i18n="case_label_solution" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: #1F6F52; margin-bottom: 4px;">What We Built</div>
             <p data-i18n="case3_solution" style="margin: 0; font-size: 14.5px; line-height: 1.6; color: #4A4235;">A Streamlit app lets anyone ask their CSV data a plain-language question and get an answer back instantly, with automatic fallback across LLM providers.</p>
           </div>
           <div>
-            <div data-i18n="case_label_value" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: #1F6F52; margin-bottom: 4px;">Business Value</div>
-            <p data-i18n="case3_value" style="margin: 0; font-size: 14.5px; line-height: 1.6; color: #4A4235;">Faster answers straight from your own data, less waiting on someone else, and a tool your whole team can use without spreadsheet skills.</p>
+            <div data-i18n="case_label_value" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: #1F6F52; margin-bottom: 4px;">Outcome</div>
+            <p data-i18n="case3_value" style="margin: 0; font-size: 14.5px; line-height: 1.6; color: #4A4235;">Faster answers straight from your own data, less waiting on someone else, and a tool the whole team can use without spreadsheet skills.</p>
           </div>
         </div>
         <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap; padding-top: 4px; border-top: 1px solid #E2D8C6;">
@@ -1140,7 +1044,7 @@
 
         <details class="area-card reveal" style="--hl: #6EE7B7; display: flex; flex-direction: column; gap: 8px; padding: 18px 20px; border-radius: 10px; border: 1.5px solid #E2D8C6; background: #FDFBF6; transition-delay: 0.24s;">
           <summary style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
-            <span data-i18n="faq4_q" style="font-size: 15.5px; font-weight: 600; color: #241F19; flex-grow: 1;">What happens after I book a call?</span>
+            <span data-i18n="faq4_q" style="font-size: 15.5px; font-weight: 600; color: #241F19; flex-grow: 1;">What happens after I reach out?</span>
             <svg class="chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" stroke="#A69C86" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
           </summary>
           <p data-i18n="faq4_a" style="margin: 8px 0 0 0; font-size: 14.5px; line-height: 1.6; color: #6B6152;">We hop on a short call to understand your workflow &mdash; no pressure, no obligation. If it&rsquo;s a good fit, you&rsquo;ll get a clear plan and quote before anything starts.</p>
@@ -1255,21 +1159,15 @@
     "scenes_heading": "Every agent is hand-built, not templated.",
     "scenes_para": "No drag-and-drop black box. Each project starts from your actual workflow and gets coded, tested and tuned until it fits — small crew, real code, full attention on the details.",
     "services_eyebrow": "What we do",
-    "svc1_title": "Customer Conversations",
-    "svc1_desc": "Handle routine customer questions and conversations across the channels you already use.",
+    "svc1_title": "Customer Service AI Agents",
+    "svc1_desc": "Answers customer questions on Instagram & WhatsApp DMs and your website chat — instantly, day or night.",
     "svc1_tech": "Built with LangGraph and messaging APIs",
-    "svc2_title": "Lead Follow-Up",
-    "svc2_desc": "Organize, qualify and automate the right parts of your lead follow-up process.",
-    "svc2_tech": "Built with CrewAI and your existing tools",
-    "svc3_title": "Scheduling",
-    "svc3_desc": "Automate the repetitive parts of booking, confirming and rescheduling appointments.",
-    "svc3_tech": "Built with Google Calendar API and Python",
-    "svc4_title": "Email & Admin",
-    "svc4_desc": "Reduce the repetitive email and admin work that piles up every day.",
-    "svc4_tech": "Built with Gmail API and Python",
-    "svc5_title": "Data & Reporting",
-    "svc5_desc": "Automate the repetitive data entry and reporting work your business runs on.",
-    "svc5_tech": "Built with Streamlit and pandas",
+    "svc2_title": "Workflow Automation",
+    "svc2_desc": "Automates the repetitive parts of email, scheduling, invoicing and admin tasks — so it happens on its own, the same way every time.",
+    "svc2_tech": "Built with CrewAI, Gmail API and Google Calendar API",
+    "svc3_title": "Data & Reporting Automation",
+    "svc3_desc": "Turns spreadsheets and scattered data into reports and dashboards that update themselves — no manual copy-paste.",
+    "svc3_tech": "Built with Streamlit and pandas",
     "areas_eyebrow": "Where agents help most",
     "areas_para": "Common areas small businesses hand off to us — if it’s repetitive and rule-based, there’s probably an agent for it.",
     "area1_title": "Customer chat & DMs",
@@ -1287,15 +1185,6 @@
     "area5_title": "Data entry & reports",
     "area5_label": "report updated",
     "area5_desc": "Copying the same numbers from one spreadsheet or system into another, every single week. The agent pulls the data and keeps your report current without you touching it.",
-    "area6_title": "Order & inventory tracking",
-    "area6_label": "stock updated",
-    "area6_desc": "Checking stock by hand and updating it after every sale. The agent tracks inventory in real time and tells you when it’s time to reorder.",
-    "area7_title": "Lead follow-ups",
-    "area7_label": "follow-up sent",
-    "area7_desc": "A new lead comes in and then nothing, because you got busy. The agent follows up right away and keeps following up until they respond.",
-    "area8_title": "Social media replies",
-    "area8_label": "comment answered",
-    "area8_desc": "Comments and DMs piling up on posts you don’t have time to check. The agent replies to common questions so nobody gets ignored.",
     "human_eyebrow": "A familiar feeling",
     "human_heading": "47 unread DMs and a shop to run.",
     "human_para": "Sound familiar? A pile of messages waiting while you're busy with everything else the business needs. That's the moment an agent quietly steps in — before it becomes another thing you didn't get to today.",
@@ -1312,19 +1201,16 @@
     "action_caption2": "Logs the month’s work and sends the invoice automatically — no spreadsheet required.",
     "work_eyebrow": "Case studies",
     "work_intro": "Real projects, already running — explained the way you’d explain them to a friend, not a developer.",
-    "case_label_problem": "The Problem",
     "case_label_before": "Before",
-    "case_label_solution": "The Solution",
-    "case_label_value": "Business Value",
+    "case_label_solution": "What We Built",
+    "case_label_value": "Outcome",
     "case1_title": "Scheduling & Invoicing Agent",
-    "case1_problem": "Freelancers and small teams lose real time every month rebuilding the same invoice from scratch — reading through job emails, checking what got done, and putting it all together by hand.",
-    "case1_before": "Manually reading job emails, cross-checking the calendar, and building the invoice in a spreadsheet or document — every single month.",
+    "case1_before": "Every month: reading through job emails, checking the calendar, and building the same invoice by hand in a spreadsheet or document — from scratch, every time.",
     "case1_solution": "A CrewAI-based agent reads the job emails, updates the calendar, and drafts the invoice automatically — every time, on its own.",
-    "case1_value": "Fewer manual steps each month, a more consistent invoice every time, and one less recurring task on your plate.",
+    "case1_value": "The invoice goes out every month without being rebuilt from scratch — one less recurring task to think about.",
     "case2_title": "Instagram Sales Assistant",
     "case2_hook": "A flooded DM inbox, and a shop to run.",
-    "case2_problem": "Customers ask the same questions on Instagram DMs — about products, prices, availability, options and orders — day and night, while you’re busy running the shop itself.",
-    "case2_before": "Answering DMs late into the night, one at a time, and losing track of who asked what and whether their order ever got handled.",
+    "case2_before": "Customers ask the same questions on Instagram DMs — about products, prices, stock and orders — day and night. Answering one at a time, especially late in the evening, meant losing track of who asked what and whether their order ever got handled.",
     "case2_solution_intro": "A LangGraph agent reads every DM as it comes in, checks the relevant information, and takes care of it — day or night.",
     "case2_flow1": "Customer sends a message",
     "case2_flow2": "AI understands the request",
@@ -1333,12 +1219,11 @@
     "case2_flow5": "Updates the conversation & order state",
     "case2_flow6": "Responds to the customer",
     "case2_flow7": "Hands off to a human when needed",
-    "case2_value": "Faster replies at any hour, fewer missed messages, and a consistent, organized conversation for every customer.",
+    "case2_value": "Replies go out at any hour, fewer messages get missed, and every conversation stays organized in one place.",
     "case3_title": "Data Analysis Assistant",
-    "case3_problem": "Getting a straight answer out of a spreadsheet usually means digging through rows and formulas yourself, or waiting on whoever built the sheet.",
-    "case3_before": "Manually filtering, sorting and cross-referencing CSV data — or waiting on someone else to pull the numbers you need.",
+    "case3_before": "Getting a straight answer out of a spreadsheet meant digging through rows and formulas by hand, or waiting on whoever built the sheet to pull the numbers.",
     "case3_solution": "A Streamlit app lets anyone ask their CSV data a plain-language question and get an answer back instantly, with automatic fallback across LLM providers.",
-    "case3_value": "Faster answers straight from your own data, less waiting on someone else, and a tool your whole team can use without spreadsheet skills.",
+    "case3_value": "Faster answers straight from your own data, less waiting on someone else, and a tool the whole team can use without spreadsheet skills.",
     "case_link": "View the code ↗",
     "work_badge": "In progress",
     "work_progress_text": "Sourcing Agent — automated product search and price comparison",
@@ -1365,6 +1250,7 @@
     "about_chip1": "Fluent in English, Farsi & Turkish",
     "about_chip2": "Background in interpreting & client work",
     "about_chip3": "Remote-first, async-friendly",
+    "about_chip4": "Every agent hand-built and personally maintained",
     "faq_eyebrow": "Good to know",
     "faq1_q": "Is my data safe?",
     "faq1_a": "Your data stays inside the tools and accounts you already use and control. Nothing is shared beyond what the automation actually needs — privacy is part of every build, not an afterthought.",
@@ -1372,7 +1258,7 @@
     "faq2_a": "Not at all — that’s the whole point. You keep using the tools you already know, like email, calendar or spreadsheets. The agent works quietly alongside them.",
     "faq3_q": "How much does it cost?",
     "faq3_a": "It depends on what you’re automating, so there’s no fixed price list. You’ll get a clear, no-surprises quote after a first call, once we both know exactly what we’re building.",
-    "faq4_q": "What happens after I book a call?",
+    "faq4_q": "What happens after I reach out?",
     "faq4_a": "We hop on a short call to understand your workflow — no pressure, no obligation. If it’s a good fit, you’ll get a clear plan and quote before anything starts."
   },
   "fa": {
@@ -1413,21 +1299,15 @@
     "scenes_heading": "هر Agent به‌صورت دستی ساخته می‌شود، نه از روی قالب.",
     "scenes_para": "بدون جعبه سیاه drag-and-drop. هر پروژه از workflow واقعی شما شروع می‌شود و کدنویسی، تست و تنظیم می‌شود تا دقیقاً متناسب باشد — تیم کوچک، کد واقعی، توجه کامل به جزئیات.",
     "services_eyebrow": "کارهایی که انجام می‌دهیم",
-    "svc1_title": "گفتگوی مشتری",
-    "svc1_desc": "به سوال‌ها و گفتگوهای روزمره‌ی مشتری‌ها، در همون کانال‌هایی که همین الان استفاده می‌کنید، جواب می‌دهد.",
+    "svc1_title": "دستیار هوش مصنوعی خدمات مشتری",
+    "svc1_desc": "به پیام‌های مشتری در دایرکت Instagram، WhatsApp و چت سایت جواب می‌دهد — فوری، شب یا روز.",
     "svc1_tech": "ساخته‌شده با LangGraph و messaging APIها",
-    "svc2_title": "پیگیری سرنخ‌ها",
-    "svc2_desc": "بخش‌های درست پیگیری سرنخ‌ها را مرتب، ارزیابی و خودکار می‌کند.",
-    "svc2_tech": "ساخته‌شده با CrewAI و ابزارهای فعلی شما",
-    "svc3_title": "زمان‌بندی",
-    "svc3_desc": "بخش‌های تکراری رزرو، تأیید و جابه‌جایی وقت قرار را خودکار می‌کند.",
-    "svc3_tech": "ساخته‌شده با Google Calendar API و Python",
-    "svc4_title": "ایمیل و کارهای اداری",
-    "svc4_desc": "کارهای تکراری ایمیل و اداری که هر روز روی سرتان می‌ریزد را کم می‌کند.",
-    "svc4_tech": "ساخته‌شده با Gmail API و Python",
-    "svc5_title": "داده و گزارش‌گیری",
-    "svc5_desc": "ورود اطلاعات و تهیه‌ی گزارش‌های تکراری کسب‌وکارتان را خودکار می‌کند.",
-    "svc5_tech": "ساخته‌شده با Streamlit و pandas",
+    "svc2_title": "خودکارسازی گردش کار",
+    "svc2_desc": "کارهای تکراری ایمیل، زمان‌بندی، صورت‌حساب و کارهای اداری را خودکار می‌کند — تا هر بار خودش انجام شود.",
+    "svc2_tech": "ساخته‌شده با CrewAI، Gmail API و Google Calendar API",
+    "svc3_title": "خودکارسازی داده و گزارش‌گیری",
+    "svc3_desc": "Spreadsheetها و داده‌های پراکنده را به گزارش و dashboardهایی تبدیل می‌کند که خودشان به‌روز می‌شوند.",
+    "svc3_tech": "ساخته‌شده با Streamlit و pandas",
     "areas_eyebrow": "کجا Agentها بیشترین کمک را می‌کنند",
     "areas_para": "حوزه‌های رایجی که کسب‌وکارهای کوچک به ما می‌سپارند — اگر کاری تکراری و قانون‌محور است، احتمالاً یک Agent برایش هست.",
     "area1_title": "چت و DM مشتریان",
@@ -1445,15 +1325,6 @@
     "area5_title": "ورود داده و گزارش‌ها",
     "area5_label": "گزارش به‌روزرسانی شد",
     "area5_desc": "کپی‌کردن همان اعداد از یک spreadsheet یا سیستم به سیستم دیگر، هر هفته. Agent داده‌ها را می‌کشد و گزارش شما را بدون دست‌زدن شما به‌روز نگه می‌دارد.",
-    "area6_title": "پیگیری سفارش و موجودی",
-    "area6_label": "موجودی به‌روزرسانی شد",
-    "area6_desc": "بررسی دستی موجودی و به‌روزرسانی آن پس از هر فروش. Agent موجودی را به‌صورت لحظه‌ای پیگیری می‌کند و زمان سفارش مجدد را به شما اطلاع می‌دهد.",
-    "area7_title": "پیگیری Leadها",
-    "area7_label": "پیگیری ارسال شد",
-    "area7_desc": "یک Lead جدید می‌رسد و بعد هیچ‌ اتفاقی نمی‌افتد، چون سرتان شلوغ می‌شود. Agent بلافاصله پیگیری می‌کند و تا پاسخ‌دادن آن‌ها ادامه می‌دهد.",
-    "area8_title": "پاسخ به شبکه‌های اجتماعی",
-    "area8_label": "کامنت پاسخ داده شد",
-    "area8_desc": "انباشته‌شدن کامنت‌ها و DMها روی پست‌هایی که وقت بررسیشان را ندارید. Agent به سوالات رایج پاسخ می‌دهد تا کسی نادیده گرفته نشود.",
     "human_eyebrow": "یک حس آشنا",
     "human_heading": "۴۷ دایرکت نخوانده و یک مغازه که باید بچرخد.",
     "human_para": "آشنا به‌نظر می‌رسد؟ یک عالمه پیام منتظر جواب، درحالی‌که سرتان با بقیه‌ی کارهای کسب‌وکار گرم است. دقیقاً همان لحظه‌ای‌ست که یک Agent بی‌سروصدا وارد عمل می‌شود — قبل از اینکه این هم به فهرست کارهای نکرده‌ی امروز اضافه شود.",
@@ -1470,19 +1341,16 @@
     "action_caption2": "کارهای انجام‌شده در ماه را ثبت و فاکتور را به‌صورت خودکار ارسال می‌کند — بدون نیاز به spreadsheet.",
     "work_eyebrow": "نمونه‌ پروژه‌ها",
     "work_intro": "پروژه‌های واقعی که همین الان در حال اجرا هستند — به همان زبانی که برای یک دوست توضیح می‌دهید، نه یک برنامه‌نویس.",
-    "case_label_problem": "مسئله",
     "case_label_before": "قبلاً",
-    "case_label_solution": "راه‌حل",
-    "case_label_value": "ارزش برای کسب‌وکار",
+    "case_label_solution": "چه ساختیم",
+    "case_label_value": "نتیجه",
     "case1_title": "Agent زمان‌بندی و فاکتور",
-    "case1_problem": "فریلنسرها و تیم‌های کوچک هر ماه وقت واقعی را صرف ساختن دوباره‌ی همان فاکتور می‌کنند — خواندن ایمیل‌های کاری، چک کردن چه چیزی انجام شده، و دستی سرهم کردن همه‌چیز.",
-    "case1_before": "خواندن دستیِ ایمیل‌های کاری، چک کردن تقویم، و ساختن فاکتور توی اکسل یا سند — هر ماه، از اول.",
+    "case1_before": "هر ماه: خواندن ایمیل‌های کاری، چک کردن تقویم، و ساختن همان فاکتور با دست توی اکسل یا سند — از اول، هر بار.",
     "case1_solution": "یک Agent مبتنی بر CrewAI ایمیل‌های کاری را می‌خواند، تقویم را به‌روز می‌کند و فاکتور را خودش، هر بار، به‌صورت خودکار می‌سازد.",
-    "case1_value": "کاهش مراحل دستی در هر ماه، فاکتوری یکدست‌تر در هر بار، و یک کار تکراری کمتر روی دست شما.",
+    "case1_value": "فاکتور هر ماه بدون ساختن دوباره از صفر ارسال می‌شود — یک کار تکراری کمتر برای فکر کردن.",
     "case2_title": "دستیار فروش Instagram",
     "case2_hook": "یک صندوق دایرکت پر، و یک مغازه که باید بچرخد.",
-    "case2_problem": "مشتری‌ها توی دایرکت اینستاگرام، شب و روز، همان سوال‌ها را درباره‌ی محصول، قیمت، موجودی، گزینه‌ها و سفارش می‌پرسند — درحالی‌که سرتان با اداره‌ی خود مغازه گرم است.",
-    "case2_before": "جواب دادن به دایرکت‌ها تا نیمه‌شب، یکی‌یکی، و گم کردن ردّ اینکه چه کسی چه چیزی پرسیده و سفارشش رسیدگی شده یا نه.",
+    "case2_before": "مشتری‌ها توی دایرکت اینستاگرام، شب و روز، همان سوال‌ها را درباره‌ی محصول، قیمت، موجودی و سفارش می‌پرسند. جواب دادن یکی‌یکی، به‌خصوص تا دیروقت، یعنی گم کردن ردّ اینکه چه کسی چه چیزی پرسیده و سفارشش رسیدگی شده یا نه.",
     "case2_solution_intro": "یک Agent مبتنی بر LangGraph هر دایرکت را همان لحظه می‌خواند، اطلاعات لازم را چک می‌کند، و رسیدگی می‌کند — شب یا روز.",
     "case2_flow1": "مشتری پیام می‌فرستد",
     "case2_flow2": "AI درخواست را می‌فهمد",
@@ -1491,12 +1359,11 @@
     "case2_flow5": "وضعیت گفتگو و سفارش را به‌روز می‌کند",
     "case2_flow6": "به مشتری جواب می‌دهد",
     "case2_flow7": "در صورت نیاز، به یک انسان واگذار می‌کند",
-    "case2_value": "جواب سریع‌تر در هر ساعتی، پیام کمتری از قلم می‌افتد، و یک گفتگوی یکدست و منظم برای هر مشتری.",
+    "case2_value": "جواب در هر ساعتی سریع‌تر داده می‌شود، پیام کمتری از قلم می‌افتد، و هر گفتگو منظم و در یک جا می‌ماند.",
     "case3_title": "دستیار تحلیل داده",
-    "case3_problem": "گرفتن یک جواب ساده از یک spreadsheet معمولاً یعنی خودتان بگردید توی ردیف‌ها و فرمول‌ها، یا منتظر کسی بمانید که آن شیت را ساخته.",
-    "case3_before": "فیلتر و مرتب کردن و مقایسه‌ی دستیِ داده‌های CSV — یا منتظر ماندن برای کسی که اعداد لازم را برایتان دربیاورد.",
+    "case3_before": "گرفتن یک جواب ساده از spreadsheet یعنی خودتان توی ردیف‌ها و فرمول‌ها بگردید، یا منتظر بمانید کسی که آن شیت را ساخته اعداد را برایتان دربیاورد.",
     "case3_solution": "یک اپ Streamlit به همه اجازه می‌دهد از داده‌های CSV خودشان یک سوال به زبان ساده بپرسند و همان لحظه جواب بگیرند، با fallback خودکار بین چند ارائه‌دهنده‌ی LLM.",
-    "case3_value": "جواب سریع‌تر مستقیم از داده‌های خودتان، انتظار کمتر برای دیگران، و ابزاری که کل تیمتان بدون نیاز به مهارت اکسل می‌توانند از آن استفاده کنند.",
+    "case3_value": "جواب سریع‌تر مستقیم از داده‌های خودتان، انتظار کمتر برای دیگران، و ابزاری که کل تیم بدون نیاز به مهارت اکسل می‌تواند استفاده کند.",
     "case_link": "مشاهده کد ↗",
     "work_badge": "در حال انجام",
     "work_progress_text": "Agent تامین — جستجوی خودکار محصول و مقایسه قیمت",
@@ -1523,6 +1390,7 @@
     "about_chip1": "مسلط به انگلیسی، فارسی و ترکی",
     "about_chip2": "پیشینه در ترجمه و کار مستقیم با مشتری",
     "about_chip3": "دورکار، سازگار با همکاری async",
+    "about_chip4": "هر Agent به‌صورت شخصی ساخته و پشتیبانی می‌شود",
     "faq_eyebrow": "خوب است بدانید",
     "faq1_q": "آیا داده‌های من امن است؟",
     "faq1_a": "داده‌های شما در همان ابزار و حساب‌هایی می‌ماند که همین حالا استفاده و کنترل می‌کنید. چیزی فراتر از نیاز واقعی اتوماسیون به اشتراک گذاشته نمی‌شود — حریم خصوصی بخشی از هر پروژه است، نه یک فکر بعدی.",
@@ -1530,7 +1398,7 @@
     "faq2_a": "اصلاً — دقیقاً همین هدف است. شما همچنان از همان ابزارهایی که می‌شناسید استفاده می‌کنید، مثل ایمیل، تقویم یا spreadsheet. Agent بی‌سروصدا در کنار آن‌ها کار می‌کند.",
     "faq3_q": "هزینه چقدر است؟",
     "faq3_a": "بستگی به چیزی دارد که خودکار می‌کنید، پس لیست قیمت ثابتی وجود ندارد. بعد از یک تماس اول، وقتی هر دو دقیقاً بدانیم چه می‌سازیم، یک قیمت شفاف و بدون سورپرایز دریافت می‌کنید.",
-    "faq4_q": "بعد از رزرو تماس چه اتفاقی می‌افتد؟",
+    "faq4_q": "بعد از تماس گرفتن چه اتفاقی می‌افتد؟",
     "faq4_a": "یک تماس کوتاه داریم تا workflow شما را بفهمیم — بدون فشار، بدون تعهد. اگر مناسب بود، قبل از شروع هر کاری یک برنامه و قیمت شفاف دریافت می‌کنید."
   }
 };
