@@ -20,8 +20,10 @@
     .lang-btn { transition: background 0.15s ease, color 0.15s ease; }
     .reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.7s ease, transform 0.7s ease; }
     .reveal.is-visible { opacity: 1; transform: translateY(0); }
-    .grid-services > .reveal:nth-child(2), .grid-case > .reveal:nth-child(2), .grid-action > .reveal:nth-child(2) { transition-delay: 0.1s; }
-    .grid-services > .reveal:nth-child(3), .grid-case > .reveal:nth-child(3) { transition-delay: 0.2s; }
+    .grid-services > .reveal:nth-child(2), .grid-action > .reveal:nth-child(2) { transition-delay: 0.1s; }
+    .grid-services > .reveal:nth-child(3), .grid-action > .reveal:nth-child(3) { transition-delay: 0.2s; }
+    .grid-services > .reveal:nth-child(4) { transition-delay: 0.3s; }
+    .grid-services > .reveal:nth-child(5) { transition-delay: 0.4s; }
     .grid-areas > .reveal:nth-child(2), .grid-areas > .reveal:nth-child(6) { transition-delay: 0.08s; }
     .grid-areas > .reveal:nth-child(3), .grid-areas > .reveal:nth-child(7) { transition-delay: 0.16s; }
     .grid-areas > .reveal:nth-child(4), .grid-areas > .reveal:nth-child(8) { transition-delay: 0.24s; }
@@ -175,7 +177,7 @@
     /* Tablet */
     @media (max-width: 900px) {
       .section-pad { padding-left: 32px !important; padding-right: 32px !important; }
-      .grid-services, .grid-case { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+      .grid-services { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
       .grid-areas { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
       .hero-heading { font-size: 46px !important; }
       .hero-icon-wrap { flex-basis: 200px !important; }
@@ -186,7 +188,8 @@
     @media (max-width: 640px) {
       .section-pad { padding-left: 20px !important; padding-right: 20px !important; }
       .hero-wrap { padding-top: 44px !important; padding-bottom: 36px !important; gap: 24px !important; }
-      .grid-services, .grid-case, .grid-action, .grid-areas, .grid-faq { grid-template-columns: 1fr !important; }
+      .grid-services, .grid-action, .grid-areas, .grid-faq, .grid-pain { grid-template-columns: 1fr !important; }
+      .case-detail-grid { grid-template-columns: 1fr !important; }
       .grid-stats { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 16px !important; }
       .nav-links { gap: 14px !important; }
       .nav-btn { font-size: 11px !important; letter-spacing: 0.04em !important; }
@@ -263,11 +266,11 @@
     </svg>
     <div class="hero-copy" style="flex: 1 1 460px; min-width: 320px; display: flex; flex-direction: column; gap: 22px; position: relative; z-index: 1;">
       <div data-i18n="hero_eyebrow" style="font-family: 'JetBrains Mono', monospace; font-size: 14px; letter-spacing: 0.09em; text-transform: uppercase; color: #1F6F52;">AI agents for small business</div>
-      <h1 class="hero-heading" data-i18n="hero_heading" data-i18n-html style="margin: 0; font-weight: 700; font-size: 62px; line-height: 1.12; color: #241F19;">AI agents that run your business&rsquo;s <mark style="background: #6EE7B7; color: #16281F; padding: 2px 10px; border-radius: 6px; font-style: normal;">busywork</mark>.</h1>
-      <p data-i18n="hero_para" style="margin: 0; font-size: 19px; line-height: 1.7; color: #5C5346; max-width: 560px;">Nauto AI designs and builds custom AI agents for small businesses &mdash; automating the repetitive parts of the day so you can focus on running things.</p>
+      <h1 class="hero-heading" data-i18n="hero_heading" data-i18n-html style="margin: 0; font-weight: 700; font-size: 62px; line-height: 1.12; color: #241F19;">Stop spending your day on <mark style="background: #6EE7B7; color: #16281F; padding: 2px 10px; border-radius: 6px; font-style: normal;">repetitive work</mark>.</h1>
+      <p data-i18n="hero_para" style="margin: 0; font-size: 19px; line-height: 1.7; color: #5C5346; max-width: 560px;">Nauto AI builds custom AI agents and automations that handle customer messages, follow-ups, scheduling, data entry and other repetitive tasks &mdash; so you can get back to running your business.</p>
       <div style="display: flex; gap: 16px; padding-top: 8px;">
-        <button type="button" class="btn-primary" data-i18n="hero_btn_primary" data-scroll="contact" style="background: #6EE7B7; color: #16281F; font-weight: 600; font-size: 16px; padding: 16px 30px; border-radius: 8px; border: none; cursor: pointer; font-family: 'Space Grotesk', sans-serif;">Book a call</button>
-        <button type="button" class="btn-secondary" data-i18n="hero_btn_secondary" data-scroll="work" style="--hoverColor: #1F6F52; border: 1px solid #D8CBB2; color: #241F19; font-weight: 500; font-size: 16px; padding: 15px 30px; border-radius: 8px; background: none; cursor: pointer; font-family: 'Space Grotesk', sans-serif;">See our work</button>
+        <button type="button" class="btn-primary" data-i18n="hero_btn_primary" data-scroll="contact" style="background: #6EE7B7; color: #16281F; font-weight: 600; font-size: 16px; padding: 16px 30px; border-radius: 8px; border: none; cursor: pointer; font-family: 'Space Grotesk', sans-serif;">Show Me Your Workflow</button>
+        <button type="button" class="btn-secondary" data-i18n="hero_btn_secondary" data-scroll="how" style="--hoverColor: #1F6F52; border: 1px solid #D8CBB2; color: #241F19; font-weight: 500; font-size: 16px; padding: 15px 30px; border-radius: 8px; background: none; cursor: pointer; font-family: 'Space Grotesk', sans-serif;">See How It Works</button>
       </div>
     </div>
     <div class="hero-icon-wrap" style="flex: 0 0 260px; display: flex; align-items: center; justify-content: center; position: relative; z-index: 1;">
@@ -282,6 +285,133 @@
         <circle cx="90" cy="200" r="9" fill="#1F6F52" style="transform-origin: 90px 200px; animation: nodePulse 2.6s ease-in-out infinite; animation-delay: 0.9s;"></circle>
         <circle cx="200" cy="190" r="9" fill="#1F6F52" style="transform-origin: 200px 190px; animation: nodePulse 2.6s ease-in-out infinite; animation-delay: 1.2s;"></circle>
       </svg>
+    </div>
+  </div>
+
+  <div class="section-pad reveal" style="width: 100%; max-width: 1040px; padding: 56px 48px; box-sizing: border-box; display: flex; flex-direction: column; gap: 28px; position: relative;">
+    <div style="display: flex; flex-direction: column; gap: 14px; max-width: 640px;">
+      <div data-i18n="pain_eyebrow" style="font-family: 'JetBrains Mono', monospace; font-size: 14px; letter-spacing: 0.09em; text-transform: uppercase; color: #1F6F52;">Sound familiar?</div>
+      <h2 data-i18n="pain_heading" style="margin: 0; font-weight: 700; font-size: 32px; line-height: 1.3; color: #241F19;">You didn&rsquo;t start your business to spend your day doing this.</h2>
+    </div>
+    <div class="grid-pain" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px 32px;">
+      <div style="display: flex; align-items: flex-start; gap: 12px; padding: 14px 0; border-bottom: 1px solid #E2D8C6;">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="flex-shrink: 0; margin-top: 2px;">
+          <path d="M3 9a6 6 0 0 1 10-4.5" stroke="#1F6F52" stroke-width="1.6" stroke-linecap="round"></path>
+          <path d="M13 2.5V6h-3.5" stroke="#1F6F52" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+          <path d="M15 9a6 6 0 0 1-10 4.5" stroke="#1F6F52" stroke-width="1.6" stroke-linecap="round"></path>
+          <path d="M5 16v-3.5h3.5" stroke="#1F6F52" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+        <span data-i18n="pain1" style="font-size: 16px; line-height: 1.5; color: #4A4235;">Answering the same customer questions, again and again</span>
+      </div>
+      <div style="display: flex; align-items: flex-start; gap: 12px; padding: 14px 0; border-bottom: 1px solid #E2D8C6;">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="flex-shrink: 0; margin-top: 2px;">
+          <path d="M3 9a6 6 0 0 1 10-4.5" stroke="#1F6F52" stroke-width="1.6" stroke-linecap="round"></path>
+          <path d="M13 2.5V6h-3.5" stroke="#1F6F52" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+          <path d="M15 9a6 6 0 0 1-10 4.5" stroke="#1F6F52" stroke-width="1.6" stroke-linecap="round"></path>
+          <path d="M5 16v-3.5h3.5" stroke="#1F6F52" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+        <span data-i18n="pain2" style="font-size: 16px; line-height: 1.5; color: #4A4235;">Copying information between emails and spreadsheets by hand</span>
+      </div>
+      <div style="display: flex; align-items: flex-start; gap: 12px; padding: 14px 0; border-bottom: 1px solid #E2D8C6;">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="flex-shrink: 0; margin-top: 2px;">
+          <path d="M3 9a6 6 0 0 1 10-4.5" stroke="#1F6F52" stroke-width="1.6" stroke-linecap="round"></path>
+          <path d="M13 2.5V6h-3.5" stroke="#1F6F52" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+          <path d="M15 9a6 6 0 0 1-10 4.5" stroke="#1F6F52" stroke-width="1.6" stroke-linecap="round"></path>
+          <path d="M5 16v-3.5h3.5" stroke="#1F6F52" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+        <span data-i18n="pain3" style="font-size: 16px; line-height: 1.5; color: #4A4235;">Following up with leads manually, one message at a time</span>
+      </div>
+      <div style="display: flex; align-items: flex-start; gap: 12px; padding: 14px 0; border-bottom: 1px solid #E2D8C6;">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="flex-shrink: 0; margin-top: 2px;">
+          <path d="M3 9a6 6 0 0 1 10-4.5" stroke="#1F6F52" stroke-width="1.6" stroke-linecap="round"></path>
+          <path d="M13 2.5V6h-3.5" stroke="#1F6F52" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+          <path d="M15 9a6 6 0 0 1-10 4.5" stroke="#1F6F52" stroke-width="1.6" stroke-linecap="round"></path>
+          <path d="M5 16v-3.5h3.5" stroke="#1F6F52" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+        <span data-i18n="pain4" style="font-size: 16px; line-height: 1.5; color: #4A4235;">Putting together the same report every week</span>
+      </div>
+      <div style="display: flex; align-items: flex-start; gap: 12px; padding: 14px 0; border-bottom: 1px solid #E2D8C6;">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="flex-shrink: 0; margin-top: 2px;">
+          <path d="M3 9a6 6 0 0 1 10-4.5" stroke="#1F6F52" stroke-width="1.6" stroke-linecap="round"></path>
+          <path d="M13 2.5V6h-3.5" stroke="#1F6F52" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+          <path d="M15 9a6 6 0 0 1-10 4.5" stroke="#1F6F52" stroke-width="1.6" stroke-linecap="round"></path>
+          <path d="M5 16v-3.5h3.5" stroke="#1F6F52" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+        <span data-i18n="pain5" style="font-size: 16px; line-height: 1.5; color: #4A4235;">Scheduling appointments back and forth over email or text</span>
+      </div>
+      <div style="display: flex; align-items: flex-start; gap: 12px; padding: 14px 0; border-bottom: 1px solid #E2D8C6;">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="flex-shrink: 0; margin-top: 2px;">
+          <path d="M3 9a6 6 0 0 1 10-4.5" stroke="#1F6F52" stroke-width="1.6" stroke-linecap="round"></path>
+          <path d="M13 2.5V6h-3.5" stroke="#1F6F52" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+          <path d="M15 9a6 6 0 0 1-10 4.5" stroke="#1F6F52" stroke-width="1.6" stroke-linecap="round"></path>
+          <path d="M5 16v-3.5h3.5" stroke="#1F6F52" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+        <span data-i18n="pain6" style="font-size: 16px; line-height: 1.5; color: #4A4235;">Processing the same type of order, over and over</span>
+      </div>
+      <div style="display: flex; align-items: flex-start; gap: 12px; padding: 14px 0; border-bottom: 1px solid #E2D8C6;">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="flex-shrink: 0; margin-top: 2px;">
+          <path d="M3 9a6 6 0 0 1 10-4.5" stroke="#1F6F52" stroke-width="1.6" stroke-linecap="round"></path>
+          <path d="M13 2.5V6h-3.5" stroke="#1F6F52" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+          <path d="M15 9a6 6 0 0 1-10 4.5" stroke="#1F6F52" stroke-width="1.6" stroke-linecap="round"></path>
+          <path d="M5 16v-3.5h3.5" stroke="#1F6F52" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+        <span data-i18n="pain7" style="font-size: 16px; line-height: 1.5; color: #4A4235;">Replying to customer messages outside your working hours</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="width: 100%; background: #F1EAD9; display: flex; justify-content: center;">
+    <div class="section-pad reveal" style="width: 100%; max-width: 760px; padding: 56px 48px; box-sizing: border-box; display: flex; flex-direction: column; gap: 22px;">
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div data-i18n="diag_eyebrow" style="font-family: 'JetBrains Mono', monospace; font-size: 14px; letter-spacing: 0.09em; text-transform: uppercase; color: #1F6F52;">Self-check</div>
+        <h2 data-i18n="diag_heading" style="margin: 0; font-weight: 700; font-size: 32px; line-height: 1.3; color: #241F19;">Could your business use an AI agent?</h2>
+        <p data-i18n="diag_intro" style="margin: 0; font-size: 15.5px; line-height: 1.6; color: #6B6152;">Automation works best when a process is repetitive, predictable, digital and time-consuming. If most of these sound like you, it&rsquo;s worth a conversation:</p>
+      </div>
+      <div style="background: linear-gradient(165deg, #FDFBF6 0%, #FAF4E7 100%); border: 1px solid #E2D8C6; border-radius: 12px; padding: 8px 28px;">
+        <div style="display: flex; align-items: flex-start; gap: 12px; padding: 16px 0; border-bottom: 1px solid #E2D8C6;">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="flex-shrink: 0; margin-top: 1px;">
+            <rect x="2" y="2" width="16" height="16" rx="4" stroke="#1F6F52" stroke-width="1.6"></rect>
+          </svg>
+          <span data-i18n="diag1" style="font-size: 15.5px; line-height: 1.5; color: #241F19;">You answer the same customer questions every day.</span>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 12px; padding: 16px 0; border-bottom: 1px solid #E2D8C6;">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="flex-shrink: 0; margin-top: 1px;">
+            <rect x="2" y="2" width="16" height="16" rx="4" stroke="#1F6F52" stroke-width="1.6"></rect>
+          </svg>
+          <span data-i18n="diag2" style="font-size: 15.5px; line-height: 1.5; color: #241F19;">Leads contact you but sometimes don&rsquo;t get followed up.</span>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 12px; padding: 16px 0; border-bottom: 1px solid #E2D8C6;">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="flex-shrink: 0; margin-top: 1px;">
+            <rect x="2" y="2" width="16" height="16" rx="4" stroke="#1F6F52" stroke-width="1.6"></rect>
+          </svg>
+          <span data-i18n="diag3" style="font-size: 15.5px; line-height: 1.5; color: #241F19;">You copy information between spreadsheets, emails and other tools.</span>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 12px; padding: 16px 0; border-bottom: 1px solid #E2D8C6;">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="flex-shrink: 0; margin-top: 1px;">
+            <rect x="2" y="2" width="16" height="16" rx="4" stroke="#1F6F52" stroke-width="1.6"></rect>
+          </svg>
+          <span data-i18n="diag4" style="font-size: 15.5px; line-height: 1.5; color: #241F19;">You spend hours preparing repetitive reports.</span>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 12px; padding: 16px 0; border-bottom: 1px solid #E2D8C6;">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="flex-shrink: 0; margin-top: 1px;">
+            <rect x="2" y="2" width="16" height="16" rx="4" stroke="#1F6F52" stroke-width="1.6"></rect>
+          </svg>
+          <span data-i18n="diag5" style="font-size: 15.5px; line-height: 1.5; color: #241F19;">Customers message you outside working hours.</span>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 12px; padding: 16px 0; border-bottom: 1px solid #E2D8C6;">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="flex-shrink: 0; margin-top: 1px;">
+            <rect x="2" y="2" width="16" height="16" rx="4" stroke="#1F6F52" stroke-width="1.6"></rect>
+          </svg>
+          <span data-i18n="diag6" style="font-size: 15.5px; line-height: 1.5; color: #241F19;">Someone on your team spends hours on repetitive admin work.</span>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 12px; padding: 16px 0;">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="flex-shrink: 0; margin-top: 1px;">
+            <rect x="2" y="2" width="16" height="16" rx="4" stroke="#1F6F52" stroke-width="1.6"></rect>
+          </svg>
+          <span data-i18n="diag7" style="font-size: 15.5px; line-height: 1.5; color: #241F19;">You know a process should be automated but don&rsquo;t know where to start.</span>
+        </div>
+      </div>
+      <button type="button" class="btn-primary" data-i18n="hero_btn_primary" data-scroll="contact" style="align-self: flex-start; background: #6EE7B7; color: #16281F; font-weight: 600; font-size: 16px; padding: 16px 30px; border-radius: 8px; border: none; cursor: pointer; font-family: 'Space Grotesk', sans-serif;">Show Me Your Workflow</button>
     </div>
   </div>
 
@@ -476,39 +606,63 @@
         <div class="service-card reveal" style="--hoverColor: #1F6F52; background: linear-gradient(165deg, #FDFBF6 0%, #FAF4E7 100%); border: 1px solid #E2D8C6; border-radius: 10px; padding: 24px; display: flex; flex-direction: column; gap: 10px;">
           <div style="display: flex; align-items: center; gap: 10px;">
             <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <circle cx="11" cy="5" r="2.3" stroke="url(#iconGradient)" stroke-width="1.6"></circle>
-              <circle cx="5" cy="16" r="2.3" stroke="url(#iconGradient)" stroke-width="1.6"></circle>
-              <circle cx="17" cy="16" r="2.3" stroke="url(#iconGradient)" stroke-width="1.6"></circle>
-              <line x1="9.6" y1="6.8" x2="6.4" y2="14" stroke="url(#iconGradient)" stroke-width="1.6"></line>
-              <line x1="12.4" y1="6.8" x2="15.6" y2="14" stroke="url(#iconGradient)" stroke-width="1.6"></line>
+              <path d="M3.5 6.2A2.7 2.7 0 0 1 6.2 3.5h9.6A2.7 2.7 0 0 1 18.5 6.2v5.4A2.7 2.7 0 0 1 15.8 14.3H9l-4.3 3.4v-3.4H6.2A2.7 2.7 0 0 1 3.5 11.6V6.2Z" stroke="url(#iconGradient)" stroke-width="1.6" stroke-linejoin="round"></path>
             </svg>
-            <h3 data-i18n="svc1_title" style="margin: 0; font-weight: 600; font-size: 19px; color: #241F19;">Custom AI Agents</h3>
+            <h3 data-i18n="svc1_title" style="margin: 0; font-weight: 600; font-size: 19px; color: #241F19;">Customer Conversations</h3>
           </div>
-          <p data-i18n="svc1_desc" style="margin: 0; font-size: 15px; line-height: 1.6; color: #6B6152;">We design and build AI agents tailored to your workflow &mdash; from customer support to scheduling and data entry.</p>
+          <p data-i18n="svc1_desc" style="margin: 0; font-size: 15px; line-height: 1.6; color: #6B6152;">Handle routine customer questions and conversations across the channels you already use.</p>
+          <div data-i18n="svc1_tech" style="margin-top: 2px; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; letter-spacing: 0.03em; color: #9C9182;">Built with LangGraph and messaging APIs</div>
         </div>
 
         <div class="service-card reveal" style="--hoverColor: #1F6F52; background: linear-gradient(165deg, #FDFBF6 0%, #FAF4E7 100%); border: 1px solid #E2D8C6; border-radius: 10px; padding: 24px; display: flex; flex-direction: column; gap: 10px;">
           <div style="display: flex; align-items: center; gap: 10px;">
             <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path d="M4 11a7 7 0 0 1 12-4.9" stroke="url(#iconGradient)" stroke-width="1.6" stroke-linecap="round"></path>
-              <path d="M16 3v3.5H12.5" stroke="url(#iconGradient)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
-              <path d="M18 11a7 7 0 0 1-12 4.9" stroke="url(#iconGradient)" stroke-width="1.6" stroke-linecap="round"></path>
-              <path d="M6 19v-3.5h3.5" stroke="url(#iconGradient)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M3.5 4h15l-5.5 7.2v5.3l-4 1.8v-7.1L3.5 4Z" stroke="url(#iconGradient)" stroke-width="1.6" stroke-linejoin="round"></path>
             </svg>
-            <h3 data-i18n="svc2_title" style="margin: 0; font-weight: 600; font-size: 19px; color: #241F19;">Workflow Automation</h3>
+            <h3 data-i18n="svc2_title" style="margin: 0; font-weight: 600; font-size: 19px; color: #241F19;">Lead Follow-Up</h3>
           </div>
-          <p data-i18n="svc2_desc" style="margin: 0; font-size: 15px; line-height: 1.6; color: #6B6152;">We connect the tools you already use &mdash; email, calendar, spreadsheets &mdash; so repetitive tasks run themselves.</p>
+          <p data-i18n="svc2_desc" style="margin: 0; font-size: 15px; line-height: 1.6; color: #6B6152;">Organize, qualify and automate the right parts of your lead follow-up process.</p>
+          <div data-i18n="svc2_tech" style="margin-top: 2px; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; letter-spacing: 0.03em; color: #9C9182;">Built with CrewAI and your existing tools</div>
         </div>
 
         <div class="service-card reveal" style="--hoverColor: #1F6F52; background: linear-gradient(165deg, #FDFBF6 0%, #FAF4E7 100%); border: 1px solid #E2D8C6; border-radius: 10px; padding: 24px; display: flex; flex-direction: column; gap: 10px;">
           <div style="display: flex; align-items: center; gap: 10px;">
             <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path d="M11 2.5 18 5v5.2c0 4.4-3 7.4-7 9-4-1.6-7-4.6-7-9V5l7-2.5Z" stroke="url(#iconGradient)" stroke-width="1.6" stroke-linejoin="round"></path>
-              <path d="M8 11.2l2 2 4-4.4" stroke="url(#iconGradient)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+              <rect x="3.5" y="5" width="15" height="13" rx="2" stroke="url(#iconGradient)" stroke-width="1.6"></rect>
+              <line x1="3.5" y1="9" x2="18.5" y2="9" stroke="url(#iconGradient)" stroke-width="1.6"></line>
+              <line x1="7.5" y1="3" x2="7.5" y2="6.5" stroke="url(#iconGradient)" stroke-width="1.6" stroke-linecap="round"></line>
+              <line x1="14.5" y1="3" x2="14.5" y2="6.5" stroke="url(#iconGradient)" stroke-width="1.6" stroke-linecap="round"></line>
             </svg>
-            <h3 data-i18n="svc3_title" style="margin: 0; font-weight: 600; font-size: 19px; color: #241F19;">Ongoing Support</h3>
+            <h3 data-i18n="svc3_title" style="margin: 0; font-weight: 600; font-size: 19px; color: #241F19;">Scheduling</h3>
           </div>
-          <p data-i18n="svc3_desc" style="margin: 0; font-size: 15px; line-height: 1.6; color: #6B6152;">Once your agent is live, we monitor, maintain and improve it as your business changes.</p>
+          <p data-i18n="svc3_desc" style="margin: 0; font-size: 15px; line-height: 1.6; color: #6B6152;">Automate the repetitive parts of booking, confirming and rescheduling appointments.</p>
+          <div data-i18n="svc3_tech" style="margin-top: 2px; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; letter-spacing: 0.03em; color: #9C9182;">Built with Google Calendar API and Python</div>
+        </div>
+
+        <div class="service-card reveal" style="--hoverColor: #1F6F52; background: linear-gradient(165deg, #FDFBF6 0%, #FAF4E7 100%); border: 1px solid #E2D8C6; border-radius: 10px; padding: 24px; display: flex; flex-direction: column; gap: 10px;">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect x="3" y="5" width="16" height="12" rx="2" stroke="url(#iconGradient)" stroke-width="1.6"></rect>
+              <path d="M3.5 6l7.5 6 7.5-6" stroke="url(#iconGradient)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+            <h3 data-i18n="svc4_title" style="margin: 0; font-weight: 600; font-size: 19px; color: #241F19;">Email &amp; Admin</h3>
+          </div>
+          <p data-i18n="svc4_desc" style="margin: 0; font-size: 15px; line-height: 1.6; color: #6B6152;">Reduce the repetitive email and admin work that piles up every day.</p>
+          <div data-i18n="svc4_tech" style="margin-top: 2px; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; letter-spacing: 0.03em; color: #9C9182;">Built with Gmail API and Python</div>
+        </div>
+
+        <div class="service-card reveal" style="--hoverColor: #1F6F52; background: linear-gradient(165deg, #FDFBF6 0%, #FAF4E7 100%); border: 1px solid #E2D8C6; border-radius: 10px; padding: 24px; display: flex; flex-direction: column; gap: 10px;">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <line x1="3.5" y1="18.5" x2="18.5" y2="18.5" stroke="url(#iconGradient)" stroke-width="1.6" stroke-linecap="round"></line>
+              <rect x="4.5" y="12" width="3.4" height="6.2" rx="0.8" stroke="url(#iconGradient)" stroke-width="1.6"></rect>
+              <rect x="9.3" y="8" width="3.4" height="10.2" rx="0.8" stroke="url(#iconGradient)" stroke-width="1.6"></rect>
+              <rect x="14.1" y="4" width="3.4" height="14.2" rx="0.8" stroke="url(#iconGradient)" stroke-width="1.6"></rect>
+            </svg>
+            <h3 data-i18n="svc5_title" style="margin: 0; font-weight: 600; font-size: 19px; color: #241F19;">Data &amp; Reporting</h3>
+          </div>
+          <p data-i18n="svc5_desc" style="margin: 0; font-size: 15px; line-height: 1.6; color: #6B6152;">Automate the repetitive data entry and reporting work your business runs on.</p>
+          <div data-i18n="svc5_tech" style="margin-top: 2px; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; letter-spacing: 0.03em; color: #9C9182;">Built with Streamlit and pandas</div>
         </div>
 
       </div>
@@ -769,10 +923,11 @@
     <div class="bg-blob" style="width: 280px; height: 280px; background: #6EE7B7; opacity: 0.14; top: -60px; right: -60px; z-index: 0;"></div>
     <div style="position: relative; z-index: 1; display: flex; flex-direction: column; gap: 24px;">
     <div data-i18n="work_eyebrow" style="font-family: 'JetBrains Mono', monospace; font-size: 14px; letter-spacing: 0.09em; text-transform: uppercase; color: #1F6F52;">Case studies</div>
+    <p data-i18n="work_intro" style="margin: 0; font-size: 15px; line-height: 1.6; color: #6B6152; max-width: 640px;">Real projects, already running &mdash; explained the way you&rsquo;d explain them to a friend, not a developer.</p>
 
-    <div class="grid-case" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px;">
+    <div class="case-list" style="display: flex; flex-direction: column; gap: 20px;">
 
-      <div class="case-card reveal" style="--hoverColor: #1F6F52; background: linear-gradient(165deg, #FDFBF6 0%, #FAF4E7 100%); border: 1px solid #E2D8C6; border-radius: 10px; padding: 24px; display: flex; flex-direction: column; gap: 14px;">
+      <div class="case-card reveal" style="--hoverColor: #1F6F52; background: linear-gradient(165deg, #FDFBF6 0%, #FAF4E7 100%); border: 1px solid #E2D8C6; border-radius: 10px; padding: 28px; display: flex; flex-direction: column; gap: 18px;">
         <div style="display: flex; align-items: center; gap: 10px;">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <rect x="3" y="4.5" width="14" height="12" rx="2" stroke="#1F6F52" stroke-width="1.5"></rect>
@@ -782,32 +937,86 @@
           </svg>
           <h3 data-i18n="case1_title" style="margin: 0; font-weight: 600; font-size: 20px; color: #241F19;">Scheduling &amp; Invoicing Agent</h3>
         </div>
-        <p data-i18n="case1_desc" style="margin: 0; font-size: 14.5px; line-height: 1.6; color: #6B6152; flex-grow: 1;">No more building the same invoice by hand every month. This CrewAI-based agent reads the job emails, updates the calendar, and drafts it automatically &mdash; every time, on its own.</p>
-        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.04em; padding: 4px 9px; background: #E6F5EC; border-radius: 4px; color: #1F6F52;">CrewAI</span>
-          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.04em; padding: 4px 9px; background: #E6F5EC; border-radius: 4px; color: #1F6F52;">Gmail API</span>
-          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.04em; padding: 4px 9px; background: #E6F5EC; border-radius: 4px; color: #1F6F52;">Python</span>
+        <div class="case-detail-grid" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 28px;">
+          <div>
+            <div data-i18n="case_label_problem" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: #1F6F52; margin-bottom: 4px;">The Problem</div>
+            <p data-i18n="case1_problem" style="margin: 0; font-size: 14.5px; line-height: 1.6; color: #4A4235;">Freelancers and small teams lose real time every month rebuilding the same invoice from scratch &mdash; reading through job emails, checking what got done, and putting it all together by hand.</p>
+          </div>
+          <div>
+            <div data-i18n="case_label_before" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: #1F6F52; margin-bottom: 4px;">Before</div>
+            <p data-i18n="case1_before" style="margin: 0; font-size: 14.5px; line-height: 1.6; color: #4A4235;">Manually reading job emails, cross-checking the calendar, and building the invoice in a spreadsheet or document &mdash; every single month.</p>
+          </div>
+          <div>
+            <div data-i18n="case_label_solution" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: #1F6F52; margin-bottom: 4px;">The Solution</div>
+            <p data-i18n="case1_solution" style="margin: 0; font-size: 14.5px; line-height: 1.6; color: #4A4235;">A CrewAI-based agent reads the job emails, updates the calendar, and drafts the invoice automatically &mdash; every time, on its own.</p>
+          </div>
+          <div>
+            <div data-i18n="case_label_value" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: #1F6F52; margin-bottom: 4px;">Business Value</div>
+            <p data-i18n="case1_value" style="margin: 0; font-size: 14.5px; line-height: 1.6; color: #4A4235;">Fewer manual steps each month, a more consistent invoice every time, and one less recurring task on your plate.</p>
+          </div>
         </div>
-        <a href="https://github.com/nadcodegit/Scheduler-Agent" data-i18n="case_link" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #241F19; border-bottom: 1px solid #241F19; width: fit-content; padding-top: 2px;">View the code &nearr;</a>
+        <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap; padding-top: 4px; border-top: 1px solid #E2D8C6;">
+          <div style="display: flex; gap: 8px; flex-wrap: wrap; padding-top: 10px;">
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.04em; padding: 4px 9px; background: #E6F5EC; border-radius: 4px; color: #1F6F52;">CrewAI</span>
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.04em; padding: 4px 9px; background: #E6F5EC; border-radius: 4px; color: #1F6F52;">Gmail API</span>
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.04em; padding: 4px 9px; background: #E6F5EC; border-radius: 4px; color: #1F6F52;">Python</span>
+          </div>
+          <a href="https://github.com/nadcodegit/Scheduler-Agent" data-i18n="case_link" style="margin-top: 10px; font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #241F19; border-bottom: 1px solid #241F19; width: fit-content; padding-top: 2px;">View the code &nearr;</a>
+        </div>
       </div>
 
-      <div class="case-card reveal" style="--hoverColor: #1F6F52; background: linear-gradient(165deg, #FDFBF6 0%, #FAF4E7 100%); border: 1px solid #E2D8C6; border-radius: 10px; padding: 24px; display: flex; flex-direction: column; gap: 14px;">
+      <div class="case-card reveal" style="--hoverColor: #1F6F52; background: linear-gradient(165deg, #FDFBF6 0%, #FAF4E7 100%); border: 1px solid #E2D8C6; border-radius: 10px; padding: 28px; display: flex; flex-direction: column; gap: 18px;">
         <div style="display: flex; align-items: center; gap: 10px;">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <path d="M3 5.5A2.5 2.5 0 0 1 5.5 3h9A2.5 2.5 0 0 1 17 5.5v5A2.5 2.5 0 0 1 14.5 13H8l-4 3.2V13H5.5A2.5 2.5 0 0 1 3 10.5v-5Z" stroke="#1F6F52" stroke-width="1.5" stroke-linejoin="round"></path>
           </svg>
           <h3 data-i18n="case2_title" style="margin: 0; font-weight: 600; font-size: 20px; color: #241F19;">Instagram Sales Assistant</h3>
         </div>
-        <p data-i18n="case2_desc" style="margin: 0; font-size: 14.5px; line-height: 1.6; color: #6B6152; flex-grow: 1;">Instead of answering DMs until midnight, this LangGraph agent replies within seconds &mdash; handling price questions, browsing and checkout for Bella Charm London, day or night.</p>
-        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.04em; padding: 4px 9px; background: #E6F5EC; border-radius: 4px; color: #1F6F52;">LangGraph</span>
-          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.04em; padding: 4px 9px; background: #E6F5EC; border-radius: 4px; color: #1F6F52;">Railway</span>
-          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.04em; padding: 4px 9px; background: #E6F5EC; border-radius: 4px; color: #1F6F52;">SQLite</span>
+        <p data-i18n="case2_hook" style="margin: 0; font-weight: 600; font-size: 17px; line-height: 1.4; color: #1F6F52;">A flooded DM inbox, and a shop to run.</p>
+        <div class="case-detail-grid" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 28px;">
+          <div>
+            <div data-i18n="case_label_problem" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: #1F6F52; margin-bottom: 4px;">The Problem</div>
+            <p data-i18n="case2_problem" style="margin: 0; font-size: 14.5px; line-height: 1.6; color: #4A4235;">Customers ask the same questions on Instagram DMs &mdash; about products, prices, availability, options and orders &mdash; day and night, while you&rsquo;re busy running the shop itself.</p>
+          </div>
+          <div>
+            <div data-i18n="case_label_before" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: #1F6F52; margin-bottom: 4px;">Before</div>
+            <p data-i18n="case2_before" style="margin: 0; font-size: 14.5px; line-height: 1.6; color: #4A4235;">Answering DMs late into the night, one at a time, and losing track of who asked what and whether their order ever got handled.</p>
+          </div>
         </div>
-        <a href="https://github.com/nadcodegit/Customer-Instagram-DM-Agent-Bella-charm" data-i18n="case_link" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #241F19; border-bottom: 1px solid #241F19; width: fit-content; padding-top: 2px;">View the code &nearr;</a>
+        <div>
+          <div data-i18n="case_label_solution" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: #1F6F52; margin-bottom: 8px;">The Solution</div>
+          <p data-i18n="case2_solution_intro" style="margin: 0 0 14px 0; font-size: 14.5px; line-height: 1.6; color: #4A4235;">A LangGraph agent reads every DM as it comes in, checks the relevant information, and takes care of it &mdash; day or night.</p>
+          <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 0;">
+            <span data-i18n="case2_flow1" style="font-size: 13.5px; color: #1F6F52; background: #E6F5EC; border-radius: 6px; padding: 6px 12px;">Customer sends a message</span>
+            <span style="font-size: 13px; color: #1F6F52; padding: 2px 0 2px 16px; line-height: 1;">&darr;</span>
+            <span data-i18n="case2_flow2" style="font-size: 13.5px; color: #1F6F52; background: #E6F5EC; border-radius: 6px; padding: 6px 12px;">AI understands the request</span>
+            <span style="font-size: 13px; color: #1F6F52; padding: 2px 0 2px 16px; line-height: 1;">&darr;</span>
+            <span data-i18n="case2_flow3" style="font-size: 13.5px; color: #1F6F52; background: #E6F5EC; border-radius: 6px; padding: 6px 12px;">Checks relevant information</span>
+            <span style="font-size: 13px; color: #1F6F52; padding: 2px 0 2px 16px; line-height: 1;">&darr;</span>
+            <span data-i18n="case2_flow4" style="font-size: 13.5px; color: #1F6F52; background: #E6F5EC; border-radius: 6px; padding: 6px 12px;">Takes the appropriate action</span>
+            <span style="font-size: 13px; color: #1F6F52; padding: 2px 0 2px 16px; line-height: 1;">&darr;</span>
+            <span data-i18n="case2_flow5" style="font-size: 13.5px; color: #1F6F52; background: #E6F5EC; border-radius: 6px; padding: 6px 12px;">Updates the conversation &amp; order state</span>
+            <span style="font-size: 13px; color: #1F6F52; padding: 2px 0 2px 16px; line-height: 1;">&darr;</span>
+            <span data-i18n="case2_flow6" style="font-size: 13.5px; color: #1F6F52; background: #E6F5EC; border-radius: 6px; padding: 6px 12px;">Responds to the customer</span>
+            <span style="font-size: 13px; color: #1F6F52; padding: 2px 0 2px 16px; line-height: 1;">&darr;</span>
+            <span data-i18n="case2_flow7" style="font-size: 13.5px; color: #4A4235; background: #F1EAD9; border-radius: 6px; padding: 6px 12px;">Hands off to a human when needed</span>
+          </div>
+        </div>
+        <div>
+          <div data-i18n="case_label_value" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: #1F6F52; margin-bottom: 4px;">Business Value</div>
+          <p data-i18n="case2_value" style="margin: 0; font-size: 14.5px; line-height: 1.6; color: #4A4235;">Faster replies at any hour, fewer missed messages, and a consistent, organized conversation for every customer.</p>
+        </div>
+        <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap; padding-top: 4px; border-top: 1px solid #E2D8C6;">
+          <div style="display: flex; gap: 8px; flex-wrap: wrap; padding-top: 10px;">
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.04em; padding: 4px 9px; background: #E6F5EC; border-radius: 4px; color: #1F6F52;">LangGraph</span>
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.04em; padding: 4px 9px; background: #E6F5EC; border-radius: 4px; color: #1F6F52;">Railway</span>
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.04em; padding: 4px 9px; background: #E6F5EC; border-radius: 4px; color: #1F6F52;">SQLite</span>
+          </div>
+          <a href="https://github.com/nadcodegit/Customer-Instagram-DM-Agent-Bella-charm" data-i18n="case_link" style="margin-top: 10px; font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #241F19; border-bottom: 1px solid #241F19; width: fit-content; padding-top: 2px;">View the code &nearr;</a>
+        </div>
       </div>
 
-      <div class="case-card reveal" style="--hoverColor: #1F6F52; background: linear-gradient(165deg, #FDFBF6 0%, #FAF4E7 100%); border: 1px solid #E2D8C6; border-radius: 10px; padding: 24px; display: flex; flex-direction: column; gap: 14px;">
+      <div class="case-card reveal" style="--hoverColor: #1F6F52; background: linear-gradient(165deg, #FDFBF6 0%, #FAF4E7 100%); border: 1px solid #E2D8C6; border-radius: 10px; padding: 28px; display: flex; flex-direction: column; gap: 18px;">
         <div style="display: flex; align-items: center; gap: 10px;">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <line x1="4" y1="17" x2="16" y2="17" stroke="#1F6F52" stroke-width="1.5" stroke-linecap="round"></line>
@@ -817,13 +1026,32 @@
           </svg>
           <h3 data-i18n="case3_title" style="margin: 0; font-weight: 600; font-size: 20px; color: #241F19;">Data Analysis Assistant</h3>
         </div>
-        <p data-i18n="case3_desc" style="margin: 0; font-size: 14.5px; line-height: 1.6; color: #6B6152; flex-grow: 1;">No more digging through spreadsheets for answers. This Streamlit app lets anyone ask their CSV data a plain-language question and get one back instantly, with automatic fallback across LLM providers.</p>
-        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.04em; padding: 4px 9px; background: #E6F5EC; border-radius: 4px; color: #1F6F52;">Streamlit</span>
-          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.04em; padding: 4px 9px; background: #E6F5EC; border-radius: 4px; color: #1F6F52;">OpenRouter</span>
-          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.04em; padding: 4px 9px; background: #E6F5EC; border-radius: 4px; color: #1F6F52;">pandas</span>
+        <div class="case-detail-grid" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 28px;">
+          <div>
+            <div data-i18n="case_label_problem" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: #1F6F52; margin-bottom: 4px;">The Problem</div>
+            <p data-i18n="case3_problem" style="margin: 0; font-size: 14.5px; line-height: 1.6; color: #4A4235;">Getting a straight answer out of a spreadsheet usually means digging through rows and formulas yourself, or waiting on whoever built the sheet.</p>
+          </div>
+          <div>
+            <div data-i18n="case_label_before" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: #1F6F52; margin-bottom: 4px;">Before</div>
+            <p data-i18n="case3_before" style="margin: 0; font-size: 14.5px; line-height: 1.6; color: #4A4235;">Manually filtering, sorting and cross-referencing CSV data &mdash; or waiting on someone else to pull the numbers you need.</p>
+          </div>
+          <div>
+            <div data-i18n="case_label_solution" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: #1F6F52; margin-bottom: 4px;">The Solution</div>
+            <p data-i18n="case3_solution" style="margin: 0; font-size: 14.5px; line-height: 1.6; color: #4A4235;">A Streamlit app lets anyone ask their CSV data a plain-language question and get an answer back instantly, with automatic fallback across LLM providers.</p>
+          </div>
+          <div>
+            <div data-i18n="case_label_value" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: #1F6F52; margin-bottom: 4px;">Business Value</div>
+            <p data-i18n="case3_value" style="margin: 0; font-size: 14.5px; line-height: 1.6; color: #4A4235;">Faster answers straight from your own data, less waiting on someone else, and a tool your whole team can use without spreadsheet skills.</p>
+          </div>
         </div>
-        <a href="https://github.com/nadcodegit/ai-csv-analyzer" data-i18n="case_link" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #241F19; border-bottom: 1px solid #241F19; width: fit-content; padding-top: 2px;">View the code &nearr;</a>
+        <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap; padding-top: 4px; border-top: 1px solid #E2D8C6;">
+          <div style="display: flex; gap: 8px; flex-wrap: wrap; padding-top: 10px;">
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.04em; padding: 4px 9px; background: #E6F5EC; border-radius: 4px; color: #1F6F52;">Streamlit</span>
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.04em; padding: 4px 9px; background: #E6F5EC; border-radius: 4px; color: #1F6F52;">OpenRouter</span>
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.04em; padding: 4px 9px; background: #E6F5EC; border-radius: 4px; color: #1F6F52;">pandas</span>
+          </div>
+          <a href="https://github.com/nadcodegit/ai-csv-analyzer" data-i18n="case_link" style="margin-top: 10px; font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #241F19; border-bottom: 1px solid #241F19; width: fit-content; padding-top: 2px;">View the code &nearr;</a>
+        </div>
       </div>
 
     </div>
@@ -851,7 +1079,7 @@
     </div>
   </div>
 
-  <div style="width: 100%; background: radial-gradient(900px 480px at 85% -15%, rgba(110,231,183,0.09), transparent 60%), radial-gradient(700px 420px at 5% 115%, rgba(110,231,183,0.05), transparent 55%), #221D18; display: flex; justify-content: center;">
+  <div id="how" style="width: 100%; background: radial-gradient(900px 480px at 85% -15%, rgba(110,231,183,0.09), transparent 60%), radial-gradient(700px 420px at 5% 115%, rgba(110,231,183,0.05), transparent 55%), #221D18; display: flex; justify-content: center;">
     <div class="section-pad" style="width: 100%; max-width: 1040px; padding: 64px 48px; box-sizing: border-box; display: flex; flex-direction: column; gap: 6px;">
       <div data-i18n="how_eyebrow" style="font-family: 'JetBrains Mono', monospace; font-size: 14px; letter-spacing: 0.09em; text-transform: uppercase; color: #6EE7B7; margin-bottom: 12px;">How we work</div>
 
@@ -927,7 +1155,7 @@
       <div data-i18n="cta_eyebrow" style="font-family: 'JetBrains Mono', monospace; font-size: 14px; letter-spacing: 0.09em; text-transform: uppercase; color: #16281F;">Ready to automate?</div>
       <h2 class="cta-heading" data-i18n="cta_heading" style="margin: 0; font-weight: 700; font-size: 40px; color: #16281F; max-width: 640px;">Want to automate part of your business?</h2>
       <p data-i18n="cta_para" style="margin: 0; font-size: 17px; line-height: 1.7; color: #1E3A2C; max-width: 620px;">If you&rsquo;d rather hand the repetitive parts of your work to a reliable digital employee than keep doing them yourself, we can help you build it &mdash; a custom AI agent that takes care of the task, so you don&rsquo;t have to.</p>
-      <button type="button" class="btn-primary" data-i18n="cta_btn" data-scroll="contact" style="background: #16281F; color: #F7F3EC; font-weight: 600; font-size: 16px; padding: 16px 30px; border-radius: 8px; width: fit-content; margin-top: 8px; border: none; cursor: pointer; font-family: 'Space Grotesk', sans-serif;">Let&rsquo;s talk</button>
+      <button type="button" class="btn-primary" data-i18n="cta_btn" data-scroll="contact" style="background: #16281F; color: #F7F3EC; font-weight: 600; font-size: 16px; padding: 16px 30px; border-radius: 8px; width: fit-content; margin-top: 8px; border: none; cursor: pointer; font-family: 'Space Grotesk', sans-serif;">Show Me Your Workflow</button>
     </div>
   </div>
 
@@ -994,10 +1222,29 @@
     "nav_work": "Work",
     "nav_contact": "Contact",
     "hero_eyebrow": "AI agents for small business",
-    "hero_heading": "AI agents that run your business’s <mark style=\"background:#6EE7B7;color:#16281F;padding:2px 10px;border-radius:6px;font-style:normal;\">busywork</mark>.",
-    "hero_para": "Nauto AI designs and builds custom AI agents for small businesses — automating the repetitive parts of the day so you can focus on running things.",
-    "hero_btn_primary": "Book a call",
-    "hero_btn_secondary": "See our work",
+    "hero_heading": "Stop spending your day on <mark style=\"background:#6EE7B7;color:#16281F;padding:2px 10px;border-radius:6px;font-style:normal;\">repetitive work</mark>.",
+    "hero_para": "Nauto AI builds custom AI agents and automations that handle customer messages, follow-ups, scheduling, data entry and other repetitive tasks — so you can get back to running your business.",
+    "hero_btn_primary": "Show Me Your Workflow",
+    "hero_btn_secondary": "See How It Works",
+    "pain_eyebrow": "Sound familiar?",
+    "pain_heading": "You didn’t start your business to spend your day doing this.",
+    "pain1": "Answering the same customer questions, again and again",
+    "pain2": "Copying information between emails and spreadsheets by hand",
+    "pain3": "Following up with leads manually, one message at a time",
+    "pain4": "Putting together the same report every week",
+    "pain5": "Scheduling appointments back and forth over email or text",
+    "pain6": "Processing the same type of order, over and over",
+    "pain7": "Replying to customer messages outside your working hours",
+    "diag_eyebrow": "Self-check",
+    "diag_heading": "Could your business use an AI agent?",
+    "diag_intro": "Automation works best when a process is repetitive, predictable, digital and time-consuming. If most of these sound like you, it’s worth a conversation:",
+    "diag1": "You answer the same customer questions every day.",
+    "diag2": "Leads contact you but sometimes don’t get followed up.",
+    "diag3": "You copy information between spreadsheets, emails and other tools.",
+    "diag4": "You spend hours preparing repetitive reports.",
+    "diag5": "Customers message you outside working hours.",
+    "diag6": "Someone on your team spends hours on repetitive admin work.",
+    "diag7": "You know a process should be automated but don’t know where to start.",
     "now_eyebrow": "Right now",
     "now_statement": "We’re building our first customers’ agents right now — real projects, real workflows, each one hand-built from scratch.",
     "stat1_label": "Agents shipped",
@@ -1008,12 +1255,21 @@
     "scenes_heading": "Every agent is hand-built, not templated.",
     "scenes_para": "No drag-and-drop black box. Each project starts from your actual workflow and gets coded, tested and tuned until it fits — small crew, real code, full attention on the details.",
     "services_eyebrow": "What we do",
-    "svc1_title": "Custom AI Agents",
-    "svc1_desc": "We design and build AI agents tailored to your workflow — from customer support to scheduling and data entry.",
-    "svc2_title": "Workflow Automation",
-    "svc2_desc": "We connect the tools you already use — email, calendar, spreadsheets — so repetitive tasks run themselves.",
-    "svc3_title": "Ongoing Support",
-    "svc3_desc": "Once your agent is live, we monitor, maintain and improve it as your business changes.",
+    "svc1_title": "Customer Conversations",
+    "svc1_desc": "Handle routine customer questions and conversations across the channels you already use.",
+    "svc1_tech": "Built with LangGraph and messaging APIs",
+    "svc2_title": "Lead Follow-Up",
+    "svc2_desc": "Organize, qualify and automate the right parts of your lead follow-up process.",
+    "svc2_tech": "Built with CrewAI and your existing tools",
+    "svc3_title": "Scheduling",
+    "svc3_desc": "Automate the repetitive parts of booking, confirming and rescheduling appointments.",
+    "svc3_tech": "Built with Google Calendar API and Python",
+    "svc4_title": "Email & Admin",
+    "svc4_desc": "Reduce the repetitive email and admin work that piles up every day.",
+    "svc4_tech": "Built with Gmail API and Python",
+    "svc5_title": "Data & Reporting",
+    "svc5_desc": "Automate the repetitive data entry and reporting work your business runs on.",
+    "svc5_tech": "Built with Streamlit and pandas",
     "areas_eyebrow": "Where agents help most",
     "areas_para": "Common areas small businesses hand off to us — if it’s repetitive and rule-based, there’s probably an agent for it.",
     "area1_title": "Customer chat & DMs",
@@ -1055,12 +1311,34 @@
     "action_item3": "Interpreting session — 3 hrs",
     "action_caption2": "Logs the month’s work and sends the invoice automatically — no spreadsheet required.",
     "work_eyebrow": "Case studies",
+    "work_intro": "Real projects, already running — explained the way you’d explain them to a friend, not a developer.",
+    "case_label_problem": "The Problem",
+    "case_label_before": "Before",
+    "case_label_solution": "The Solution",
+    "case_label_value": "Business Value",
     "case1_title": "Scheduling & Invoicing Agent",
-    "case1_desc": "No more building the same invoice by hand every month. This CrewAI-based agent reads the job emails, updates the calendar, and drafts it automatically — every time, on its own.",
+    "case1_problem": "Freelancers and small teams lose real time every month rebuilding the same invoice from scratch — reading through job emails, checking what got done, and putting it all together by hand.",
+    "case1_before": "Manually reading job emails, cross-checking the calendar, and building the invoice in a spreadsheet or document — every single month.",
+    "case1_solution": "A CrewAI-based agent reads the job emails, updates the calendar, and drafts the invoice automatically — every time, on its own.",
+    "case1_value": "Fewer manual steps each month, a more consistent invoice every time, and one less recurring task on your plate.",
     "case2_title": "Instagram Sales Assistant",
-    "case2_desc": "Instead of answering DMs until midnight, this LangGraph agent replies within seconds — handling price questions, browsing and checkout for Bella Charm London, day or night.",
+    "case2_hook": "A flooded DM inbox, and a shop to run.",
+    "case2_problem": "Customers ask the same questions on Instagram DMs — about products, prices, availability, options and orders — day and night, while you’re busy running the shop itself.",
+    "case2_before": "Answering DMs late into the night, one at a time, and losing track of who asked what and whether their order ever got handled.",
+    "case2_solution_intro": "A LangGraph agent reads every DM as it comes in, checks the relevant information, and takes care of it — day or night.",
+    "case2_flow1": "Customer sends a message",
+    "case2_flow2": "AI understands the request",
+    "case2_flow3": "Checks relevant information",
+    "case2_flow4": "Takes the appropriate action",
+    "case2_flow5": "Updates the conversation & order state",
+    "case2_flow6": "Responds to the customer",
+    "case2_flow7": "Hands off to a human when needed",
+    "case2_value": "Faster replies at any hour, fewer missed messages, and a consistent, organized conversation for every customer.",
     "case3_title": "Data Analysis Assistant",
-    "case3_desc": "No more digging through spreadsheets for answers. This Streamlit app lets anyone ask their CSV data a plain-language question and get one back instantly, with automatic fallback across LLM providers.",
+    "case3_problem": "Getting a straight answer out of a spreadsheet usually means digging through rows and formulas yourself, or waiting on whoever built the sheet.",
+    "case3_before": "Manually filtering, sorting and cross-referencing CSV data — or waiting on someone else to pull the numbers you need.",
+    "case3_solution": "A Streamlit app lets anyone ask their CSV data a plain-language question and get an answer back instantly, with automatic fallback across LLM providers.",
+    "case3_value": "Faster answers straight from your own data, less waiting on someone else, and a tool your whole team can use without spreadsheet skills.",
     "case_link": "View the code ↗",
     "work_badge": "In progress",
     "work_progress_text": "Sourcing Agent — automated product search and price comparison",
@@ -1075,7 +1353,7 @@
     "cta_eyebrow": "Ready to automate?",
     "cta_heading": "Want to automate part of your business?",
     "cta_para": "If you’d rather hand the repetitive parts of your work to a reliable digital employee than keep doing them yourself, we can help you build it — a custom AI agent that takes care of the task, so you don’t have to.",
-    "cta_btn": "Let’s talk",
+    "cta_btn": "Show Me Your Workflow",
     "contact_eyebrow": "Get in touch",
     "contact_heading": "Let’s build something.",
     "contact_linkedin": "Message on LinkedIn",
@@ -1102,10 +1380,29 @@
     "nav_work": "نمونه‌کارها",
     "nav_contact": "تماس",
     "hero_eyebrow": "Agentهای AI برای کسب‌وکارهای کوچک",
-    "hero_heading": "Agentهای AI که <mark style=\"background:#6EE7B7;color:#16281F;padding:2px 10px;border-radius:6px;font-style:normal;\">کارهای روزمره</mark> کسب‌وکار شما را انجام می‌دهند.",
-    "hero_para": "Nauto AI برای کسب‌وکارهای کوچک Agentهای AI اختصاصی طراحی و می‌سازد — بخش‌های تکراری روز را خودکار می‌کند تا شما روی اداره کسب‌وکارتان تمرکز کنید.",
-    "hero_btn_primary": "رزرو تماس",
-    "hero_btn_secondary": "مشاهده نمونه‌کارها",
+    "hero_heading": "دیگه وقتت رو صرف <mark style=\"background:#6EE7B7;color:#16281F;padding:2px 10px;border-radius:6px;font-style:normal;\">کارهای تکراری</mark> نکن.",
+    "hero_para": "Nauto AI Agentهای AI اختصاصی و automationهایی می‌سازد که پیام‌های مشتری‌ها، پیگیری‌ها، زمان‌بندی، وارد کردن داده و بقیه‌ی کارهای تکراری کسب‌وکارتان را انجام می‌دهند — تا شما به اداره‌ی کسب‌وکارتان برگردید.",
+    "hero_btn_primary": "روند کارت رو نشونم بده",
+    "hero_btn_secondary": "ببین چطور کار می‌کند",
+    "pain_eyebrow": "به نظر آشنا میاد؟",
+    "pain_heading": "کسب‌وکارت رو برای این راه‌ ننداختی که روزت رو صرف این کارها کنی.",
+    "pain1": "جواب دادن به همون سوال‌های تکراری مشتری‌ها، بارها و بارها",
+    "pain2": "کپی کردن دستیِ اطلاعات بین ایمیل و اکسل",
+    "pain3": "پیگیری دستیِ مشتری‌های بالقوه، پیام به پیام",
+    "pain4": "تهیه‌ی همون گزارش تکراری، هر هفته",
+    "pain5": "رد و بدل کردن پیام برای هماهنگ کردن وقت قرار",
+    "pain6": "پردازش همون نوع سفارش، بارها و بارها",
+    "pain7": "جواب دادن به پیام مشتری‌ها بیرون از ساعت کاری",
+    "diag_eyebrow": "بررسی سریع",
+    "diag_heading": "آیا کسب‌وکار شما به یک Agent نیاز دارد؟",
+    "diag_intro": "Automation وقتی بهترین جواب را می‌دهد که یک فرایند تکراری، قابل پیش‌بینی، دیجیتال و زمان‌بر باشد. اگر بیشتر این موارد برایتان آشناست، ارزش یک گفتگو را دارد:",
+    "diag1": "هر روز به همان سوال‌های تکراری مشتری‌ها جواب می‌دهید.",
+    "diag2": "سرنخ‌ها باهاتان تماس می‌گیرند ولی گاهی پیگیری نمی‌شوند.",
+    "diag3": "اطلاعات را بین اکسل، ایمیل و ابزارهای دیگر کپی می‌کنید.",
+    "diag4": "ساعت‌ها وقت صرف تهیه‌ی گزارش‌های تکراری می‌کنید.",
+    "diag5": "مشتری‌ها بیرون از ساعت کاری پیام می‌دهند.",
+    "diag6": "یکی از اعضای تیمتان ساعت‌ها صرف کارهای اداری تکراری می‌کند.",
+    "diag7": "می‌دانید یک فرایند باید خودکار شود ولی نمی‌دانید از کجا شروع کنید.",
     "now_eyebrow": "همین الان",
     "now_statement": "همین الان اولین مشتری‌ها رو داریم می‌سازیم — پروژه‌های واقعی، workflowهای واقعی، هرکدام دست‌ساز و از پایه.",
     "stat1_label": "Agent تحویل‌شده",
@@ -1116,12 +1413,21 @@
     "scenes_heading": "هر Agent به‌صورت دستی ساخته می‌شود، نه از روی قالب.",
     "scenes_para": "بدون جعبه سیاه drag-and-drop. هر پروژه از workflow واقعی شما شروع می‌شود و کدنویسی، تست و تنظیم می‌شود تا دقیقاً متناسب باشد — تیم کوچک، کد واقعی، توجه کامل به جزئیات.",
     "services_eyebrow": "کارهایی که انجام می‌دهیم",
-    "svc1_title": "Agentهای AI اختصاصی",
-    "svc1_desc": "ما Agentهای AI متناسب با workflow شما طراحی و می‌سازیم — از پشتیبانی مشتری تا زمان‌بندی و ورود داده.",
-    "svc2_title": "خودکارسازی Workflow",
-    "svc2_desc": "ابزارهایی که همین حالا استفاده می‌کنید را به هم متصل می‌کنیم — ایمیل، تقویم، spreadsheet — تا کارهای تکراری خودشان انجام شوند.",
-    "svc3_title": "پشتیبانی مستمر",
-    "svc3_desc": "پس از فعال‌شدن Agent شما، آن را رصد، نگهداری و متناسب با تغییرات کسب‌وکارتان بهبود می‌دهیم.",
+    "svc1_title": "گفتگوی مشتری",
+    "svc1_desc": "به سوال‌ها و گفتگوهای روزمره‌ی مشتری‌ها، در همون کانال‌هایی که همین الان استفاده می‌کنید، جواب می‌دهد.",
+    "svc1_tech": "ساخته‌شده با LangGraph و messaging APIها",
+    "svc2_title": "پیگیری سرنخ‌ها",
+    "svc2_desc": "بخش‌های درست پیگیری سرنخ‌ها را مرتب، ارزیابی و خودکار می‌کند.",
+    "svc2_tech": "ساخته‌شده با CrewAI و ابزارهای فعلی شما",
+    "svc3_title": "زمان‌بندی",
+    "svc3_desc": "بخش‌های تکراری رزرو، تأیید و جابه‌جایی وقت قرار را خودکار می‌کند.",
+    "svc3_tech": "ساخته‌شده با Google Calendar API و Python",
+    "svc4_title": "ایمیل و کارهای اداری",
+    "svc4_desc": "کارهای تکراری ایمیل و اداری که هر روز روی سرتان می‌ریزد را کم می‌کند.",
+    "svc4_tech": "ساخته‌شده با Gmail API و Python",
+    "svc5_title": "داده و گزارش‌گیری",
+    "svc5_desc": "ورود اطلاعات و تهیه‌ی گزارش‌های تکراری کسب‌وکارتان را خودکار می‌کند.",
+    "svc5_tech": "ساخته‌شده با Streamlit و pandas",
     "areas_eyebrow": "کجا Agentها بیشترین کمک را می‌کنند",
     "areas_para": "حوزه‌های رایجی که کسب‌وکارهای کوچک به ما می‌سپارند — اگر کاری تکراری و قانون‌محور است، احتمالاً یک Agent برایش هست.",
     "area1_title": "چت و DM مشتریان",
@@ -1163,12 +1469,34 @@
     "action_item3": "جلسه ترجمه — ۳ ساعت",
     "action_caption2": "کارهای انجام‌شده در ماه را ثبت و فاکتور را به‌صورت خودکار ارسال می‌کند — بدون نیاز به spreadsheet.",
     "work_eyebrow": "نمونه‌ پروژه‌ها",
+    "work_intro": "پروژه‌های واقعی که همین الان در حال اجرا هستند — به همان زبانی که برای یک دوست توضیح می‌دهید، نه یک برنامه‌نویس.",
+    "case_label_problem": "مسئله",
+    "case_label_before": "قبلاً",
+    "case_label_solution": "راه‌حل",
+    "case_label_value": "ارزش برای کسب‌وکار",
     "case1_title": "Agent زمان‌بندی و فاکتور",
-    "case1_desc": "دیگر لازم نیست هر ماه فاکتور را دستی بسازید. این Agent مبتنی بر CrewAI ایمیل‌های کاری را می‌خواند، تقویم را به‌روز می‌کند و فاکتور را خودش، هر بار و به‌صورت خودکار، پیش‌نویس می‌کند.",
+    "case1_problem": "فریلنسرها و تیم‌های کوچک هر ماه وقت واقعی را صرف ساختن دوباره‌ی همان فاکتور می‌کنند — خواندن ایمیل‌های کاری، چک کردن چه چیزی انجام شده، و دستی سرهم کردن همه‌چیز.",
+    "case1_before": "خواندن دستیِ ایمیل‌های کاری، چک کردن تقویم، و ساختن فاکتور توی اکسل یا سند — هر ماه، از اول.",
+    "case1_solution": "یک Agent مبتنی بر CrewAI ایمیل‌های کاری را می‌خواند، تقویم را به‌روز می‌کند و فاکتور را خودش، هر بار، به‌صورت خودکار می‌سازد.",
+    "case1_value": "کاهش مراحل دستی در هر ماه، فاکتوری یکدست‌تر در هر بار، و یک کار تکراری کمتر روی دست شما.",
     "case2_title": "دستیار فروش Instagram",
-    "case2_desc": "به‌جای پاسخ دادن به دایرکت‌ها تا نیمه‌شب، این Agent مبتنی بر LangGraph ظرف چند ثانیه جواب می‌دهد — سوالات قیمت، مرور محصولات و checkout را برای Bella Charm London، در هر ساعت از شبانه‌روز انجام می‌دهد.",
+    "case2_hook": "یک صندوق دایرکت پر، و یک مغازه که باید بچرخد.",
+    "case2_problem": "مشتری‌ها توی دایرکت اینستاگرام، شب و روز، همان سوال‌ها را درباره‌ی محصول، قیمت، موجودی، گزینه‌ها و سفارش می‌پرسند — درحالی‌که سرتان با اداره‌ی خود مغازه گرم است.",
+    "case2_before": "جواب دادن به دایرکت‌ها تا نیمه‌شب، یکی‌یکی، و گم کردن ردّ اینکه چه کسی چه چیزی پرسیده و سفارشش رسیدگی شده یا نه.",
+    "case2_solution_intro": "یک Agent مبتنی بر LangGraph هر دایرکت را همان لحظه می‌خواند، اطلاعات لازم را چک می‌کند، و رسیدگی می‌کند — شب یا روز.",
+    "case2_flow1": "مشتری پیام می‌فرستد",
+    "case2_flow2": "AI درخواست را می‌فهمد",
+    "case2_flow3": "اطلاعات مربوطه را چک می‌کند",
+    "case2_flow4": "اقدام مناسب را انجام می‌دهد",
+    "case2_flow5": "وضعیت گفتگو و سفارش را به‌روز می‌کند",
+    "case2_flow6": "به مشتری جواب می‌دهد",
+    "case2_flow7": "در صورت نیاز، به یک انسان واگذار می‌کند",
+    "case2_value": "جواب سریع‌تر در هر ساعتی، پیام کمتری از قلم می‌افتد، و یک گفتگوی یکدست و منظم برای هر مشتری.",
     "case3_title": "دستیار تحلیل داده",
-    "case3_desc": "دیگر لازم نیست دنبال جواب در spreadsheet بگردید. این اپلیکیشن Streamlit به هر کسی اجازه می‌دهد از داده‌های CSV با زبان ساده سوال بپرسد و فوراً جواب بگیرد — با fallback خودکار بین LLM providerها.",
+    "case3_problem": "گرفتن یک جواب ساده از یک spreadsheet معمولاً یعنی خودتان بگردید توی ردیف‌ها و فرمول‌ها، یا منتظر کسی بمانید که آن شیت را ساخته.",
+    "case3_before": "فیلتر و مرتب کردن و مقایسه‌ی دستیِ داده‌های CSV — یا منتظر ماندن برای کسی که اعداد لازم را برایتان دربیاورد.",
+    "case3_solution": "یک اپ Streamlit به همه اجازه می‌دهد از داده‌های CSV خودشان یک سوال به زبان ساده بپرسند و همان لحظه جواب بگیرند، با fallback خودکار بین چند ارائه‌دهنده‌ی LLM.",
+    "case3_value": "جواب سریع‌تر مستقیم از داده‌های خودتان، انتظار کمتر برای دیگران، و ابزاری که کل تیمتان بدون نیاز به مهارت اکسل می‌توانند از آن استفاده کنند.",
     "case_link": "مشاهده کد ↗",
     "work_badge": "در حال انجام",
     "work_progress_text": "Agent تامین — جستجوی خودکار محصول و مقایسه قیمت",
@@ -1183,7 +1511,7 @@
     "cta_eyebrow": "آماده خودکارسازی هستید؟",
     "cta_heading": "می‌خواهید بخشی از کسب‌وکارتان را خودکار کنید؟",
     "cta_para": "اگر ترجیح می‌دهید بخش‌های تکراری کارتان را به یک کارمند دیجیتال قابل‌اعتماد بسپارید تا خودتان انجام دهید، می‌توانیم کمکتان کنیم آن را بسازید — یک AI Agent اختصاصی که کار را انجام می‌دهد تا شما لازم نباشد.",
-    "cta_btn": "بیایید صحبت کنیم",
+    "cta_btn": "روند کارت رو نشونم بده",
     "contact_eyebrow": "در تماس باشید",
     "contact_heading": "بیایید چیزی بسازیم.",
     "contact_linkedin": "پیام در LinkedIn",
