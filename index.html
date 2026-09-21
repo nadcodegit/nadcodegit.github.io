@@ -189,7 +189,7 @@
     @media (max-width: 640px) {
       .section-pad { padding-left: 20px !important; padding-right: 20px !important; }
       .hero-wrap { padding-top: 44px !important; padding-bottom: 36px !important; gap: 24px !important; }
-      .grid-services, .grid-action, .grid-areas, .grid-faq, .grid-pain { grid-template-columns: 1fr !important; }
+      .grid-services, .grid-action, .grid-areas, .grid-faq, .grid-pain, .grid-photos { grid-template-columns: 1fr !important; }
       .case-detail-grid { grid-template-columns: 1fr !important; }
       .grid-stats { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 16px !important; }
       .nav-links { gap: 14px !important; }
@@ -286,6 +286,23 @@
         <circle cx="90" cy="200" r="9" fill="#1F6F52" style="transform-origin: 90px 200px; animation: nodePulse 2.6s ease-in-out infinite; animation-delay: 0.9s;"></circle>
         <circle cx="200" cy="190" r="9" fill="#1F6F52" style="transform-origin: 200px 190px; animation: nodePulse 2.6s ease-in-out infinite; animation-delay: 1.2s;"></circle>
       </svg>
+    </div>
+  </div>
+
+  <div style="width: 100%; display: flex; justify-content: center;">
+    <div class="section-pad reveal" style="width: 100%; max-width: 1040px; padding: 8px 48px 56px 48px; box-sizing: border-box; display: flex; flex-direction: column; gap: 22px;">
+      <div style="display: flex; flex-direction: column; gap: 8px; text-align: center; align-items: center;">
+        <div data-i18n="photos_eyebrow" style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 14px; letter-spacing: 0.09em; text-transform: uppercase; color: #1F6F52;">The people we build for</div>
+        <p data-i18n="photos_intro" style="margin: 0; font-size: 15.5px; line-height: 1.6; color: #6B6152; max-width: 520px;">Small business owners, juggling customer messages, orders and everything in between.</p>
+      </div>
+      <div class="grid-photos" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px;">
+        <div style="border-radius: 14px; overflow: hidden; border: 1px solid #E2D8C6; aspect-ratio: 4 / 3;">
+          <img src="https://images.unsplash.com/photo-1543269664-02e941c052f7?w=900&q=80&fm=jpg&fit=crop&auto=format" alt="Small business owner working on a laptop at home" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+        </div>
+        <div style="border-radius: 14px; overflow: hidden; border: 1px solid #E2D8C6; aspect-ratio: 4 / 3;">
+          <img src="https://images.unsplash.com/photo-1594392175511-30eca83d51c8?w=900&q=80&fm=jpg&fit=crop&auto=format" alt="Small business owner checking messages next to packed orders" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+        </div>
+      </div>
     </div>
   </div>
 
@@ -1024,6 +1041,8 @@
     "hero_para": "Nauto AI builds custom AI agents and automations that handle customer messages, follow-ups, scheduling, data entry and other repetitive tasks — so you can get back to running your business.",
     "hero_btn_primary": "Show Me Your Workflow",
     "hero_btn_secondary": "See How It Works",
+    "photos_eyebrow": "The people we build for",
+    "photos_intro": "Small business owners, juggling customer messages, orders and everything in between.",
     "diag_eyebrow": "Sound familiar?",
     "diag_heading": "You didn’t start your business to spend your day on this.",
     "diag_intro": "If most of these sound like your week, it’s worth a conversation:",
@@ -1150,6 +1169,8 @@
     "hero_para": "Nauto AI Agentهای AI اختصاصی و automationهایی می‌سازد که پیام‌های مشتری‌ها، پیگیری‌ها، زمان‌بندی، وارد کردن داده و بقیه‌ی کارهای تکراری کسب‌وکارتان را انجام می‌دهند — تا شما به اداره‌ی کسب‌وکارتان برگردید.",
     "hero_btn_primary": "روند کارت رو نشونم بده",
     "hero_btn_secondary": "ببین چطور کار می‌کند",
+    "photos_eyebrow": "کسانی که براشون می‌سازیم",
+    "photos_intro": "صاحبان کسب‌وکارهای کوچک که هم‌زمان پیام مشتری، سفارش و کلی کار دیگه رو مدیریت می‌کنن.",
     "diag_eyebrow": "به نظر آشنا میاد؟",
     "diag_heading": "کسب‌وکارت رو برای این راه‌ ننداختی که روزت رو صرف این کارها کنی.",
     "diag_intro": "اگه بیشتر این موارد براتون آشناست، ارزش یک گفتگو رو داره:",
